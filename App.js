@@ -5,6 +5,7 @@ import {AppLoading} from "expo";
 import { CustomText, CustomBtn, RadioGroup } from './components';
 import {loadFonts} from "./styles/fonts";
 import {GameScreen, PasswordGameScreen} from "./screens"
+import {HomeScreen} from "./screens/HomeScreen";
 
 
 export default function App() {
@@ -18,11 +19,7 @@ export default function App() {
     />
   }
 
-  return (
-    <View>
-      <Text>app js</Text>
-    </View>
-  );
+  return <HomeScreen />;
 }
 
 
