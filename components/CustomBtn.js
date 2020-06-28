@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         width:"100%",
         padding:15,
         alignItems: "center",
-        backgroundColor: "#FF7676"
+        backgroundColor: "gray"
     },        
     title:{
         textTransform:"uppercase",

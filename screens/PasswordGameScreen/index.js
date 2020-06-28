@@ -23,7 +23,7 @@ export const PasswordGameScreen = () => {
   };
 
   const [size,setSize] = useState(setPasswordSize());
-  const [numbers,setNumbers] = useState(createNumber(size));
+  const [numbers,setNumbers] = useState(createNumber(size,10));
   const [input,setInput] = useState([]);
   const [yellow,setYellow] = useState(0);
   const [green,setGreen] = useState(0) ;
@@ -79,7 +79,7 @@ export const PasswordGameScreen = () => {
   const resetGame = () => {
     setModal(false);
     setInput("");
-    setNumbers(createNumber(size));
+    setNumbers(createNumber(size,10));
   }
 
 
