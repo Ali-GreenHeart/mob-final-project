@@ -3,12 +3,12 @@ import { StyleSheet, View,TouchableOpacity,TouchableNativeFeedback,Platform} fro
 
 import {CustomText} from "./CustomText";
 
-export const CustomBtn = ({title,onPress,style,...rest}) => {
+export const CustomBtn = ({title,onPress,style,color,...rest}) => {
     const Touchable = Platform.OS === "android" ? TouchableNativeFeedback : TouchableOpacity;
     return(
         <View style={[style,styles.container]}>
             <Touchable onPress={onPress} {...rest} >
-                <View style={styles.btn}>
+                <View style={[styles.btn, {backgroundColor: color ? color: "gray" }]}>
                     <CustomText weight="bold" style={styles.title}>
                         {title}
                     </CustomText>
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
         width:"100%",
         padding:15,
         alignItems: "center",
-        backgroundColor: "gray"
     },        
     title:{
         textTransform:"uppercase",
