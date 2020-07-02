@@ -4,13 +4,15 @@
         name: "Password",
         about: "",
         category: "logic",
-        howToPlay: ""
+        howToPlay: "",
+        img: ""
     },
     {
         id  : 2,
         name: "Color",
         about: "",
         category: "attention",
-        howToPlay: ""
+        howToPlay: "",
+        img: ""
     },
 ]

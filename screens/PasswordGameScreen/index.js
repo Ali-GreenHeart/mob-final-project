@@ -1,38 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 
 import { createNumber } from "../../utils/createNumber"
-import { CustomText } from "../../components";
+import { CustomText, CustomBtn } from "../../components";
 import { EndModal } from "./EndModal"
+import { History } from "./History"
+import { Keyboard } from "./Keyboard"
 
-const buttons = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0,];
 
-const mode="easy"
 export const PasswordGameScreen = () => {
 
-  const setPasswordSize = () => {
-    if(mode === "easy") {
-      return 4
-    }
-    else if(mode === "medium") {
-      return  5
-    }
-    else if(mode === "hard") {
-      return 6
-    } 
-  };
-
-  const [size,setSize] = useState(setPasswordSize());
-  const [numbers,setNumbers] = useState(createNumber(size,10));
+  const [numbers,setNumbers] = useState(createNumber(4,10));
   const [input,setInput] = useState([]);
-  const [yellow,setYellow] = useState(0);
-  const [green,setGreen] = useState(0) ;
-  const [modal, setModal] = useState(false)
-  const history = useState([{
-    inputs: [],
-    y: null,
-    g: null
-  }])
+  const [history, setHistory ]= useState([]);
+  const [modal, setModal ]= useState(false);
+  const [win, setWin ]= useState(true);
+
+  const yellow = useRef(0);
+  const green = useRef(0)
 
 
   const yellowCount = () => {    
@@ -42,7 +27,7 @@ export const PasswordGameScreen = () => {
         y++;
       }
     } 
-    setYellow(y);    
+    yellow.current = y
   };
 
   const greenCount = () => {    
@@ -52,141 +37,105 @@ export const PasswordGameScreen = () => {
         g++;
       }
     } 
-    setGreen(g);    
+    green.current = g
   };
 
   const numberButtonHandler = (btn) => {   
       setInput([...input, btn]);   
     }
   
+  const setInputHistory = () => {
+     setHistory([
+        ...history,
+        {
+          inputs: input,
+          y: yellow.current,
+          g: green.current
+        },
+        
+      ])
+  }
+
   const submitButtonHandler = () => {
-    if(input.length === size)
+    if(input.length === 4)
     {
       yellowCount();
       greenCount();
-      setInput("")
-      setHistory([
-        {
-          inputs: input,
-          y: yellow,
-          g: green
-        },
-        ...history
-      ])
-    }        
+      setInput([])
+      if(green.current === 4 ? true : false) {
+        setModal(true)
+      }
+    }
+    setInputHistory();
+
+         
   } 
 
   const resetGame = () => {
-    setModal(false);
     setInput("");
-    setNumbers(createNumber(size,10));
-  }
+    yellow.current = 0;
+    green.current = 0
+    setNumbers(createNumber(4,10));
+    setHistory([]);
+    setModal(false);
 
+  }
+  
+  const showPassWord = () => {
+    setWin(false);
+    setModal(true);
+  }
 
   
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>
-          Gues the password
-        </Text>
-      </View>
-
-      <Text>number: { numbers }</Text> 
-      <ScrollView>
-         {
-        history.map((h) => {
-          return  <View >
-          <Text >
-            {h.inputs}
-          </Text>
-          <Text >
-            {h.y}
-          </Text>
-          <Text >
-            {h.g}
-          </Text>
-        </View>
-        })
-      }
-      </ScrollView>
      
-      <Text>history: { history.inputs }</Text> 
-
+        
+      <History history={history}/>
 
       <View style={styles.codeContainer}>
         <View style={styles.yellowCode}>
-           <CustomText>
-               {yellow- green}
+           <CustomText weight="bold">
+               {yellow.current - green.current}
            </CustomText>
         </View>
         <View style={styles.greenCode}>
-           <CustomText>
-               {green}
+           <CustomText weight="bold">
+               {green.current}
            </CustomText>
         </View>
       </View>
 
-      <View style={styles.inputContainer}>
-        
-      <Text style={styles.input}> {input[0]} </Text>
-      <Text style={styles.input}> {input[1]} </Text>
-      <Text style={styles.input}> {input[2]} </Text>
-      <Text style={styles.input}> {input[3]} </Text>
-      {
-        size === 5 || size === 6 ?
-        <Text style={styles.input}> {input[4]} </Text> : null
-      }
-       {
-        size === 6 ?
-        <Text style={styles.input}> {input[5]} </Text> : null
-      }
-      
+      <View style={styles.inputContainer}>        
+        <Text style={styles.input}> {input[0]} </Text>
+        <Text style={styles.input}> {input[1]} </Text>
+        <Text style={styles.input}> {input[2]} </Text>
+        <Text style={styles.input}> {input[3]} </Text>
       </View>
+      
+      <Keyboard
+       input={input}
+       numberButtonHandler={numberButtonHandler}
+       clear={() => { setInput("")}}
+       sumbitButtonHandler={() => submitButtonHandler()}
+      />
 
-      <View style={styles.buttonsContainer}>
-      
-        {
-          buttons.map((btn) => {
-            return(
-              <TouchableOpacity
-               key={btn} 
-               onPress={() => {numberButtonHandler(btn)}}
-               disabled={input.length === size ? true : false} 
-               >
-                <View style={styles.btn} >
-                  <Text style={styles.btnTitle}>
-                    {btn}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-              
-            )
-            
-          })
-        }
-        <TouchableOpacity onPress={() => { setInput("")}}>
-          <View style={styles.btn} >
-            <Text style={styles.btnTitle}>
-              C
-            </Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-         onPress={()=> submitButtonHandler()}
-         disabled={input.length < size ? true : false}
-        >
-          <View style={styles.btn}>
-            <Text style={styles.btnTitle}>
-               OK
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
+       
+      <TouchableOpacity onPress={() => showPassWord()}>
+        <View style={styles.showBtn} >
+          <Text style={styles.showBtnTitle}>
+            show password
+          </Text>
+        </View>
+      </TouchableOpacity> 
+
       <EndModal  
         visible={modal}
         close={() => resetGame()}
+        isWin={win}
+        numbers={numbers}
+        steps={history.length}
        />
     </View>
   );
@@ -195,8 +144,9 @@ export const PasswordGameScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#edf9fa",
     alignItems: 'center',
+    marginTop: 30,
   },
 
   header: {
@@ -215,17 +165,25 @@ const styles = StyleSheet.create({
   codeContainer: {
     flexDirection: "row",
     width: "50%",
-    marginVertical: 20
+    marginVertical: 20,
+    justifyContent: "space-evenly"
   },
   yellowCode: {
-    width: "50%",
-    backgroundColor: "lightyellow",
-    padding: 20
+    alignItems: "center",
+    justifyContent: "center",
+    width: 60,
+    height: 60,
+    backgroundColor: "yellow",
+    borderRadius: 30
+
   },
   greenCode: {
-    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 60,
+    height: 60,
     backgroundColor: "lightgreen",
-    padding: 20
+    borderRadius: 30
   },  
   inputContainer: {
     flexDirection: "row",
@@ -234,11 +192,19 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 10,
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     fontSize: 20,
     padding:10,
     textAlign: "center",
     marginHorizontal:5,
+    shadowColor: "#000",
+    shadowOffset: {
+	    width: 0,
+	    height: 1,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.41,
+    elevation: 2,
   },
   buttonsContainer: {  
     flexDirection: "row",
@@ -247,18 +213,31 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   btn: {
-      backgroundColor: "grey",
+      backgroundColor: "gray",
       width: 90,
       margin: 10,
       paddingVertical: 10,
       borderRadius: 10,
-      alignItems: "center"
-
+      alignItems: "center",
   },
   btnTitle: {
       fontSize: 20,
       fontWeight: "bold",
       color: "white"
+  },
+  showBtn: {
+    backgroundColor: "red",
+     paddingVertical: 5,
+     paddingHorizontal: 15,
+     borderRadius: 15,
+     marginVertical:10
+     
+  },
+  showBtnTitle: {
+     fontSize: 15,
+     textTransform: "capitalize",
+     color: "#fff",
+     fontWeight: "bold"
   }
 });
 
