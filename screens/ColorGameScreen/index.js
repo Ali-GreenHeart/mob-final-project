@@ -1,7 +1,6 @@
 import React, { useState,useEffect,useRef} from 'react';
-import { StyleSheet,  View, TouchableOpacity,Image } from 'react-native';
+import { StyleSheet,  View, } from 'react-native';
 
-import { randomInt  } from "../../utils/randomInt"
 import { createNumber  } from "../../utils/createNumber"
 import { CustomText,CustomBtn } from '../../components'
 import {ColorCard} from "./ColorCard"

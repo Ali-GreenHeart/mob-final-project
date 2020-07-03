@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {AppLoading} from "expo";
 
 import {loadFonts} from "./styles/fonts";
-import {GameScreen, PasswordGameScreen,ColorGameScreen,MemoryGridGameScreen} from "./screens"
+import {GameScreen, PasswordGameScreen,ColorGameScreen,MemoryGridGameScreen,TrafficLightGameScreen} from "./screens"
 
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
     />
   }
 
-  return <MemoryGridGameScreen/>;
+  return <TrafficLightGameScreen/>;
 }
 
 
