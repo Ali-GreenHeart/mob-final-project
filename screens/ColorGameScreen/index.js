@@ -1,7 +1,7 @@
 import React, { useState,useEffect,useRef} from 'react';
 import { StyleSheet,  View, TouchableOpacity,Image } from 'react-native';
 
-import { Colors,  } from "../../utils/colorList"
+import { randomInt  } from "../../utils/randomInt"
 import { createNumber  } from "../../utils/createNumber"
 import { CustomText,CustomBtn } from '../../components'
 import {ColorCard} from "./ColorCard"
@@ -12,6 +12,8 @@ const randomInd = () => {
         return createNumber(1,length)
     }
   
+export const Colors =  ["black","brown","purple","green","grey","red","blue","yellow","pink","orange"]
+
 export const ColorGameScreen = ( ) => {
 
    const [modal, setModal] = useState(false)
