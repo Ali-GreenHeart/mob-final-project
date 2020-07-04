@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Modal, View, Text, Button, Image } from "react-native";
+import { StyleSheet, Modal, View, } from "react-native";
 
 import {CustomText,CustomBtn} from "../../components"
 
@@ -12,7 +12,6 @@ export const EndGameModal = ({points, close, visible }) => {
         <View style={styles.card}>
           <CustomText>Time's out!</CustomText>
           <CustomText weight="bold" style={styles.score}>{points}</CustomText>
-          <Image style={styles.image}  />
           <CustomBtn  title="Replay" onPress={close} style={styles.btn}/>
           <CustomBtn title="Exit" style={styles.btn}/>
         </View>
