@@ -1,10 +1,10 @@
 export function chooseColor(opened, secret) {
-    let color = "white";
+    let color = "#fff";
     if (opened) {
       if (secret) {
         color = "pink";
       } else {
-        color = "white";
+        color = "#eee";
       }
     }
     return color;

@@ -1,43 +1,41 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   View,
-  Text,
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  Button,
 } from "react-native";
 
 import { prepareGrid } from "../../utils/prepareGrid"
 import { chooseColor } from "../../utils/chooseColor"
 import { EndGameModal } from "./EndGameModal"
-
+import { CustomText } from "../../components"
 
 export const MemoryGridGameScreen = () => {
-  const [size,setSize] = useState(3);
+  const [size,setSize] = useState(5);
   const [modal,setModal] = useState(false)
   const [grid, setGrid] = useState(prepareGrid(size));
-  const [openedCount, setOpenedCount] = useState(0);
   const [openedSecretCount, setOpenedSecretCount] = useState(0);
   const [isOpenedForRemember, setIsOpenedForRemember] = useState(true);
+  const [points,setPoints] = useState(0);
+  const [wrongs,setWrongs] = useState(0);
+  
   const openedTimer = useRef(null);
   const gameTimer = useRef(null)
 
-  const openedLimit = Math.floor(((size * size) / 100) * 90);
-  const isLimitPassed = openedCount >= openedLimit;
-  const isWin = Math.floor((size * size) / 2) === openedSecretCount;
+
 
   const getCellSize = () => {
     const { width, height } = Dimensions.get("window");
     const isPortrait = height > width;
     const targetSize = isPortrait ? width : height;
-    console.log("getCellSize");
     return (targetSize - 100) / size;
   };
+
   const [cellSize, setCellSize] = useState(getCellSize());
 
   const cellPressHandler = (y, x) => {
-    if (!grid[y][x].opened && !isLimitPassed) {
+    if (!grid[y][x].opened) {
       setGrid((grid) => {
         const updatedGrid = [...grid];
         updatedGrid[y] = [...updatedGrid[y]];
@@ -45,21 +43,36 @@ export const MemoryGridGameScreen = () => {
 
         return updatedGrid;
       });
-      setOpenedCount((count) => count + 1);
 
       if (grid[y][x].secret) {
         setOpenedSecretCount((count) => count + 1);
+       
+        if(openedSecretCount+1 === size){
+          setIsOpenedForRemember(true);
+          setPoints((p) => p+1)
+          setTimeout(() =>resetGame(),500);    
+       }
       }
-       setModal(openedCount + 1 >= openedLimit);
+      else {
+        setWrongs((w) => w+1)
+        if(wrongs === 3) {
+        setModal(true)
+        }
+        else {
+        setIsOpenedForRemember(true);
+        setTimeout(() => resetGame(),1000)
+        }
+      }
+      
+ 
     }
   };
 
   const resetGame = () => {
     setGrid(prepareGrid(size));
-    setOpenedCount(0);
     setOpenedSecretCount(0);
     setModal(false);
-
+    
     setIsOpenedForRemember(true);
     closeForRemembering();
     gameTimerHandler();
@@ -78,7 +91,7 @@ export const MemoryGridGameScreen = () => {
     if (gameTimer.current) {
         clearTimeout(gameTimer.current);
       }
-      gameTimer.current = setTimeout(() => setModal(true), 60000);
+      gameTimer.current = setTimeout(() => setModal(true), 30000);
   }
    
   useEffect(() => {
@@ -97,11 +110,13 @@ export const MemoryGridGameScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>GameScreen</Text>
-      <Text>
-        {openedCount}/{openedSecretCount}/{openedLimit}
-      </Text>
-      <Text>{isLimitPassed ? (isWin ? "Win" : "Lose") : "inProcess"}</Text>
+      <CustomText weight="bold">
+        points: {points}
+      </CustomText>
+      <CustomText weight="bold">
+        wrongs: {wrongs}
+      </CustomText>
+      {/* <Text>{isLimitPassed ? (isWin ? "Win" : "Lose") : "inProcess"}</Text> */}
       <View style={styles.grid}>
         {grid.map((row, y) => (
           <View style={styles.row} key={y}>
@@ -127,14 +142,11 @@ export const MemoryGridGameScreen = () => {
           </View>
         ))}
       </View>
-      <View style={styles.buttons}>
-        <Button title="Back"   />
-        <Button title="Reset" onPress={() => resetGame()} />
-      </View>
-
+     
       <EndGameModal
         visible={modal}
         close={resetGame}
+        points={points}
       />
     </View>
   );
