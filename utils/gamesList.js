@@ -2,7 +2,7 @@
     {
         id  : 1,
         name: "Password",
-        about: "",
+        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima modi natus necessitatibus officia qui quos, sint vel vitae voluptatem!",
         category: "logic",
         howToPlay: "",
         img: ""
@@ -10,9 +10,9 @@
     {
         id  : 2,
         name: "Color",
-        about: "",
+        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima modi natus necessitatibus officia qui quos, sint vel vitae voluptatem!",
         category: "attention",
         howToPlay: "",
         img: ""
     },
-]
+];

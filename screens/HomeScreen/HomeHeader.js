@@ -6,15 +6,15 @@ export const HomeHeader=()=>{
         <Text style={styles.headerText}>Home</Text>
     </View>;
 };
-    const styles= StyleSheet.create({
-        headerText:{
-            fontSize:40,
-        },
-        header:{
-            backgroundColor: '#00ff7b',
-            flex: 1,
-            justifyContent:'center',
-            paddingLeft: 30,
-            borderRadius: 20,
-        },
-    });
+const styles= StyleSheet.create({
+    headerText:{
+        fontSize:40,
+    },
+    header:{
+        backgroundColor: '#00ff7b',
+        flex: 1,
+        justifyContent:'center',
+        paddingLeft: 30,
+        borderRadius: 20,
+    },
+});

@@ -3,5 +3,5 @@ export {PasswordGameScreen} from "./PasswordGameScreen"
 export {ColorGameScreen} from "./ColorGameScreen"
 export { MemoryGridGameScreen } from "./MemoryGridGameScreen"
 export { TrafficLightGameScreen } from "./TrafficLightGameScreen"
-
+export { HomeScreen} from "./HomeScreen"
 
