@@ -2,7 +2,15 @@ import React, {useState} from 'react';
 import {AppLoading} from "expo";
 
 import {loadFonts} from "./styles/fonts";
-import {GameScreen, PasswordGameScreen,ColorGameScreen} from "./screens"
+import {
+  GameScreen,
+  PasswordGameScreen,
+  ColorGameScreen,
+  MemoryGridGameScreen,
+  TrafficLightGameScreen,
+  HomeScreen,
+} from "./screens";
+import {TicTacGameScreen} from "./screens/TicTacGameScreen/TicTacGameScreen";
 
 
 export default function App() {
@@ -16,7 +24,9 @@ export default function App() {
     />
   }
 
-  return <PasswordGameScreen/>;
+
+  return <TicTacGameScreen/>;
+
 }
 
 
