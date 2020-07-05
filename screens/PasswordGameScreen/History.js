@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet,  View, FlatList } from 'react-native';
 
 import { CustomText } from '../../components'
+import { genID } from "../../utils/genID"
   
 export const History = ({ history }) => {
    return(     
@@ -18,7 +19,7 @@ export const History = ({ history }) => {
                          </View>
                     </View>
                 }
-                keyExtractor={index => index}
+                keyExtractor={()=>genID()}
                 style={{flexGrow: 0, height: 120}}
             />
   )
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     yellow: {
-       color: "yellow"
+       color: "gold"
     },
     green: {
         color : "green"
