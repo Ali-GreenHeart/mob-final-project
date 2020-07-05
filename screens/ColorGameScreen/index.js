@@ -78,9 +78,11 @@ export const ColorGameScreen = ( ) => {
 
     <View style={styles.container}>
             <CustomText weight="bold">
-                {points} / {wrongs}
+                points :{points} 
             </CustomText> 
-
+            <CustomText weight="bold">
+                wrongs {wrongs}
+            </CustomText>
         <ColorCard
          color= {color}
          name={name}

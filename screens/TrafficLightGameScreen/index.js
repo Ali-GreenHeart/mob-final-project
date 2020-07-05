@@ -21,9 +21,10 @@ export const TrafficLightGameScreen = () => {
     const openedTimer = useRef(null);
 
     const clickHandler = (value) => {
-        setlight(randomInt(1,3));
+        setlight(null);
         setPrev(light)
         if(value === "yes"){
+          
              if(light === prev) {
                  setPoints(points+1);
              }
@@ -42,7 +43,8 @@ export const TrafficLightGameScreen = () => {
         if(wrongs === 4) {
             setModal(true);
         }
-    
+        setTimeout(() => setlight(randomInt(1,3)),900)
+
        };
 
     const resetGame = () => {

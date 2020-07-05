@@ -24,7 +24,9 @@ export default function App() {
     />
   }
 
+
   return <TicTacGameScreen/>;
+
 }
 
 
