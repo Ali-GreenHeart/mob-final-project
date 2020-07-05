@@ -8,8 +8,9 @@ import {
   ColorGameScreen,
   MemoryGridGameScreen,
   TrafficLightGameScreen,
-  HomeScreen
-} from "./screens"
+  HomeScreen,
+} from "./screens";
+import {TicTacGameScreen} from "./screens/TicTacGameScreen/TicTacGameScreen";
 
 
 export default function App() {
@@ -23,7 +24,7 @@ export default function App() {
     />
   }
 
-  return <HomeScreen />;
+  return <TicTacGameScreen/>;
 }
 
 

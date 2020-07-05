@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {HomeHeader} from "./HomeHeader";
 import {GameInfo} from "./GameInfo";
 import {CustomBtn} from "../../components";
+import { Nav } from '../NavBar/Nav';
 
 
 export const HomeScreen =()=>{
@@ -16,6 +17,7 @@ export const HomeScreen =()=>{
       <View style={styles.footer}>
           <CustomBtn title={'SignUp'}/>
       </View>
+      <Nav/>
   </View>;
 };
 
