@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import {CustomBtn, CustomText} from "../../components";
 import fbApp from "../../store/firebase";
+import {signIn} from "../../store/userCredentials";
+import store from "../../store";
 export const LoginPage = () => {
     const [isLogIn, setIsLogIn] = useState(true);
     const [errorMsg, setErrorMsg] = useState('');
@@ -10,12 +12,22 @@ export const LoginPage = () => {
         email: '',
         password: ''
     });
-    const user=fbApp.auth.currentUser;
+    const Navigate = () => {
+      //Please write navigation code here
+    };
+    let user=fbApp.auth.currentUser;
     const register = () =>{
         !isLogIn && userData.name.trim() === "" ? setErrorMsg("Name field is required"):
-            (isLogIn ? fbApp.auth.signInWithEmailAndPassword(userData.email, userData.password) :
+            (isLogIn ? fbApp.auth.signInWithEmailAndPassword(userData.email, userData.password).then(res => {
+                store.dispatch(signIn({fullName: fbApp.auth.currentUser.displayName, mail: userData.email, password: userData.password, img: user.photoURL}));
+                Navigate();
+            }).catch(err => setErrorMsg(err.message)):
         fbApp.auth.createUserWithEmailAndPassword(userData.email, userData.password).then(res =>
-        user.updateProfile({displayName: userData.name})).catch(err => setErrorMsg(err.message)));
+        {
+            user.updateProfile({displayName: userData.name});
+            store.dispatch(signIn({fullName: userData.name, mail: userData.email, password: userData.password, img: null}));
+            Navigate();
+        }).catch(err => setErrorMsg(err.message)));
     };
     return (
         <View style={styles.container}>

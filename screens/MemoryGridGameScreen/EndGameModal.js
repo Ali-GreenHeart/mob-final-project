@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, Modal, View, Image } from "react-native";
+import { StyleSheet, Modal, View, } from "react-native";
 
 import {CustomText,CustomBtn} from "../../components"
 
-export const EndModal = ({points, close, visible }) => {
+export const EndGameModal = ({points, close, visible }) => {
 
 
   return (
