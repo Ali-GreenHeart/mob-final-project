@@ -1,47 +1,60 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {HomeHeader} from "./HomeHeader";
+import { StyleSheet, Text, View ,ScrollView} from 'react-native';
 import {GameInfo} from "./GameInfo";
-import {CustomBtn} from "../../components";
+import {CustomBtn,CustomHeader} from "../../components";
 import { Nav } from '../NavBar/Nav';
+import {Games} from "../../utils/gamesList";
 
 
-export const HomeScreen =()=>{
-  return<View style={styles.container}>
-          <HomeHeader/>
+export const HomeScreen = () => {
+  return (
+      <View style={styles.container}>
+          <CustomHeader name={"Home"} />
+
+       <ScrollView>
       <View style={styles.info}>
           <Text style={styles.infoHeader}>About</Text>
           <Text style={styles.infoText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur commodi consectetur consequuntur cum dolores eaque error, eveniet hic libero modi mollitia numquam quas quis, repudiandae rerum velit, voluptas voluptate.</Text>
       </View>
-          <GameInfo/>
-      <View style={styles.footer}>
-          <CustomBtn title={'SignUp'}/>
-      </View>
-      <Nav/>
-  </View>;
+          <View style={styles.footer}>
+              <CustomBtn title={'SignUp'}/>
+          </View>
+          <View style={styles.games}>
+              {
+                  Games.map((g) =>
+                    <GameInfo
+                        key={g.id}
+                        category={g.category}
+                        name={g.name}
+                        about={g.about}
+                        img={g.img}
+                    />
+                  )
+              }
+          </View>
+       </ScrollView>
+  </View>
+  )
 };
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
-
+        backgroundColor: "#eee"
     },
 
     info:{
-        flex: 3,
         paddingStart: 20,
     },
     infoHeader:{
-        flex:1,
         fontSize: 25,
         fontWeight: 'bold',
         paddingTop:20,
     },
     infoText:{
-        flex:2,
     },
     footer:{
-        flex:2,
+        marginVertical: 5,
         justifyContent: 'center',
         alignItems: 'center',
     },
