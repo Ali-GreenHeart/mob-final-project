@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, TextInput, StyleSheet, TouchableOpacity, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import {CustomBtn, CustomText} from "../../components";
 import fbApp from "../../store/firebase";
 import {signIn} from "../../store/userCredentials";
@@ -30,23 +30,25 @@ export const LoginPage = () => {
         }).catch(err => setErrorMsg(err.message)));
     };
     return (
-        <View style={styles.container}>
-            <View>
-                <CustomText style={styles.pageTitle}>{isLogIn ? "Sign In" : "Sign Up"}</CustomText>
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} style={styles.container}>
+            <View style={styles.container}>
                 <View>
-                    {!isLogIn && <TextInput placeholder={"name"} style={styles.input} onChangeText={value => setUserData({...userData, name: value}) }/>}
-                    <TextInput placeholder={"email"} style={styles.input} onChangeText={value => setUserData({...userData, email: value})} required={true} />
-                    <TextInput placeholder={"password"} secureTextEntry={true} style={styles.input} onChangeText={value => setUserData({...userData, password: value})} required={true} minLengh={6}/>
+                    <CustomText style={styles.pageTitle}>{isLogIn ? "Sign In" : "Sign Up"}</CustomText>
+                    <View>
+                        {!isLogIn && <TextInput placeholder={"name"} style={styles.input} onChangeText={value => setUserData({...userData, name: value}) }/>}
+                        <TextInput placeholder={"email"} style={styles.input} onChangeText={value => setUserData({...userData, email: value})} required={true} keyboardType={'email-address'}/>
+                        <TextInput placeholder={"password"} secureTextEntry={true} style={styles.input} onChangeText={value => setUserData({...userData, password: value})} required={true} minLengh={6}/>
+                    </View>
+                    {errorMsg ? <CustomText style={styles.error}>{errorMsg}</CustomText> : null}
+                    <CustomText style={styles.question}>{isLogIn ? "Don't you have account yet?" : "Do you have account?"}</CustomText>
+                    <TouchableOpacity onPress={() => setIsLogIn(!isLogIn)}>
+                        <CustomText style={styles.authLink}>{isLogIn ? "Sign Up" : "Sign In"}</CustomText>
+                    </TouchableOpacity>
+                    <CustomBtn title={isLogIn ? "Sign In" : "Sign Up"} style={styles.button} onPress={register}/>
+                    {/*<CustomBtn title={isLogIn ? "Sign in with Google account" : "Sign up with Google account"}style={styles.button}/>*/}
                 </View>
-                {errorMsg ? <CustomText style={styles.error}>{errorMsg}</CustomText> : null}
-                <CustomText style={styles.question}>{isLogIn ? "Don't you have account yet?" : "Do you have account?"}</CustomText>
-                <TouchableOpacity onPress={() => setIsLogIn(!isLogIn)}>
-                    <CustomText style={styles.authLink}>{isLogIn ? "Sign Up" : "Sign In"}</CustomText>
-                </TouchableOpacity>
-                <CustomBtn title={isLogIn ? "Sign In" : "Sign Up"} style={styles.button} onPress={register}/>
-                {/*<CustomBtn title={isLogIn ? "Sign in with Google account" : "Sign up with Google account"}style={styles.button}/>*/}
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     );
 };
 
