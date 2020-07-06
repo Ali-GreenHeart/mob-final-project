@@ -11,22 +11,21 @@ import {
   HomeScreen,
 } from "./screens";
 import {TicTacGameScreen} from "./screens/TicTacGameScreen/TicTacGameScreen";
+import {LoginPage} from "./screens/Auth/LoginPage";
 
 
 export default function App() {
-  
+
   const [loaded,setLoaded] = useState(false);
   if(!loaded){
     return <AppLoading
-            startAsync={loadFonts}
-            onFinish={()=> setLoaded(true)}
-            onError={()=>console.log("rejected")}
+        startAsync={loadFonts}
+        onFinish={()=> setLoaded(true)}
+        onError={()=>console.log("rejected")}
     />
   }
 
 
-  return <TicTacGameScreen/>;
+  return <LoginPage/>;
 
 }
-
-
