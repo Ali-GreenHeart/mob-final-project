@@ -12,7 +12,7 @@ import {
 } from "./screens";
 import {TicTacGameScreen} from "./screens/TicTacGameScreen/TicTacGameScreen";
 import {LoginPage} from "./screens/Auth/LoginPage";
-
+import {Profile} from "./screens/Profile/Profile";
 
 export default function App() {
 
@@ -26,6 +26,6 @@ export default function App() {
   }
 
 
-  return <LoginPage/>;
+  return <Profile/>;
 
 }
