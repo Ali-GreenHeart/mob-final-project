@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image,TouchableWithoutFeedback } from 'react-native';
 import { CustomText } from "../../components"
 export const GameInfo = ({name,about,category,img}) => {
     return(
@@ -7,14 +7,16 @@ export const GameInfo = ({name,about,category,img}) => {
 
             <View  style={styles.game}>
 
-                <Image style={styles.gameImg}
-                       source={img}/>
+                    <Image style={styles.gameImg}
+                           source={img}/>
 
-                 <View style={styles.text}>
-                     <CustomText weight={"bold"} style={styles.name}>{name}</CustomText>
-                     <CustomText weight={"semi"} style={styles.category}>{category}</CustomText>
-                     <CustomText style={styles.about}>{about}</CustomText>
-                 </View>
+                    <View style={styles.text}>
+                        <CustomText weight={"bold"} style={styles.name}>{name}</CustomText>
+                        <CustomText weight={"semi"} style={styles.category}>{category}</CustomText>
+                        <CustomText style={styles.about}>{about}</CustomText>
+                    </View>
+
+
 
             </View>
 

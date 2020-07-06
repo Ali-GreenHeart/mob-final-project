@@ -3,19 +3,9 @@ import {AppLoading} from "expo";
 import { Provider }  from  "react-redux"
 
 import {loadFonts} from "./styles/fonts";
-import {
-  GameScreen,
-  PasswordGameScreen,
-  ColorGameScreen,
-  MemoryGridGameScreen,
-  TrafficLightGameScreen,
-  HomeScreen,
-} from "./screens";
-import {TicTacGameScreen} from "./screens/TicTacGameScreen/TicTacGameScreen";
-import {LoginPage} from "./screens/Auth/LoginPage";
 import  store from "./store"
-import View from "react-native-web/src/exports/View";
-import Text from "react-native-web/dist/exports/Text";
+import  { RootNav } from "./navigation/RootNav"
+
 
 export default function App() {
 
@@ -30,7 +20,7 @@ export default function App() {
 
 
   return  <Provider store={store}>
-              <HomeScreen/>
+            <RootNav/>
          </Provider>
 
 
