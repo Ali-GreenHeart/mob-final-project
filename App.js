@@ -3,9 +3,9 @@ import {AppLoading} from "expo";
 import { Provider }  from  "react-redux"
 
 import {loadFonts} from "./styles/fonts";
+
 import  store from "./store"
 import  { RootNav } from "./navigation/RootNav"
-
 
 export default function App() {
 
@@ -18,15 +18,9 @@ export default function App() {
     />
   }
 
-
   return  <Provider store={store}>
             <RootNav/>
          </Provider>
-
-
-
-
-
 
 
 }
