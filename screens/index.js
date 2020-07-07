@@ -10,6 +10,8 @@ export { LoginScreen } from "./Auth"
 export { ProfileScreen } from "./Profile"
 export { AllGamesScreen } from "./AllGamesScreen"
 export { MinFinderGameScreen } from "./MinFinderGameScreen"
+export { StatisticsScreen } from "./StatisticsScreen"
+
 
 
 
