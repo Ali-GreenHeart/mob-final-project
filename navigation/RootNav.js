@@ -8,8 +8,13 @@ import {
     ColorGameScreen,
     MemoryGridGameScreen,
     TrafficLightGameScreen,
-    HomeScreen
+    HomeScreen,
+    TicTacGameScreen,
+    MatchingBoxesGameScreen,
+    LoginScreen,
+    ProfileScreen,
 } from "../screens";
+
 
 
 const {Navigator,Screen} = createStackNavigator();
@@ -22,6 +27,10 @@ export const RootNav = () => (
             <Screen name="Color" component={ColorGameScreen}/>
             <Screen name="Memory Grid" component={MemoryGridGameScreen}/>
             <Screen name="Traffic Light" component={TrafficLightGameScreen}/>
+            <Screen name="Matching Boxes" component={MatchingBoxesGameScreen}/>
+            <Screen name="TicTac" component={TicTacGameScreen}/>
+            <Screen name="Login" component={LoginScreen}/>
+            <Screen name="Profile" component={ProfileScreen}/>
         </Navigator>
     </NavigationContainer>
 );

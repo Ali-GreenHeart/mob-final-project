@@ -13,7 +13,7 @@ export const HomeScreen = ({navigation}) => {
           <CustomText style={styles.infoText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur commodi consectetur consequuntur cum dolores eaque error,</CustomText>
       </View>
           <View style={styles.footer}>
-              <CustomBtn title={'SignUp'}/>
+              <CustomBtn title={'SignUp'} onPress={() => navigation.navigate("Login")}/>
           </View>
           <ScrollView style={styles.games}>
               {

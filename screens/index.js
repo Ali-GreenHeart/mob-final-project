@@ -5,6 +5,10 @@ export { MemoryGridGameScreen } from "./MemoryGridGameScreen"
 export { TrafficLightGameScreen } from "./TrafficLightGameScreen"
 export { HomeScreen} from "./HomeScreen"
 export { TicTacGameScreen} from "./TicTacGameScreen"
-export {MatchingBoxesGameScreen} from "./MatchingBoxesGameScreen"
+export { MatchingBoxesGameScreen } from "./MatchingBoxesGameScreen"
+export { LoginScreen } from "./Auth"
+export { ProfileScreen } from "./Profile"
+
+
 
 
