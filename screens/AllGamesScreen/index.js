@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
-import { StyleSheet,  View, TouchableOpacity,  } from 'react-native';
+import { StyleSheet,  View, TouchableOpacity, ScrollView } from 'react-native';
 
 import  { Games } from "../../utils/gamesList"
+import  { genID } from "../../utils/genID"
+
 import  { CategoryHeader } from "./CategoryHeader"
 import  { Game } from "./Game"
+import {Nav} from "../../navigation/Nav";
 
 
 export const AllGamesScreen = ({navigation}) => {
@@ -11,16 +14,16 @@ export const AllGamesScreen = ({navigation}) => {
     const categories = ["attention", "logical thinking","memory","speed"];
 
     return (
-
-        <View style={styles.container}>
+        <View style={{flex:1}}>
+        <ScrollView style={styles.container}>
             {
                 categories.map((c) =>
-                    <View style={{width: "100%"}}>
+                    <View style={{width: "100%"}} key={genID()}>
                         <CategoryHeader name={c}/>
                         {
                             Games.filter((game) => game.category === c)
                                 .map((g) =>
-                                 <TouchableOpacity onPress={() => navigation.navigate(g.name)}>
+                                 <TouchableOpacity onPress={() => navigation.navigate(g.name)} key={g.id}>
                                      <Game name={g.name} img={g.img}/>
                                  </TouchableOpacity>
 
@@ -31,15 +34,17 @@ export const AllGamesScreen = ({navigation}) => {
 
                 )
             }
-          </View>
+
+          </ScrollView>
+            <Nav navigation={navigation}/>
+        </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
         paddingHorizontal: 15,
     },
 

@@ -2,8 +2,10 @@ const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
 
 export const MODULE_NAME = "userCredentials";
+export const getUserCredentials = (state) => state[MODULE_NAME];
+
 const initialState = {
-    fullName: null,
+    fullName: "narmin",
     mail: null,
     password: null,
     img: null

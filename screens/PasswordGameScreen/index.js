@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#edf9fa",
     alignItems: 'center',
-    marginTop: 30,
+
   },
 
   header: {

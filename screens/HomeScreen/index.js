@@ -1,20 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View ,ScrollView,TouchableOpacity,TouchableWithoutFeedback} from 'react-native';
+import { connect } from "react-redux";
+
+
 import {GameInfo} from "./GameInfo";
-import {CustomBtn,CustomHeader,CustomText} from "../../components";
+import { About } from "./About"
+import { Welcome } from "./Welcome"
+import {CustomText} from "../../components";
+import  { Nav } from "../../navigation/Nav"
 import {Games} from "../../utils/gamesList";
+import {getUserCredentials} from "../../store/userCredentials"
+
+const mapStateToProps = (state) => ({
+    userCredentials: getUserCredentials(state),
+});
 
 
-export const HomeScreen = ({navigation}) => {
+export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}) => {
   return (
       <View style={styles.container}>
-      <View style={styles.info}>
-          <CustomText style={styles.infoHeader}>About</CustomText>
-          <CustomText style={styles.infoText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur commodi consectetur consequuntur cum dolores eaque error,</CustomText>
-      </View>
-          <View style={styles.footer}>
-              <CustomBtn title={'SignUp'} onPress={() => navigation.navigate("Login")}/>
-          </View>
+          <CustomText style={{backgroundColor: "red"}}>{userCredentials.fullName}</CustomText>
+          {
+              userCredentials.fullName ? <Welcome name={userCredentials.fullName}/> :
+                  <About/>
+
+          }
+
+
           <ScrollView style={styles.games}>
               {
                   Games.map((g) =>
@@ -35,10 +47,13 @@ export const HomeScreen = ({navigation}) => {
                   )
               }
           </ScrollView>
+          {
+              userCredentials.fullName ? <Nav navigation={navigation}/> : null
+          }
 
   </View>
   )
-};
+})
 
 const styles = StyleSheet.create({
     container:{
@@ -46,20 +61,5 @@ const styles = StyleSheet.create({
         backgroundColor: "#eee"
     },
 
-    info:{
-        paddingStart: 20,
-    },
-    infoHeader:{
-        fontSize: 25,
-        fontWeight: 'bold',
-        paddingTop:20,
-    },
-    infoText:{
-        fontSize: 12,
-    },
-    footer:{
-        marginVertical: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+
 });
