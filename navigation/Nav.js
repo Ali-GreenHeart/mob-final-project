@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import {MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
 
-export const Nav=()=>{
+export const Nav = () => {
     return (
         <View style={styles.color}>
 
@@ -25,14 +25,13 @@ export const Nav=()=>{
 const styles= StyleSheet.create({
 
     color:{
-        backgroundColor: '#fff',
-        flex: 1,
+        backgroundColor: 'gray',
         flexDirection: 'row',
         paddingTop:10
     },
 
     img: {
-        fontSize:60,
+        fontSize: 50,
         marginLeft: 5,
         marginRight: 44
     }

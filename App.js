@@ -1,18 +1,11 @@
 import React, {useState} from 'react';
 import {AppLoading} from "expo";
+import { Provider }  from  "react-redux"
 
 import {loadFonts} from "./styles/fonts";
-import {
-  GameScreen,
-  PasswordGameScreen,
-  ColorGameScreen,
-  MemoryGridGameScreen,
-  TrafficLightGameScreen,
-  HomeScreen,
-} from "./screens";
-import {TicTacGameScreen} from "./screens/TicTacGameScreen/TicTacGameScreen";
-import {LoginPage} from "./screens/Auth/LoginPage";
-import {Profile} from "./screens/Profile/Profile";
+
+import  store from "./store"
+import  { RootNav } from "./navigation/RootNav"
 
 export default function App() {
 
@@ -25,7 +18,9 @@ export default function App() {
     />
   }
 
+  return  <Provider store={store}>
+            <RootNav/>
+         </Provider>
 
-  return <Profile/>;
 
 }
