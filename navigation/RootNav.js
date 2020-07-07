@@ -8,7 +8,7 @@ import {
     ColorGameScreen,
     MemoryGridGameScreen,
     TrafficLightGameScreen,
-    HomeScreen,
+    HomeScreen
 } from "../screens";
 
 
