@@ -7,6 +7,7 @@ import {
 import React from 'react'
 
 import Dimensions from '../utils/dimensions'
+import TouchableOpacity from "react-native-web/src/exports/TouchableOpacity";
 
 const styles = StyleSheet.create({
   container: {
@@ -48,14 +49,17 @@ const styles = StyleSheet.create({
 
 const AboveGame = (props) => {
   //TouchableNativeFeedback
+  const isAndroid = Platform.OS === 'android';
+  const Touchable = isAndroid ? TouchableNativeFeedback : TouchableOpacity
+  const BgColor = isAndroid ?  TouchableNativeFeedback.SelectableBackground() : 'white'
   return (
     <View style={styles.container}>
       <View style={styles.buttons}>
-        <TouchableNativeFeedback onPress={props.onRestart} background={TouchableNativeFeedback.SelectableBackground()}>
+        <Touchable onPress={props.onRestart} background={BgColor}>
           <View style={styles.btnContainer}>
             <Text style={styles.btnText}>RESTART</Text>
           </View>
-        </TouchableNativeFeedback>
+        </Touchable>
       </View>
     </View>
   )
