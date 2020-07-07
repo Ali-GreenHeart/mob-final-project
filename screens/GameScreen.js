@@ -3,33 +3,20 @@ import { StyleSheet, Text, View, Image, ImagePropTypes } from 'react-native';
 
 import { CustomText, CustomBtn, RadioGroup } from '../components'
 
- const game = {
-    gameTitle: "password",
-    about: "Lorem ipsum dolor sit amet,ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-}
+export const GameScreen = ({route,navigation}) => {
 
-export const GameScreen = () => {
-  
-  const [mode ,setMode] = useState("")  
-  const options = ["easy", "medium", "hard"];
+    const { game } = route.params;
 
-  const onValueChange = (value) => {
-      setMode(value)
-  }
 
-  return (
+    return (
     <View style={styles.container}>
-        <CustomText style={styles.title} weight="bold">{game.gameTitle}</CustomText>
-        <Image style={styles.img}/>
-        <CustomText style={styles.about} weight="medium" >{game.about}</CustomText>
-        <RadioGroup
-         options={options}
-         value={mode}
-         onValueChange={onValueChange}
-        />
+        <CustomText style={styles.title} weight="bold">{game.name}</CustomText>
+        <Image style={styles.img} source={game.img}/>
+        <CustomText style={styles.about} weight="medium" >{game.howToPlay}</CustomText>
+
         <CustomBtn
          title= "play"
-    
+         onPress={() => navigation.navigate(game.name)}
          />
     </View>
   );

@@ -18,7 +18,7 @@
     },
     {
         id  : genID(),
-        name: "Traffic light",
+        name: "Traffic Light",
         about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
         category: "attention",
         howToPlay: "Remember the color position on the traffic light.Does the new position of the color match thee previous one?If you give wrong answer 5 times,you'll lose.",

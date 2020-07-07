@@ -1,38 +1,41 @@
 import React from 'react';
-import { StyleSheet, Text, View ,ScrollView} from 'react-native';
+import { StyleSheet, Text, View ,ScrollView,TouchableOpacity,TouchableWithoutFeedback} from 'react-native';
 import {GameInfo} from "./GameInfo";
-import {CustomBtn,CustomHeader} from "../../components";
-import { Nav } from '../NavBar/Nav';
+import {CustomBtn,CustomHeader,CustomText} from "../../components";
 import {Games} from "../../utils/gamesList";
 
 
-export const HomeScreen = () => {
+export const HomeScreen = ({navigation}) => {
   return (
       <View style={styles.container}>
-          <CustomHeader name={"Home"} />
-
-       <ScrollView>
       <View style={styles.info}>
-          <Text style={styles.infoHeader}>About</Text>
-          <Text style={styles.infoText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur commodi consectetur consequuntur cum dolores eaque error, eveniet hic libero modi mollitia numquam quas quis, repudiandae rerum velit, voluptas voluptate.</Text>
+          <CustomText style={styles.infoHeader}>About</CustomText>
+          <CustomText style={styles.infoText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur commodi consectetur consequuntur cum dolores eaque error,</CustomText>
       </View>
           <View style={styles.footer}>
               <CustomBtn title={'SignUp'}/>
           </View>
-          <View style={styles.games}>
+          <ScrollView style={styles.games}>
               {
                   Games.map((g) =>
-                    <GameInfo
-                        key={g.id}
-                        category={g.category}
-                        name={g.name}
-                        about={g.about}
-                        img={g.img}
-                    />
+                     <TouchableOpacity
+                         key={g.id}
+                         onPress={() => navigation.navigate("GameScreen",{
+                             game: g
+                         })}
+                     >
+                         <GameInfo
+                             category={g.category}
+                             name={g.name}
+                             about={g.about}
+                             img={g.img}
+                         />
+                     </TouchableOpacity>
+
                   )
               }
-          </View>
-       </ScrollView>
+          </ScrollView>
+
   </View>
   )
 };
@@ -52,6 +55,7 @@ const styles = StyleSheet.create({
         paddingTop:20,
     },
     infoText:{
+        fontSize: 12,
     },
     footer:{
         marginVertical: 5,
