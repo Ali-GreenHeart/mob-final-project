@@ -8,6 +8,8 @@ export { TicTacGameScreen} from "./TicTacGameScreen"
 export { MatchingBoxesGameScreen } from "./MatchingBoxesGameScreen"
 export { LoginScreen } from "./Auth"
 export { ProfileScreen } from "./Profile"
+export { AllGamesScreen } from "./AllGamesScreen"
+
 
 
 
