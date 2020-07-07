@@ -36,7 +36,7 @@
          id  : genID(),
          name: "TicTac",
          about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
-         category: "Logical thinking",
+         category: "logical thinking",
          howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
          img: ""
      },
@@ -44,7 +44,7 @@
          id  : genID(),
          name: "Matching Boxes",
          about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
-         category: "Logical thinking",
+         category: "logical thinking",
          howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
          img: ""
      },

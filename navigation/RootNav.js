@@ -13,6 +13,7 @@ import {
     MatchingBoxesGameScreen,
     LoginScreen,
     ProfileScreen,
+    AllGamesScreen
 } from "../screens";
 
 
@@ -22,6 +23,7 @@ export const RootNav = () => (
     <NavigationContainer>
         <Navigator>
             <Screen name="Home" component={HomeScreen}/>
+            <Screen name="All Games" component={AllGamesScreen}/>
             <Screen name="GameScreen" component={GameScreen}/>
             <Screen name="Password" component={PasswordGameScreen}/>
             <Screen name="Color" component={ColorGameScreen}/>
