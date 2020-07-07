@@ -8,7 +8,7 @@ const windowSize = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
 };
-export const Profile = () => {
+export const ProfileScreen = () => {
     const [changePhoto, setChangePhoto] = useState(false);
     const [chosenPhoto, setChosenPhoto] = useState(fbApp.auth.currentUser.photoURL || require('./images/Male1.png'));
     const photoList = [

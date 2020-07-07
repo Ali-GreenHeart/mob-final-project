@@ -4,7 +4,7 @@ import {CustomBtn, CustomText} from "../../components";
 import fbApp from "../../store/firebase";
 import {signIn} from "../../store/userCredentials";
 import store from "../../store";
-export const LoginPage = () => {
+export const LoginScreen = ({navigation}) => {
     const [isLogIn, setIsLogIn] = useState(true);
     const [errorMsg, setErrorMsg] = useState('');
     const [userData, setUserData] = useState({
@@ -13,7 +13,7 @@ export const LoginPage = () => {
         password: ''
     });
     const Navigate = () => {
-      //Please write navigation code here
+      navigation.navigate("Home")
     };
     let user=fbApp.auth.currentUser;
     const register = () =>{
