@@ -17,10 +17,10 @@ import {
     MinFinderGameScreen,
     StatisticsScreen,
     AlphaRefGame,
+    SudokuGameScreen
 
 } from "../screens";
 
-import {SudokuGameScreen} from '../screens/SudokuGameScreen'
 
 const {Navigator,Screen} = createStackNavigator();
 export const RootNav = () => (
@@ -40,6 +40,7 @@ export const RootNav = () => (
             <Screen name="Min Finder" component={MinFinderGameScreen}/>
             <Screen name="TicTac" component={TicTacGameScreen}/>
             <Screen name="Alpha Reflex" component={AlphaRefGame}/>
+            <Screen name="Sudoku" component={SudokuGameScreen}/>
         </Navigator>
     </NavigationContainer>
 );

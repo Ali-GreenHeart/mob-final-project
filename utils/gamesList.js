@@ -52,7 +52,7 @@
          id  : genID(),
          name: "Min Finder",
          about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
-         category: "logical thinking",
+         category: "speed",
          howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
          img: ""
      },
@@ -62,6 +62,14 @@
          name: "Alpha Reflex",
          about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
          category: "speed",
+         howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
+         img: ""
+     },
+     {
+         id  : genID(),
+         name: "Sudoku",
+         about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
+         category: "logical thinking",
          howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
          img: ""
      },
