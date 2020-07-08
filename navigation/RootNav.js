@@ -16,10 +16,11 @@ import {
     AllGamesScreen,
     MinFinderGameScreen,
     StatisticsScreen,
-    AlphaRefGame
+    AlphaRefGame,
+
 } from "../screens";
 
-
+import {SudokuGameScreen} from '../screens/SudokuGameScreen'
 
 const {Navigator,Screen} = createStackNavigator();
 export const RootNav = () => (
