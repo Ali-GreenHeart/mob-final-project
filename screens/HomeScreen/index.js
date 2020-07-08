@@ -6,10 +6,10 @@ import { connect } from "react-redux";
 import {GameInfo} from "./GameInfo";
 import { About } from "./About"
 import { Welcome } from "./Welcome"
-import {CustomText} from "../../components";
 import  { Nav } from "../../navigation/Nav"
 import {Games} from "../../utils/gamesList";
 import {getUserCredentials} from "../../store/userCredentials"
+import  {CustomHeader} from "../../components"
 
 const mapStateToProps = (state) => ({
     userCredentials: getUserCredentials(state),
@@ -19,8 +19,11 @@ const mapStateToProps = (state) => ({
 export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}) => {
   return (
       <View style={styles.container}>
+
+          <CustomHeader name={"Home"} navigation={navigation}/>
+
           {
-              userCredentials.fullName ? <Welcome name={userCredentials.fullName}/> :
+              userCredentials.fullName ? <Welcome name={userCredentials.fullName} /> :
                   <About navigation={navigation}/>
 
           }

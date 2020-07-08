@@ -8,10 +8,9 @@ import {
 
 import { prepareGrid } from "../../utils/prepareGrid"
 import { chooseColor } from "../../utils/chooseColor"
-import { EndGameModal } from "./EndGameModal"
-import { CustomText } from "../../components"
+import { CustomText,EndModal } from "../../components"
 
-export const MemoryGridGameScreen = () => {
+export const MemoryGridGameScreen = ({navigation}) => {
   const [size,setSize] = useState(5);
   const [modal,setModal] = useState(false)
   const [grid, setGrid] = useState(prepareGrid(size));
@@ -143,10 +142,11 @@ export const MemoryGridGameScreen = () => {
         ))}
       </View>
      
-      <EndGameModal
+      <EndModal
         visible={modal}
         close={resetGame}
         points={points}
+        navigation={navigation}
       />
     </View>
   );

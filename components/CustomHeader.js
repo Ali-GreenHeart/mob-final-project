@@ -1,24 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View  } from 'react-native';
+import { StyleSheet, View,Image, TouchableOpacity  } from 'react-native';
 
 import  { CustomText } from "../components"
+import arrowImg from "../assets/backArrow.png"
 
-export const CustomHeader = ({name}) => {
+export const CustomHeader = ({name,navigation,back}) => {
     return(
         <View style={styles.header}>
+            {
+                back ?
+                    <TouchableOpacity style={styles.imgBtn} onPress={() => navigation.goBack()}>
+                        <Image source={arrowImg} style={styles.imgBtn}/>
+                    </TouchableOpacity>
+                    : null
+            }
+
             <CustomText style={styles.headerText} weight={"medium"}>{ name }</CustomText>
         </View>)
 };
 const styles= StyleSheet.create({
-    headerText:{
-        fontSize:20,
-    },
+
     header:{
-        marginTop: 30,
+        marginTop: 25,
         backgroundColor: 'gray',
         justifyContent:'center',
         alignItems: "center",
-        padding: 10,
+        padding: 15,
+        flexDirection: "row"
 
+    },
+    imgBtn: {
+        position: "absolute",
+        left: 5,
+        width: 25,
+        height: 20
+    },
+    headerText:{
+        fontSize:20,
+        color: "#fff"
     },
 });

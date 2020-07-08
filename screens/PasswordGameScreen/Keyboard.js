@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   btn: {
-      backgroundColor: "gray",
+      backgroundColor: "#3f8ceb",
       width: 90,
       margin: 10,
       paddingVertical: 10,

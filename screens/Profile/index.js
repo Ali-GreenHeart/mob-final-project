@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView} from 'react-native';
-import {CustomBtn, CustomText} from "../../components";
+import {CustomBtn, CustomHeader, CustomText} from "../../components";
 import store from "../../store";
 import {logout} from "../../store/userCredentials";
 import fbApp from "../../store/firebase";
+import {Nav} from "../../navigation/Nav";
 const windowSize = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
@@ -33,8 +34,9 @@ export const ProfileScreen = ({navigation}) => {
     };
     return (
         <View style={styles.container}>
+            <CustomHeader name={"Home"} navigation={navigation} back={true}/>
             <View style={styles.imageWrapper}><Image source={chosenPhoto} style={styles.profileImg}/></View>
-            <CustomText>{store.getState().userCredentials.fullName}</CustomText>
+            <CustomText style={styles.name}>{store.getState().userCredentials.fullName}</CustomText>
             { changePhoto &&
                 <View style={styles.imageContainer}>
                     {photoList.map((item, index) => (
@@ -47,11 +49,13 @@ export const ProfileScreen = ({navigation}) => {
                 </View>
             }
             {!changePhoto &&
-                <View>
-                    <CustomBtn onPress={() => setChangePhoto(true)} title={"Change photo"}/>
-                    <CustomBtn title={"Sign out"} onPress={() => SignOut()}/>
+                <View >
+                    <CustomBtn style={styles.btn} onPress={() => setChangePhoto(true)} title={"Change photo"}/>
+                    <CustomBtn style={styles.btn} title={"Sign out"} onPress={() => SignOut()}/>
                 </View>
             }
+            <Nav navigation={navigation} />
+
         </View>
     );
 };
@@ -59,12 +63,9 @@ export const ProfileScreen = ({navigation}) => {
 const styles = StyleSheet.create({
    container: {
        flex: 1,
-       alignItems: 'center',
-       justifyContent: 'center'
    },
     imageContainer: {
         position: 'absolute',
-        flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
@@ -75,12 +76,23 @@ const styles = StyleSheet.create({
         height: (windowSize.height-100)/3.5,
     },
     profileImg: {
+
         width: (windowSize.width)/2.3,
         height: (windowSize.width)/2.3,
         borderRadius: 250,
     },
+    name: {
+       alignSelf: "center",
+       marginTop: 20,
+       marginBottom: 20
+    },
     checkContainer: {
-       backgroundColor: 'rgba(50,50,50,0.5)',
+        backgroundColor: 'rgba(50,50,50,0.5)',
+    },
+    btn: {
+        width: 300,
+        alignSelf: "center",
+        marginVertical: 24
     },
     imageWrapper: {
        borderWidth: 2,
@@ -91,5 +103,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
+        alignSelf: "center",
+        marginTop: 70
     }
 });

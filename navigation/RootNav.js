@@ -24,9 +24,12 @@ import {
 const {Navigator,Screen} = createStackNavigator();
 export const RootNav = () => (
     <NavigationContainer>
-        <Navigator>
-            <Screen name="Home" component={HomeScreen}/>
+        <Navigator headerMode="none">
+            <Screen  name="Home" component={HomeScreen}/>
             <Screen name="All Games" component={AllGamesScreen}/>
+            <Screen name="Login" component={LoginScreen}/>
+            <Screen name="Profile" component={ProfileScreen}/>
+            <Screen name="Statistics" component={StatisticsScreen}/>
             <Screen name="GameScreen" component={GameScreen}/>
             <Screen name="Password" component={PasswordGameScreen}/>
             <Screen name="Color" component={ColorGameScreen}/>
@@ -35,11 +38,7 @@ export const RootNav = () => (
             <Screen name="Matching Boxes" component={MatchingBoxesGameScreen}/>
             <Screen name="Min Finder" component={MinFinderGameScreen}/>
             <Screen name="TicTac" component={TicTacGameScreen}/>
-            <Screen name="Login" component={LoginScreen}/>
-            <Screen name="Profile" component={ProfileScreen}/>
-            <Screen name="Statistics" component={StatisticsScreen}/>
             <Screen name="Alpha Reflex" component={AlphaRefGame}/>
-
         </Navigator>
     </NavigationContainer>
 );
