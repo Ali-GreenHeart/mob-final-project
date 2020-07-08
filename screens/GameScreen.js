@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, Image, ImagePropTypes } from 'react-native';
+import React from 'react';
+import { StyleSheet,  View, Image,  } from 'react-native';
 
-import {CustomText, CustomBtn, RadioGroup, CustomHeader} from '../components'
+import {CustomText, CustomBtn,  CustomHeader} from '../components'
 
 export const GameScreen = ({route,navigation}) => {
 

@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View,  } from 'react-native';
+import React, {useState,useRef,useEffect} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native';
 
-import { EndModal } from "../../components/EndModal"
+import { EndModal } from "../../components"
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -33,24 +33,17 @@ function shuffle(array) {
     return array;
 }
 
-let ranNums = shuffle([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
+let nums = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
-export class BoardView extends React.Component{
+export const BoardView = ({navigation}) => {
+    const [modal,setModal] = useState(false);
+    const [number,setNumber] = useState(0);
+    const [ranNums,setRanNums] = useState(shuffle(nums));
 
-    state = {
-        modal: false,
-        i: 0
-    };
-    render() {
-        return <View style={styles.container}>
-            {this.renderTiles()}
+    const openedTimer = useRef(null);
 
-            <EndModal visible={this.state.modal}/>
 
-        </View>;
-    }
-
-    renderTiles() {
+    const renderTiles = () => {
         let result = [];
         for (let row = 0; row < SIZE; row++) {
             for (let col = 0; col < SIZE; col++) {
@@ -60,30 +53,65 @@ export class BoardView extends React.Component{
                     left: col * CELL_SIZE + CELL_PADDING,
                     top: row * CELL_SIZE + CELL_PADDING
                 };
-                result.push(this.renderTile(ranNums[key], position, letter))
+                result.push(renderTile(ranNums[key], position, letter))
             }
         }
         return result;
-    }
-    renderTile(id, position, letter) {
-        return <View key={id} style={[styles.tile, position]}
-                     onStartShouldSetResponder={() => this.clickTile(id)}>
-            <Text style={styles.letter}>{letter}</Text>
-        </View>;
-    }
+    };
 
-    clickTile(id) {
-        console.log(this.state.i);
-        console.log(id)
 
-        if(id != this.state.i) {
+    const renderTile = (id, position, letter) => {
+        return <View key={id} style={[styles.tile, position]}>
+                      <TouchableOpacity onPress={() => clickTile(id)} style={[styles.tile]}>
+                          <Text style={styles.letter}>{letter}</Text>
+                      </TouchableOpacity>
 
-            this.state.modal = true;
-            console.log(this.state.modal);
+              </View>;
+    };
+
+    const clickTile = (id) => {
+
+
+        if(id !== number) {
+
+            setModal(true);
         }
-        this.state.i = this.state.i + 1;
+        setNumber((number) => number+1) ;
+    };
+
+    const resetGame = () => {
+        setModal(false);
+        setNumber(0);
+        setRanNums(shuffle(nums))
+        gameTimer();
+    };
+    const gameTimer = () => {
+        if (openedTimer.current) {
+            clearTimeout(openedTimer.current);
+        }
+        openedTimer.current = setTimeout(() => setModal(true), 30000);
     }
-}
+
+    useEffect(() => {
+        gameTimer();
+    }, []);
+
+
+    return (<View style={styles.container}>
+            {renderTiles()}
+
+            <EndModal
+                visible={modal}
+                navigation={navigation}
+                close={resetGame}
+                points={number ? number-1 : 0}
+            />
+
+        </View>)
+
+
+
+};
 
 const styles = StyleSheet.create({
     container: {
