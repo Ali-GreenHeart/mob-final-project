@@ -21,7 +21,7 @@ export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}
       <View style={styles.container}>
           {
               userCredentials.fullName ? <Welcome name={userCredentials.fullName}/> :
-                  <About/>
+                  <About navigation={navigation}/>
 
           }
 
