@@ -8,7 +8,7 @@ import { History } from "./History"
 import { Keyboard } from "./Keyboard"
 
 
-export const PasswordGameScreen = () => {
+export const PasswordGameScreen = ({navigation}) => {
 
   const [numbers,setNumbers] = useState(createNumber(4,10));
   const [input,setInput] = useState([]);
@@ -136,10 +136,11 @@ export const PasswordGameScreen = () => {
         isWin={win}
         numbers={numbers}
         steps={history.length}
+        navigation={navigation}
        />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -149,19 +150,6 @@ const styles = StyleSheet.create({
 
   },
 
-  header: {
-    width: "100%",
-    height: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "darkgrey"
-  },
- 
-  title: {
-    color: "white",
-    fontSize: 30,
-    fontWeight : "bold"
-  },
   codeContainer: {
     flexDirection: "row",
     width: "50%",
@@ -187,6 +175,7 @@ const styles = StyleSheet.create({
   },  
   inputContainer: {
     flexDirection: "row",
+      marginVertical:10
   }, 
   input: {  
     height: 50,
@@ -206,30 +195,12 @@ const styles = StyleSheet.create({
     shadowRadius: 1.41,
     elevation: 2,
   },
-  buttonsContainer: {  
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  btn: {
-      backgroundColor: "gray",
-      width: 90,
-      margin: 10,
-      paddingVertical: 10,
-      borderRadius: 10,
-      alignItems: "center",
-  },
-  btnTitle: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: "white"
-  },
+
   showBtn: {
     backgroundColor: "red",
      paddingVertical: 5,
      paddingHorizontal: 15,
-     borderRadius: 15,
+     borderRadius: 10,
      marginVertical:10
      
   },

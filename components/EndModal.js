@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, Modal, View, } from "react-native";
+import { StyleSheet, Modal, View, Image } from "react-native";
 
-import {CustomText,CustomBtn} from "../../components"
+import {CustomText,CustomBtn} from "./index"
 
-export const EndGameModal = ({points, close, visible }) => {
+export const EndModal = ({points, close, visible ,navigation}) => {
 
 
   return (
@@ -11,9 +11,9 @@ export const EndGameModal = ({points, close, visible }) => {
       <View style={styles.container}>
         <View style={styles.card}>
           <CustomText>Time's out!</CustomText>
-          <CustomText weight="bold" style={styles.score}>{points}</CustomText>
-          <CustomBtn  title="Replay" onPress={close} style={styles.btn}/>
-          <CustomBtn title="Exit" style={styles.btn}/>
+          <CustomText weight="bold" style={styles.score}>Your score: {points}</CustomText>
+          <CustomBtn title="Replay" onPress={close} style={styles.btn}/>
+          <CustomBtn title="Exit" onPress={() => {close(); navigation.navigate("Home");}} style={styles.btn}/>
         </View>
       </View>
     </Modal>
@@ -41,9 +41,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee"
   },
   score: {
-    fontSize: 50
+    fontSize: 27
   },
   btn: {
-    marginVertical: 10
+    width: 100,
+    marginVertical: 5
   }
 });

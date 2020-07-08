@@ -2,9 +2,9 @@ import React, { useState,useEffect,useRef} from 'react';
 import { StyleSheet,  View, } from 'react-native';
 
 import { createNumber  } from "../../utils/createNumber"
-import { CustomText,CustomBtn } from '../../components'
+import { CustomText,CustomBtn ,EndModal} from '../../components'
 import {ColorCard} from "./ColorCard"
-import {EndModal} from "./EndModal"
+import {} from "../../components/EndModal"
 
 const randomInd = () => {
         const length = Colors.length;
@@ -13,7 +13,7 @@ const randomInd = () => {
   
 export const Colors =  ["black","brown","purple","green","grey","red","blue","yellow","pink","orange"]
 
-export const ColorGameScreen = ( ) => {
+export const ColorGameScreen = ( {navigation}) => {
 
    const [modal, setModal] = useState(false)
    const [color, setColor] = useState( Colors[randomInd()]);
@@ -107,6 +107,7 @@ export const ColorGameScreen = ( ) => {
           visible={modal}
           close={() => resetGame()}
           points={points}
+          navigation={navigation}
         />
        </View>
    

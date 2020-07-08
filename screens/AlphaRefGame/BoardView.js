@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View,  } from 'react-native';
 import { Dimensions } from 'react-native';
 
-import { EndModal } from "../ColorGameScreen/EndModal"
+import { EndModal } from "../../components/EndModal"
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Image, ImagePropTypes } from 'react-native';
 
-import { CustomText, CustomBtn, RadioGroup } from '../components'
+import {CustomText, CustomBtn, RadioGroup, CustomHeader} from '../components'
 
 export const GameScreen = ({route,navigation}) => {
 
@@ -10,39 +10,49 @@ export const GameScreen = ({route,navigation}) => {
 
     return (
     <View style={styles.container}>
-        <CustomText style={styles.title} weight="bold">{game.name}</CustomText>
-        <Image style={styles.img} source={game.img}/>
-        <CustomText style={styles.about} weight="medium" >{game.howToPlay}</CustomText>
+        <CustomHeader name={game.name} navigation={navigation} back={true}/>
 
-        <CustomBtn
-         title= "play"
-         onPress={() => navigation.navigate(game.name)}
-         />
+        <View>
+            <CustomText style={styles.title} weight="bold">{game.name}</CustomText>
+            <Image style={styles.img} source={game.img}/>
+            <CustomText style={styles.about} weight="medium" >{game.howToPlay}</CustomText>
+            <CustomBtn
+                style = {styles.btn}
+                title= "play"
+                onPress={() => navigation.navigate(game.name)}
+            />
+        </View>
+
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+      flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    paddingHorizontal: 100,
-    justifyContent: "center"
   },
   title: {
       fontSize:40,
-      marginVertical: 15
+      marginVertical: 30,
+      alignSelf: "center"
 
   },
   img: {
       width: 150,
       height: 150,
       borderRadius: 75,
-      backgroundColor: "#eee"
+      backgroundColor: "#eee",
+      alignSelf: "center"
+
   },
   about: {
       textAlign : "justify",
-      marginVertical: 20
-  }
+      marginVertical: 30,
+      marginHorizontal: 50
+  },
+    btn:{
+      marginHorizontal: 50
+    }
 });

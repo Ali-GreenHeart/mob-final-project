@@ -30,7 +30,8 @@ const styles= StyleSheet.create({
     color:{
         backgroundColor: 'gray',
         flexDirection: 'row',
-        paddingTop:10
+        paddingTop:10,
+        bottom: 0
     },
 
     img: {

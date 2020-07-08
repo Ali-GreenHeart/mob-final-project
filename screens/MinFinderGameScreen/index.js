@@ -3,7 +3,7 @@ import { Text, View, Dimensions, Modal } from 'react-native';
 import { Button } from 'native-base';
 import Grid from './grid';
 import style from './style';
-import {CustomText,CustomBtn} from "../../components";
+import {CustomText,CustomBtn,EndModal} from "../../components";
 import GameConfig from './gameConfig';
 import Data from './data';
 var SortedList = require('sortedlist');
@@ -133,25 +133,13 @@ export class MinFinderGameScreen extends React.Component {
           cellSize={cellSize}
           _onItemTapped={this._onItemTapped}
         />
-        <Modal
+        <EndModal
+          navigation={this.props.navigation}
+          points={this.state.score}
           visible={this.state.endModalVisible}
-          animationType={'fade'}
-          transparent={true}
-          onRequestClose={this._closeEndGameModal}
-        
-          >
-            <View  style={style.container}>
-          <View style={style.card}>
-        
-          <CustomText>Time's out!</CustomText>
-            <CustomText weight="bold" style={style.score}> Your Score : {this.state.score}</CustomText>
-          <CustomBtn  title="Replay" onPress={this._replay} style={style.btn}/>
-          <CustomBtn title="Exit" style={style.btn} onPress={this._closeEndGameModal}/>
-        
-      </View>
-           
-          </View>
-        </Modal>
+          close={this._replay}
+        />
+
 
       </View >
     );

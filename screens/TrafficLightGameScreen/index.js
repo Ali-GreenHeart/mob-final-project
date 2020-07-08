@@ -6,11 +6,10 @@ import {
 
 import { TrafficLights }  from  "./TrafficLight"
 import { randomInt } from "../../utils/randomInt"
-import {CustomBtn, CustomText} from "../../components"
-import { EndModal } from "../ColorGameScreen/EndModal"
+import {CustomBtn, CustomText,EndModal} from "../../components"
 
 
-export const TrafficLightGameScreen = () => {
+export const TrafficLightGameScreen = ({navigation}) => {
    
     const [light,setlight] = useState(randomInt(1,3));
     const [prev,setPrev] = useState(0);
@@ -69,7 +68,12 @@ export const TrafficLightGameScreen = () => {
 
   return (
     <View style={styles.container}>
-        <CustomText weight="bold54">{points}</CustomText>
+        <CustomText weight="bold">
+            points :{points}
+        </CustomText>
+        <CustomText weight="bold">
+            wrongs {wrongs}
+        </CustomText>
        <TrafficLights index={light}/>
        <View style={styles.btnContainer}> 
                              
@@ -90,6 +94,7 @@ export const TrafficLightGameScreen = () => {
           visible={modal}
           close={() => resetGame()}
           points={points}
+          navigation={navigation}
         />
     </View>
   );

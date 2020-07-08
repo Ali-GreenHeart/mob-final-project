@@ -3,7 +3,7 @@ import { StyleSheet, Modal, View, } from "react-native";
 import { CustomText, CustomBtn } from "../../components";
 
 
-export const EndModal = ({ isWin, close, visible,numbers, steps}) => {
+export const EndModal = ({ isWin, close, visible,numbers, steps,navigation}) => {
   return (
     <Modal visible={visible} transparent={true} animationType="fade">
       <View style={styles.container}>
@@ -32,7 +32,8 @@ export const EndModal = ({ isWin, close, visible,numbers, steps}) => {
             }
           
          
-          <CustomBtn title="Replay" onPress={close} />
+          <CustomBtn title="Replay" onPress={close} style={styles.btn}/>
+          <CustomBtn title="Exit" onPress={() => {close(); navigation.navigate("Home");}} style={styles.btn}/>
         </View>
       </View>
     </Modal>
@@ -62,5 +63,9 @@ const styles = StyleSheet.create({
   text: {
     alignItems: "center",
     justifyContent: "center"
+  },
+  btn: {
+    width: 100,
+    marginVertical: 5
   }
 });
