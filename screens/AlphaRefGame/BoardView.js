@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View,  } from 'react-native';
 import { Dimensions } from 'react-native';
 
+import { EndModal } from "../ColorGameScreen/EndModal"
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
@@ -34,9 +36,17 @@ function shuffle(array) {
 let ranNums = shuffle([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
 
 export class BoardView extends React.Component{
+
+    state = {
+        modal: false,
+        i: 0
+    };
     render() {
         return <View style={styles.container}>
             {this.renderTiles()}
+
+            <EndModal visible={this.state.modal}/>
+
         </View>;
     }
 
@@ -63,7 +73,15 @@ export class BoardView extends React.Component{
     }
 
     clickTile(id) {
-        console.log(id);
+        console.log(this.state.i);
+        console.log(id)
+
+        if(id != this.state.i) {
+
+            this.state.modal = true;
+            console.log(this.state.modal);
+        }
+        this.state.i = this.state.i + 1;
     }
 }
 
@@ -88,4 +106,3 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
 });
-
