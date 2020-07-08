@@ -5,7 +5,7 @@ import {BoardView} from "./BoardView";
 export class AlphaRefGame extends React.Component{
     render() {
         return <View style={styles.container}>
-            <BoardView/>
+            <BoardView navigation={this.props.navigation}/>
         </View>;
     }
 }
@@ -15,6 +15,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#644B62',
+        backgroundColor: '#edf9fa',
     },
 });
