@@ -5,7 +5,7 @@ export const MODULE_NAME = "userCredentials";
 export const getUserCredentials = (state) => state[MODULE_NAME];
 
 const initialState = {
-    fullName: "narmin",
+    fullName: null,
     mail: null,
     password: null,
     img: null

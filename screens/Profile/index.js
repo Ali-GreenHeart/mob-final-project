@@ -8,7 +8,7 @@ const windowSize = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
 };
-export const ProfileScreen = () => {
+export const ProfileScreen = ({navigation}) => {
     const [changePhoto, setChangePhoto] = useState(false);
     const [chosenPhoto, setChosenPhoto] = useState(fbApp.auth.currentUser.photoURL || require('./images/Male1.png'));
     const photoList = [
@@ -24,6 +24,7 @@ export const ProfileScreen = () => {
     const SignOut = () => {
       store.dispatch(logout());
       //write navigation code here please
+        navigation.navigate('Home');
     };
     const setPhoto = (item) => {
         setChosenPhoto(item);
@@ -33,7 +34,7 @@ export const ProfileScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.imageWrapper}><Image source={chosenPhoto} style={styles.profileImg}/></View>
-            <CustomText>{store.getState().fullName}</CustomText>
+            <CustomText>{store.getState().userCredentials.fullName}</CustomText>
             { changePhoto &&
                 <View style={styles.imageContainer}>
                     {photoList.map((item, index) => (

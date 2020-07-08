@@ -15,17 +15,17 @@ export const LoginScreen = ({navigation}) => {
     const Navigate = () => {
       navigation.navigate("Home")
     };
-    let user=fbApp.auth.currentUser;
     const register = () =>{
         !isLogIn && userData.name.trim() === "" ? setErrorMsg("Name field is required"):
             (isLogIn ? fbApp.auth.signInWithEmailAndPassword(userData.email, userData.password).then(res => {
-                store.dispatch(signIn({fullName: fbApp.auth.currentUser.displayName, mail: userData.email, password: userData.password, img: user.photoURL}));
-                Navigate();
-            }).catch(err => setErrorMsg(err.message)):
+                store.dispatch(signIn({fullName: fbApp.auth.currentUser.displayName, mail: userData.email, password: userData.password, img: fbApp.auth.currentUser.photoURL}));
+                    Navigate();
+                }).catch(err => setErrorMsg(err.message)):
         fbApp.auth.createUserWithEmailAndPassword(userData.email, userData.password).then(res =>
         {
-            user.updateProfile({displayName: userData.name});
+            fbApp.auth.currentUser.updateProfile({displayName: userData.name});
             store.dispatch(signIn({fullName: userData.name, mail: userData.email, password: userData.password, img: null}));
+            console.log(fbApp.auth.currentUser.displayName);
             Navigate();
         }).catch(err => setErrorMsg(err.message)));
     };
