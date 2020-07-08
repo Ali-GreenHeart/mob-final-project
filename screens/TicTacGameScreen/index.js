@@ -86,10 +86,28 @@ export class TicTacGameScreen extends React.Component {
         //Check for winners...
         var winner = this.getWinner();
         if( winner ==1) {
-            Alert.alert("Player 1 is the winner");
+            Alert.alert(
+                'Winner',
+                '"X" is the winner',
+                [
+                  {
+                    text: 'Replay', 
+                  },
+                ],
+                {cancelable: true},
+              );
             this.initalizeGame();
         } else if (winner == -1) {
-            Alert.alert("Player 2 is the winner");
+            Alert.alert(
+                'Winner',
+                '"O" is the winner',
+                [
+                  {
+                    text: 'Replay', 
+                  },
+                ],
+                {cancelable: true},
+              );
             this.initalizeGame();
         }
     }

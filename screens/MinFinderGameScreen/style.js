@@ -75,7 +75,27 @@ module.exports = StyleSheet.create({
 
     replayText: {
         color: 'white',
-    }
+    },
+
+    container: {
+        flex: 1,
+        backgroundColor: "rgba(0,0,0,0.4)",
+        justifyContent: "center",
+        alignItems: "center",
+      },
+      card: {
+        width: 300,
+        padding: 30,
+        borderRadius: 15,
+        backgroundColor: "white",
+        alignItems: "center",
+      },
+      score: {
+        fontSize: 27
+      },
+      btn: {
+        marginVertical: 10
+      }
 
 
 });

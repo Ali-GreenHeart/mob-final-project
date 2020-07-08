@@ -3,7 +3,7 @@ import { Text, View, Dimensions, Modal } from 'react-native';
 import { Button } from 'native-base';
 import Grid from './grid';
 import style from './style';
-
+import {CustomText,CustomBtn} from "../../components";
 import GameConfig from './gameConfig';
 import Data from './data';
 var SortedList = require('sortedlist');
@@ -22,7 +22,7 @@ export class MinFinderGameScreen extends React.Component {
       bestScore: GameConfig.bestScore,
       backgroundColor: 'white',
       timer: 15,
-      endModalVisible: false
+      endModalVisible: false,
     }
 
     this._updateTime = this._updateTime.bind(this);
@@ -138,11 +138,18 @@ export class MinFinderGameScreen extends React.Component {
           animationType={'fade'}
           transparent={true}
           onRequestClose={this._closeEndGameModal}
-        >
-          <View style={[style.modalAlignment, { backgroundColor: this.state.backgroundColor, width: width, height: height }]}>
-            <Button onPress={this._replay} style={[style.replayButton, { height: cellSize * 0.6 }]}>
-              <Text style={[style.replayText, { fontSize: cellSize * 0.4 }]}>REPLAY</Text>
-            </Button>
+        
+          >
+            <View  style={style.container}>
+          <View style={style.card}>
+        
+          <CustomText>Time's out!</CustomText>
+            <CustomText weight="bold" style={style.score}> Your Score : {this.state.score}</CustomText>
+          <CustomBtn  title="Replay" onPress={this._replay} style={style.btn}/>
+          <CustomBtn title="Exit" style={style.btn} onPress={this._closeEndGameModal}/>
+        
+      </View>
+           
           </View>
         </Modal>
 
