@@ -19,10 +19,9 @@ const mapStateToProps = (state) => ({
 export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}) => {
   return (
       <View style={styles.container}>
-          <CustomText style={{backgroundColor: "red"}}>{userCredentials.fullName}</CustomText>
           {
               userCredentials.fullName ? <Welcome name={userCredentials.fullName}/> :
-                  <About/>
+                  <About navigation={navigation}/>
 
           }
 
