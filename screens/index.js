@@ -11,6 +11,7 @@ export { ProfileScreen } from "./Profile"
 export { AllGamesScreen } from "./AllGamesScreen"
 export { MinFinderGameScreen } from "./MinFinderGameScreen"
 export { StatisticsScreen } from "./StatisticsScreen"
+export { AlphaRefGame } from "./AlphaRefGame"
 
 
 
