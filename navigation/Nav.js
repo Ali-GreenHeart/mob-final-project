@@ -31,7 +31,8 @@ const styles= StyleSheet.create({
         backgroundColor: 'gray',
         flexDirection: 'row',
         paddingTop:10,
-        bottom: 0
+        bottom: 0,
+        position: 'absolute',
     },
 
     img: {

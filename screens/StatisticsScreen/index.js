@@ -5,9 +5,6 @@ import {Nav} from "../../navigation/Nav";
 import {CustomHeader} from "../../components";
 
 export const StatisticsScreen = ({navigation}) => {
-
-
-
     return (
         <View style={styles.container}>
             <CustomHeader name={"Home"} navigation={navigation} back={true}/>
@@ -20,6 +17,6 @@ export const StatisticsScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
    container: {
-
+       flex: 1,
    }
 });

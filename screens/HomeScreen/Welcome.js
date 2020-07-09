@@ -1,11 +1,9 @@
 import React from 'react';
 import { StyleSheet, View,Image} from 'react-native';
 import { CustomText } from "../../components";
-import fbApp from "../../store/firebase";
-
-
+import store from "../../store";
 export const Welcome = ({name}) => {
-    const img = fbApp.auth.currentUser.photoURL;
+    const img = store.getState().userCredentials.img;
     return (
 
             <View style={styles.container}>
