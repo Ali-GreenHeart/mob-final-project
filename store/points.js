@@ -1,6 +1,6 @@
 
 // ACTION TYPES
-const SET_ATTENTİON_POINTS = "SET_ATTENTİON_POINTS";
+const SET_ATTENTION_POINTS = "SET_ATTENTION_POINTS";
 const SET_MEMORY_POINTS = "SET_MEMORY_POINTS";
 const SET_LOGIC_POINTS = "SET_LOGIC_POINTS";
 const SET_SPEED_POINTS = "SET_SPEED_POINTS";
@@ -11,15 +11,20 @@ export const MODULE_NAME = "points";
 
 // REDUCER
 const initialState = {
-  attention: 0,
-  memory: 0,
-  logic: 0,
-  speed:0
+    Password:0,
+    Color:0,
+    TrafficLight:0,
+    MemoryGrid:0,
+    Tictac:0,
+    MatchingBoxes:0,
+    MinFinder:0,
+    AlphaReflex:0,
+    Sudoku:0
 };
 
 export function pointsReducer(state = initialState, { type, payload }) {
   switch (type) {
-    case SET_ATTENTİON_POINTS:
+    case SET_ATTENTION_POINTS:
       return {
         ...state,
         attention : payload,
@@ -40,7 +45,7 @@ export function pointsReducer(state = initialState, { type, payload }) {
         return {
         ...state,
         speed : payload,
-        }
+        };
     default:
       return state;
   }
@@ -48,7 +53,7 @@ export function pointsReducer(state = initialState, { type, payload }) {
 
 // ACTION CREATORS
 export const setAttentionPoints = (payload) => ({
-  type: SET_ATTENTİON_POINTS,
+  type: SET_ATTENTION_POINTS,
   payload,
 });
 
