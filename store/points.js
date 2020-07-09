@@ -1,11 +1,14 @@
 
 // ACTION TYPES
-const SET_ATTENTION_POINTS = "SET_ATTENTION_POINTS";
-const SET_MEMORY_POINTS = "SET_MEMORY_POINTS";
-const SET_LOGIC_POINTS = "SET_LOGIC_POINTS";
-const SET_SPEED_POINTS = "SET_SPEED_POINTS";
-
-
+const SET_MATCHINGBOXES_POINTS = "SET_MATCHINGBOXES_POINTS";
+const SET_COLOR_POINTS = "SET_COLOR_POINTS";
+const SET_SUDOKU_POINTS = "SET_SUDOKU_POINTS";
+const SET_TRAFFICLIGHT_POINTS = "SET_TRAFFICLIGHT_POINTS";
+const SET_PASSWORD_POINTS = "SET_PASSWORD_POINTS";
+const SET_MEMORYGRID_POINTS = "SET_MEMORYGRID_POINTS";
+const SET_MINFINDER_POINTS = "SET_MINFINDER_POINTS";
+const SET_ALPHAREFLEX_POINTS = "SET_ALPHAREFLEX_POINTS";
+const SET_TICTAC_POINTS ="SET_TICTAC_POINTS";
 // SELECTORS
 export const MODULE_NAME = "points";
 
@@ -24,50 +27,98 @@ const initialState = {
 
 export function pointsReducer(state = initialState, { type, payload }) {
   switch (type) {
-    case SET_ATTENTION_POINTS:
+    case SET_PASSWORD_POINTS:
       return {
         ...state,
-        attention : payload,
+        Password : payload,
       };
-    case SET_MEMORY_POINTS:
+    case SET_MEMORYGRID_POINTS:
        return {
         ...state,
-        memory : payload,
+        MemoryGrid : payload,
        };
     
-    case SET_LOGIC_POINTS:
+    case SET_MINFINDER_POINTS:
         return {
         ...state,
-        logic : payload,
+        MinFinder : payload,
         };
 
-    case SET_SPEED_POINTS:
+    case SET_ALPHAREFLEX_POINTS:
         return {
         ...state,
-        speed : payload,
+        AlphaReflex : payload,
         };
+      case SET_MATCHINGBOXES_POINTS:
+          return {
+              ...state,
+              MatchingBoxes : payload,
+          };
+      case SET_TICTAC_POINTS:
+          return {
+              ...state,
+              Tictac : payload,
+          };
+
+      case SET_SUDOKU_POINTS:
+          return {
+              ...state,
+              Sudoku : payload,
+          };
+
+      case SET_TRAFFICLIGHT_POINTS:
+          return {
+              ...state,
+              TrafficLight : payload,
+          };
+      case SET_COLOR_POINTS:
+          return {
+              ...state,
+              Color : payload,
+          };
     default:
       return state;
   }
 }
 
 // ACTION CREATORS
-export const setAttentionPoints = (payload) => ({
-  type: SET_ATTENTION_POINTS,
+export const setPasswordPoints = (payload) => ({
+  type: SET_PASSWORD_POINTS,
   payload,
 });
 
-export const setMemoryPoints = (payload) => ({
-    type: SET_MEMORY_POINTS,
+export const setMemoryGridPoints = (payload) => ({
+    type: SET_MEMORYGRID_POINTS,
     payload,
   });
 
-  export const setLogicPoints = (payload) => ({
-  type: SET_LOGIC_POINTS,
+  export const setMinFinderPoints = (payload) => ({
+  type: SET_MINFINDER_POINTS,
   payload,
 });
-export const setSpeedPoints = (payload) => ({
-    type: SET_SPEED_POINTS,
+export const setAlphaReflexPoints = (payload) => ({
+    type: SET_ALPHAREFLEX_POINTS,
     payload,
   });
-    
+export const setTicTacPoints = (payload) => ({
+    type: SET_TICTAC_POINTS,
+    payload,
+});
+
+export const setTrafficLightPoints = (payload) => ({
+    type: SET_TRAFFICLIGHT_POINTS,
+    payload,
+});
+
+export const setMatchingBoxesPoints = (payload) => ({
+    type: SET_MATCHINGBOXES_POINTS,
+    payload,
+});
+export const setColorPoints = (payload) => ({
+    type: SET_COLOR_POINTS,
+    payload,
+});
+export const setSudokuPoints = (payload) => ({
+    type: SET_SUDOKU_POINTS,
+    payload,
+});
