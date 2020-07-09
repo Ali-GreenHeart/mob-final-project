@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View ,ScrollView,TouchableOpacity,TouchableWithoutFeedback} from 'react-native';
+import { StyleSheet,  View ,ScrollView,TouchableOpacity} from 'react-native';
 import { connect } from "react-redux";
 
 
@@ -55,7 +55,7 @@ export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}
 
   </View>
   )
-})
+});
 
 const styles = StyleSheet.create({
     container:{

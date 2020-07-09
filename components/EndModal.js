@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, Modal, View, Image } from "react-native";
-
-import {CustomText,CustomBtn} from "./index"
+import { StyleSheet, Modal, View } from "react-native";
+import {CustomText} from "./CustomText";
+import {CustomBtn} from "./CustomBtn"
 
 export const EndModal = ({points, close, visible ,navigation}) => {
 
