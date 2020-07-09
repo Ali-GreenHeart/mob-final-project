@@ -21,6 +21,7 @@ export const CustomHeader = ({name,navigation,back}) => {
 const styles= StyleSheet.create({
 
     header:{
+        width: "100%",
         marginTop: 25,
         backgroundColor: 'gray',
         justifyContent:'center',

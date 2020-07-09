@@ -15,7 +15,6 @@ import {
     ProfileScreen,
     AllGamesScreen,
     MinFinderGameScreen,
-    StatisticsScreen,
     AlphaRefGame,
     SudokuGameScreen,
     MemoriserGameScreen
@@ -31,7 +30,6 @@ export const RootNav = () => (
             <Screen name="All Games" component={AllGamesScreen}/>
             <Screen name="Login" component={LoginScreen}/>
             <Screen name="Profile" component={ProfileScreen}/>
-            <Screen name="Statistics" component={StatisticsScreen}/>
             <Screen name="GameScreen" component={GameScreen}/>
             <Screen name="Password" component={PasswordGameScreen}/>
             <Screen name="Color" component={ColorGameScreen}/>

@@ -10,6 +10,8 @@ import  { Nav } from "../../navigation/Nav"
 import {Games} from "../../utils/gamesList";
 import {getUserCredentials} from "../../store/userCredentials"
 import  {CustomHeader} from "../../components"
+import { Home } from "./Home"
+import {UserHome} from "./UserHome";
 
 const mapStateToProps = (state) => ({
     userCredentials: getUserCredentials(state),
@@ -17,47 +19,24 @@ const mapStateToProps = (state) => ({
 
 
 export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}) => {
+
+
   return (
       <View style={styles.container}>
 
-          <CustomHeader name={"Home"} navigation={navigation}/>
-          <ScrollView style={styles.games}>
-              {
-                  userCredentials.fullName ? <Welcome name={userCredentials.fullName} /> :
-                      <About navigation={navigation}/>
+        {
+            !userCredentials.fullName ?
+              <Home navigation={navigation}/>
+              :
+              <UserHome navigation={navigation} userCredentials={userCredentials}/>
 
-              }
-              {
-                  Games.map((g) =>
-                     <TouchableOpacity
-                         key={g.id}
-                         onPress={() => navigation.navigate("GameScreen",{
-                             game: g
-                         })}
-                     >
-                         <GameInfo
-                             category={g.category}
-                             name={g.name}
-                             about={g.about}
-                             img={g.img}
-                         />
-                     </TouchableOpacity>
-
-                  )
-              }
-          </ScrollView>
-          {
-              userCredentials.fullName ? <Nav navigation={navigation}/> : null
-          }
-
-  </View>
+      }
+    </View>
   )
 });
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: "#eee",
-        paddingBottom: 60,
     },
 });

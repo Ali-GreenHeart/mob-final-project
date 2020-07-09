@@ -28,14 +28,14 @@
         howToPlay: "Compare the color of name and the color of circle.Select whether they match.If you give wrong answer 5 times,you'll lose.",
         img: Color
     },
-    {
-        id  : genID(),
-        name: "Traffic Light",
-        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
-        category: "attention",
-        howToPlay: "Remember the color position on the traffic light.Does the new position of the color match thee previous one?If you give wrong answer 5 times,you'll lose.",
-        img: TrafficLight
-    },
+     {
+         id  : genID(),
+         name: "Alpha Reflex",
+         about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
+         category: "speed",
+         howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
+         img: AlphaReflex
+     },
     {
         id  : genID(),
         name: "Memory Grid",
@@ -44,6 +44,14 @@
         howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
         img: MemoryGrid
     },
+     {
+         id  : genID(),
+         name: "Traffic Light",
+         about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
+         category: "attention",
+         howToPlay: "Remember the color position on the traffic light.Does the new position of the color match thee previous one?If you give wrong answer 5 times,you'll lose.",
+         img: TrafficLight
+     },
      {
          id  : genID(),
          name: "TicTac",
@@ -67,15 +75,6 @@
          category: "speed",
          howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
          img: MinFinder
-     },
-
-     {
-         id  : genID(),
-         name: "Alpha Reflex",
-         about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
-         category: "speed",
-         howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
-         img: AlphaReflex
      },
      {
          id  : genID(),

@@ -5,9 +5,9 @@ import  { Games } from "../../utils/gamesList"
 import  { genID } from "../../utils/genID"
 
 import  { CategoryHeader } from "./CategoryHeader"
-import  { Game } from "./Game"
 import {Nav} from "../../navigation/Nav";
 import {CustomHeader} from "../../components";
+import {GameInfo} from "../HomeScreen/GameInfo";
 
 
 export const AllGamesScreen = ({navigation}) => {
@@ -26,9 +26,18 @@ export const AllGamesScreen = ({navigation}) => {
                         {
                             Games.filter((game) => game.category === c)
                                 .map((g) =>
-                                 <TouchableOpacity onPress={() => navigation.navigate(g.name)} key={g.id}>
-                                     <Game name={g.name} img={g.img}/>
-                                 </TouchableOpacity>
+                                    <TouchableOpacity
+                                        key={g.id}
+                                        onPress={() => navigation.navigate("GameScreen",{
+                                            game: g
+                                        })}
+                                    >
+                                        <GameInfo
+                                            name={g.name}
+                                            about={g.about}
+                                            img={g.img}
+                                        />
+                                    </TouchableOpacity>
 
                                 )
 
@@ -48,7 +57,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingHorizontal: 15,
+        paddingHorizontal: 5,
         marginBottom: 60,
     },
 
