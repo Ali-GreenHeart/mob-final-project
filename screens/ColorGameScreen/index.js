@@ -1,15 +1,14 @@
 import React, { useState,useEffect,useRef} from 'react';
-import { StyleSheet,  View, } from 'react-native';
+import {StyleSheet, Text, View,} from 'react-native';
 
 import { createNumber  } from "../../utils/createNumber"
 import { CustomText,CustomBtn ,EndModal} from '../../components'
 import {ColorCard} from "./ColorCard"
-import {} from "../../components/EndModal"
 
 const randomInd = () => {
         const length = Colors.length;
         return createNumber(1,length)
-    }
+    };
   
 export const Colors =  ["black","brown","purple","green","grey","red","blue","yellow","pink","orange"]
 
@@ -25,8 +24,8 @@ export const ColorGameScreen = ( {navigation}) => {
    const box = boxColor[createNumber(1,2)];
    const openedTimer = useRef(null);
 
-   
-   const clickHandler = (value) => {
+
+    const clickHandler = (value) => {
     const randomColor = Colors[randomInd()];
     const randomName = Colors[randomInd()]
     setColor(randomColor);
@@ -67,7 +66,7 @@ export const ColorGameScreen = ( {navigation}) => {
         clearTimeout(openedTimer.current);
       }
       openedTimer.current = setTimeout(() => setModal(true), 20000);
-     }
+     };
 
    useEffect(() => {
     gameTimer();
@@ -77,7 +76,7 @@ export const ColorGameScreen = ( {navigation}) => {
    return( 
 
     <View style={styles.container}>
-            <CustomText weight="bold">
+        <CustomText weight="bold">
                 points :{points} 
             </CustomText> 
             <CustomText weight="bold">
