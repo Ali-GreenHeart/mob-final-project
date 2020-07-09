@@ -13,6 +13,7 @@ export { MinFinderGameScreen } from "./MinFinderGameScreen"
 export { StatisticsScreen } from "./StatisticsScreen"
 export { AlphaRefGame } from "./AlphaRefGame"
 export { SudokuGameScreen } from "./SudokuGameScreen"
+export { MemoriserGameScreen} from "./NewGame"
 
 
 
