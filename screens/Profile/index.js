@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView} from 'react-native';
 import {CustomBtn, CustomHeader, CustomText} from "../../components";
 import store from "../../store";
-import {logout} from "../../store/userCredentials";
+import {changeProfilePhoto, logout} from "../../store/userCredentials";
 import fbApp from "../../store/firebase";
 import {Nav} from "../../navigation/Nav";
 const windowSize = {
@@ -11,7 +11,7 @@ const windowSize = {
 };
 export const ProfileScreen = ({navigation}) => {
     const [changePhoto, setChangePhoto] = useState(false);
-    const [chosenPhoto, setChosenPhoto] = useState(fbApp.auth.currentUser.photoURL || require('./images/Male1.png'));
+    const [chosenPhoto, setChosenPhoto] = useState(store.getState().userCredentials.img || require('./images/Male1.png'));
     const photoList = [
         require('./images/Male1.png'),
         require('./images/Male2.png'),
@@ -30,13 +30,14 @@ export const ProfileScreen = ({navigation}) => {
     const setPhoto = (item) => {
         setChosenPhoto(item);
         setChangePhoto(false);
-        fbApp.auth.currentUser.updateProfile({photoURL: item})
+        fbApp.auth.currentUser.updateProfile({photoURL: item});
+        store.dispatch(changeProfilePhoto({img: item}));
     };
     return (
         <View style={styles.container}>
             <CustomHeader name={"Home"} navigation={navigation} back={true}/>
             <View style={styles.imageWrapper}><Image source={chosenPhoto} style={styles.profileImg}/></View>
-            <CustomText style={styles.name}>{store.getState().userCredentials.fullName}</CustomText>
+            <CustomText style={styles.name} weight={"semi"}>{store.getState().userCredentials.fullName}</CustomText>
             { changePhoto &&
                 <View style={styles.imageContainer}>
                     {photoList.map((item, index) => (
@@ -70,10 +71,11 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         backgroundColor: 'white',
+        paddingVertical: 30,
     },
     galleryImage: {
        width: (windowSize.width-100)/2,
-        height: (windowSize.height-100)/3.5,
+        height: (windowSize.height-100)/3.8,
     },
     profileImg: {
 
@@ -84,7 +86,8 @@ const styles = StyleSheet.create({
     name: {
        alignSelf: "center",
        marginTop: 20,
-       marginBottom: 20
+       marginBottom: 20,
+        fontSize: 24,
     },
     checkContainer: {
         backgroundColor: 'rgba(50,50,50,0.5)',

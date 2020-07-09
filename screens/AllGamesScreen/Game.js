@@ -39,14 +39,15 @@ const styles= StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
     },
     gameImg: {
         width: "30%",
     },
     text: {
-        padding: 10
+        padding: 10,
+        position: 'absolute',
+        alignItems: 'center'
     },
     name: {
         textTransform: "uppercase",

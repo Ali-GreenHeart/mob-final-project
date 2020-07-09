@@ -60,8 +60,7 @@ export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: "#eee"
+        backgroundColor: "#eee",
+        paddingBottom: 60,
     },
-
-
 });

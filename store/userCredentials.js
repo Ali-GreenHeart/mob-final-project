@@ -1,5 +1,7 @@
 const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
+const CHANGE_PROFILE_PHOTO = "CHANGE_PROFILE_PHOTO";
+
 
 export const MODULE_NAME = "userCredentials";
 export const getUserCredentials = (state) => state[MODULE_NAME];
@@ -26,6 +28,10 @@ export function userCredentialReducer(state = initialState, {type, payload}) {
             fullName: null,
             img: null
         };
+        case CHANGE_PROFILE_PHOTO: return {
+            ...state,
+            img: payload.img
+        };
         default: return state;
     }
 }
@@ -37,4 +43,9 @@ export const signIn = (payload) =>({
 });
 export const logout = () =>({
     type: LOGOUT
+});
+
+export const changeProfilePhoto = (payload) => ({
+    type: CHANGE_PROFILE_PHOTO,
+    payload
 });
