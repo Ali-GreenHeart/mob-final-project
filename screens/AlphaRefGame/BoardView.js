@@ -23,7 +23,7 @@ function shuffle(array) {
 
         j = Math.floor(Math.random() * (i+1));
 
-        // swap randomly chosen element with current element
+
         temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -71,18 +71,21 @@ export const BoardView = ({navigation}) => {
 
     const clickTile = (id) => {
 
-
+        console.log(id);
         if(id !== number) {
 
             setModal(true);
         }
         setNumber((number) => number+1) ;
+       if (number===15){
+           setModal(true);
+        }
     };
 
     const resetGame = () => {
         setModal(false);
         setNumber(0);
-        setRanNums(shuffle(nums))
+        setRanNums(shuffle(nums));
         gameTimer();
     };
     const gameTimer = () => {
@@ -90,7 +93,7 @@ export const BoardView = ({navigation}) => {
             clearTimeout(openedTimer.current);
         }
         openedTimer.current = setTimeout(() => setModal(true), 30000);
-    }
+    };
 
     useEffect(() => {
         gameTimer();
