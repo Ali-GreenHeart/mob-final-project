@@ -8,6 +8,8 @@
  import AlphaReflex from "../assets/GameImg/AlphaReflex.jpeg"
  import Sudoku from "../assets/GameImg/Sudoku.jpeg"
  import TicTac from "../assets/GameImg/TicTac.jpeg"
+ import Memorise from "../assets/GameImg/memorise.jpeg"
+
 
  export const Games = [
     {
@@ -82,5 +84,13 @@
          category: "logical thinking",
          howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
          img: Sudoku
+     },
+     {
+         id  : genID(),
+         name: "Memoriser",
+         about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
+         category: "memory",
+         howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
+         img: Memorise
      },
 ];

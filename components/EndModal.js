@@ -3,14 +3,20 @@ import { StyleSheet, Modal, View } from "react-native";
 import {CustomText} from "./CustomText";
 import {CustomBtn} from "./CustomBtn"
 
-export const EndModal = ({points, close, visible ,navigation}) => {
+export const EndModal = ({points, close, visible ,navigation ,win}) => {
 
 
   return (
     <Modal visible={visible} transparent={true} animationType="fade">
       <View style={styles.container}>
         <View style={styles.card}>
-          <CustomText>Time's out!</CustomText>
+          {
+            win ?
+
+                <CustomText>You win!</CustomText>:
+                <CustomText>Time's out!</CustomText>
+          }
+
           <CustomText weight="bold" style={styles.score}>Your score: {points}</CustomText>
           <CustomBtn title="Replay" onPress={close} style={styles.btn}/>
           <CustomBtn title="Exit" onPress={() => {close(); navigation.navigate("Home");}} style={styles.btn}/>

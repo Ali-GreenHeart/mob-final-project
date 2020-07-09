@@ -2,12 +2,12 @@ import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import { Ionicons, FontAwesome, Entypo } from '@expo/vector-icons';
 
-import Header from './components/Header';
+import { EndModal } from "../../components"
 import Score from './components/Score';
 import Card from './components/Card';
 import helpers from './utils/helpers';
 
-export class NewGame extends React.Component {
+export class MemoriserGameScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -97,10 +97,14 @@ export class NewGame extends React.Component {
       current_selection: [],
       selected_pairs: [],
       score: 0,
-      cards: this.cards
+      cards: this.cards,
+      modal: false,
+      win: true
     }
 
   }
+
+
 
   resetCards() {
     let cards = this.cards.map((obj) => {
@@ -114,7 +118,8 @@ export class NewGame extends React.Component {
       current_selection: [],
       selected_pairs: [],
       cards: cards,
-      score: 0
+      score: 0,
+      modal: false
     });
   }
 
@@ -187,6 +192,13 @@ export class NewGame extends React.Component {
         current_selection: current_selection
       });
     }
+    if(score === 12) {
+      this.setState({
+        ...this.state,
+        modal: true,
+        win: true
+      });
+    }
   }
 
   getRowContents(cards) {
@@ -205,20 +217,30 @@ export class NewGame extends React.Component {
     return contents_r;
   }
 
+  componentDidMount() {
+     setTimeout(() => { this.setState({ ...this.state, modal: true }) }, 60000)
+  }
+
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Header />
+        <Score score={this.state.score} />
+
         <View style={styles.body}>
           {
             this.renderRows.call(this)
           }
         </View>
-        <Score score={this.state.score} />
-        <Button
-          onPress={this.resetCards}
-          title="Reset"
-          color="#008CFA"
+
+
+        <EndModal
+         visible={this.state.modal}
+         close={this.resetCards}
+         points={this.state.score}
+         navigation={this.props.navigation}
+         win={this.state.win}
         />
       </View>
     );
@@ -227,6 +249,7 @@ export class NewGame extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 25,
     flex: 1,
     alignSelf: 'stretch',
     backgroundColor: '#fff'
