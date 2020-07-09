@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View,Image, TouchableOpacity  } from 'react-native';
 
-import  { CustomText } from "../components"
+import  { CustomText } from "./CustomText"
 import arrowImg from "../assets/backArrow.png"
 
 export const CustomHeader = ({name,navigation,back}) => {
