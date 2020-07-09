@@ -43,14 +43,15 @@ const styles= StyleSheet.create({
         elevation: 5,
     },
     gameImg: {
-        width: "30%",
+        width: "35%",
+        height: 100,
     },
     text: {
         padding: 10
     },
     name: {
         textTransform: "uppercase",
-        fontSize : 20
+        fontSize : 15
     },
 
 
