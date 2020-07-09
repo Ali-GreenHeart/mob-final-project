@@ -21,15 +21,12 @@ export const HomeScreen = connect(mapStateToProps)(({navigation,userCredentials}
       <View style={styles.container}>
 
           <CustomHeader name={"Home"} navigation={navigation}/>
-
-          {
-              userCredentials.fullName ? <Welcome name={userCredentials.fullName} /> :
-                  <About navigation={navigation}/>
-
-          }
-
-
           <ScrollView style={styles.games}>
+              {
+                  userCredentials.fullName ? <Welcome name={userCredentials.fullName} /> :
+                      <About navigation={navigation}/>
+
+              }
               {
                   Games.map((g) =>
                      <TouchableOpacity
