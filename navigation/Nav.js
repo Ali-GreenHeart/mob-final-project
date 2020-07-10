@@ -1,29 +1,24 @@
 import React  from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet,  View, TouchableOpacity } from 'react-native';
 import {MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
 import {COLORS} from "../styles/colors";
 
 export const Nav = ({navigation}) => {
     return (
         <View style={styles.color}>
-
-        <TouchableOpacity  onPress={() => navigation.navigate("Home")}>
-        <Icon name="home-circle" style={styles.img} />
-        </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => navigation.navigate("All Games")}>
-            <Icon name="gamepad-variant" style={styles.img} />
+            <TouchableOpacity  onPress={() => navigation.navigate("Home")}>
+                <Icon name="home-circle" style={styles.img} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Statistics")}>
-            <Icon name="chart-bar" style={styles.img} />
+            <TouchableOpacity onPress={() => navigation.navigate("All Games")}>
+                <Icon name="gamepad-variant" style={styles.img} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-            <Icon name="account-circle" style={styles.img}/>
+                <Icon name="account-circle" style={styles.img}/>
             </TouchableOpacity>
 
-            </View>
+        </View>
     );
 };
 const styles= StyleSheet.create({
