@@ -38,7 +38,6 @@ const styles= StyleSheet.create({
         alignItems: "center",
         padding: 15,
         flexDirection: "row"
-
     },
     imgBtn: {
         position: "absolute",

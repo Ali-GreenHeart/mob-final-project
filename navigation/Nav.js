@@ -22,7 +22,6 @@ export const Nav = ({navigation}) => {
     );
 };
 const styles= StyleSheet.create({
-
     color:{
         backgroundColor: COLORS.secondBg,
         width:"100%",
