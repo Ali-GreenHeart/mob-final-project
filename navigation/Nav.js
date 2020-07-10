@@ -22,7 +22,6 @@ export const Nav = ({navigation}) => {
     );
 };
 const styles= StyleSheet.create({
-
     color:{
         backgroundColor: COLORS.secondBg,
         width:"100%",
@@ -35,8 +34,6 @@ const styles= StyleSheet.create({
 
     img: {
         fontSize: 50,
-        marginLeft: 5,
-        marginRight: 44,
         color: 'white'
     }
 
