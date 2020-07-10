@@ -23,7 +23,7 @@ function shuffle(array) {
 
         j = Math.floor(Math.random() * (i+1));
 
-        // swap randomly chosen element with current element
+
         temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -39,7 +39,7 @@ export const BoardView = ({navigation}) => {
     const [modal,setModal] = useState(false);
     const [number,setNumber] = useState(0);
     const [ranNums,setRanNums] = useState(shuffle(nums));
-
+    const [win,setWin]=useState(false);
     const openedTimer = useRef(null);
 
 
@@ -71,18 +71,26 @@ export const BoardView = ({navigation}) => {
 
     const clickTile = (id) => {
 
-
         if(id !== number) {
 
             setModal(true);
         }
         setNumber((number) => number+1) ;
+        // console.log(id);
+       if (number===15){
+           setWin(true);
+           setModal(true);
+           // console.log(win);
+           // console.log(modal);
+       }
+
     };
 
     const resetGame = () => {
         setModal(false);
+        setWin(false);
         setNumber(0);
-        setRanNums(shuffle(nums))
+        setRanNums(shuffle(nums));
         gameTimer();
     };
     const gameTimer = () => {
@@ -90,7 +98,7 @@ export const BoardView = ({navigation}) => {
             clearTimeout(openedTimer.current);
         }
         openedTimer.current = setTimeout(() => setModal(true), 30000);
-    }
+    };
 
     useEffect(() => {
         gameTimer();
@@ -105,6 +113,7 @@ export const BoardView = ({navigation}) => {
                 navigation={navigation}
                 close={resetGame}
                 points={number ? number-1 : 0}
+                win={win}
             />
 
         </View>)

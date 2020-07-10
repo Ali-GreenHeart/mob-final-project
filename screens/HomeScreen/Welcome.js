@@ -10,8 +10,6 @@ export const Welcome = ({name}) => {
                 <CustomText style={styles.name} weight={"semi"}>Welcome {name}!</CustomText>
                  <Image source={img} style={styles.img}/>
             </View>
-
-
     )
 };
 
