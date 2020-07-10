@@ -16,7 +16,6 @@ import {WarningModal} from "../../components/warningModal";
 import {CustomLinear} from "../../components/customLinear";
 import {COLORS} from "../../styles/colors";
 import fbApp from "../../store/firebase";
-import {Timer} from "../../components/timer";
 const windowSize = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
