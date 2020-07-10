@@ -35,8 +35,6 @@ const styles= StyleSheet.create({
 
     img: {
         fontSize: 50,
-        marginLeft: 5,
-        marginRight: 44,
         color: 'white'
     }
 
