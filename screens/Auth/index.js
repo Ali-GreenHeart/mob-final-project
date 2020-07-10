@@ -9,15 +9,13 @@ import {
     Dimensions
 } from 'react-native';
 import {CustomBtn, CustomText} from "../../components";
-import {View, TextInput, StyleSheet, TouchableOpacity, Keyboard, TouchableWithoutFeedback} from 'react-native';
-import {CustomBtn, CustomHeader, CustomText} from "../../components";
-import fbApp from "../../store/firebase";
 import {signIn} from "../../store/userCredentials";
 import store from "../../store";
 import {BackgroundBubbles} from "../../components/background-bubbles";
 import {WarningModal} from "../../components/warningModal";
 import {CustomLinear} from "../../components/customLinear";
 import {COLORS} from "../../styles/colors";
+import fbApp from "../../store/firebase";
 const windowSize = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
