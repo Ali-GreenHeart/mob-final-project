@@ -8,9 +8,7 @@ import {
     TouchableWithoutFeedback,
     Dimensions
 } from 'react-native';
-import {CustomBtn, CustomText} from "../../components";
-import {View, TextInput, StyleSheet, TouchableOpacity, Keyboard, TouchableWithoutFeedback} from 'react-native';
-import {CustomBtn, CustomHeader, CustomText} from "../../components";
+\import {CustomBtn, CustomHeader, CustomText} from "../../components";
 import fbApp from "../../store/firebase";
 import {signIn} from "../../store/userCredentials";
 import store from "../../store";
