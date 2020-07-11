@@ -6,7 +6,7 @@ import  { genID } from "../../utils/genID"
 
 import  { CategoryHeader } from "./CategoryHeader"
 import {Nav} from "../../navigation/Nav";
-import {CustomHeader} from "../../components";
+import {BackgroundBubbles, CustomHeader, CustomLinear} from "../../components";
 import {GameInfo} from "../HomeScreen/GameInfo";
 
 
@@ -16,7 +16,9 @@ export const AllGamesScreen = ({navigation}) => {
 
     return (
         <View style={{flex:1}}>
-            <CustomHeader name={"All Games"} navigation={navigation} back={true}/>
+            <CustomLinear>
+                <BackgroundBubbles/>
+            <CustomHeader name={"All Games"} navigation={navigation} />
 
             <ScrollView style={styles.container}>
             {
@@ -49,6 +51,7 @@ export const AllGamesScreen = ({navigation}) => {
 
           </ScrollView>
             <Nav navigation={navigation}/>
+            </CustomLinear>
         </View>
     );
 };
@@ -56,7 +59,6 @@ export const AllGamesScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         paddingHorizontal: 5,
         marginBottom: 60,
     },

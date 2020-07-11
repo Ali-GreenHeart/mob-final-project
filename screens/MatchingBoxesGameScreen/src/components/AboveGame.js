@@ -3,11 +3,11 @@ import {
   Text,
   StyleSheet,
   TouchableNativeFeedback,
+  TouchableOpacity
 } from 'react-native'
 import React from 'react'
 
 import Dimensions from '../utils/dimensions'
-import TouchableOpacity from "react-native-web/src/exports/TouchableOpacity";
 
 const styles = StyleSheet.create({
   container: {

@@ -4,7 +4,7 @@ import {View, StyleSheet} from 'react-native';
 
 export const BackgroundBubbles = () => {
     return (
-        <View>
+        <View >
             <View style={styles.bubbleBig}/>
             <View style={styles.bubbleSmall}/>
         </View>
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         height: 400,
         backgroundColor: 'rgba(255,255,255,0.15)',
         position: 'absolute',
-        zIndex: 1,
         borderRadius: 300,
         top: -150,
         left: -100,
@@ -30,7 +29,6 @@ const styles = StyleSheet.create({
         height: 250,
         backgroundColor: 'rgba(255,255,255,0.15)',
         position: 'absolute',
-        zIndex: 1,
         borderRadius: 300,
         top: -80,
         right: -80,

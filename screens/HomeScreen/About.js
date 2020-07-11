@@ -1,19 +1,23 @@
 import React from 'react';
 import { StyleSheet, View,TouchableOpacity,TouchableNativeFeedback,Platform} from 'react-native';
-import {CustomBtn, CustomText} from "../../components";
 
+import {CustomBtn, CustomText} from "../../components";
+import { COLORS } from "../../styles/colors"
 
 export const About = ({navigation}) => {
    return (
        <View >
        <View style={styles.info}>
-        <CustomText weight={"semi"} style={styles.infoHeader}>About App</CustomText>
+        <CustomText weight={"semi"}  style={styles.infoHeader}>About App</CustomText>
         <CustomText style={styles.infoText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur commodi consectetur consequuntur cum dolores eaque error,</CustomText>
        </View>
-    <View style={styles.footer}>
-        <CustomBtn title={'SignUp'} onPress={() => navigation.navigate("Login")}/>
+        <CustomBtn
+            style={styles.btn}
+            title={'Sign Up'}
+            onPress={() => navigation.navigate("Login")}
+            color={COLORS.secondWarning}
+        />
      </View>
-       </View>
    )
 };
 
@@ -28,16 +32,19 @@ const styles = StyleSheet.create({
     },
     infoHeader:{
         fontSize: 25,
-        fontWeight: 'bold',
         paddingTop:20,
+        color: "#fff"
     },
     infoText:{
-        fontSize: 12,
+        fontSize: 14,
+        color: "#fff",
+
     },
-    footer:{
-        marginVertical: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
+    btn:{
+        marginVertical: 10,
+        width: "50%",
+        alignSelf: "center"
+
     },
 
 });

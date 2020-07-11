@@ -57,7 +57,7 @@ export const ProfileScreen = ({navigation}) => {
         <CustomLinear>
             <BackgroundBubbles/>
             <CustomHeader name={changePhoto ? "Choose profile photo" : "My Profile"} navigation={navigation} back={false} setPhoto={changePhoto} onPress={closeModal}/>
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
             <View style={styles.imageWrapper}><Image source={chosenPhoto} style={styles.profileImg}/></View>
             <CustomText style={styles.name} weight={"semi"}>{store.getState().userCredentials.fullName}</CustomText>
             { changePhoto &&
@@ -80,7 +80,7 @@ export const ProfileScreen = ({navigation}) => {
                 </View>
             }
             <Nav navigation={navigation} />
-        </View>
+        </ScrollView>
             {showModal && <WarningModal message={message} functionality={[{button: 'Cancel', onPress: closeModal},{button: 'Choose', onPress: choose}]}/>}
         </CustomLinear>
     );

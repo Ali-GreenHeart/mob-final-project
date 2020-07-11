@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     container:{
         justifyContent:"center",
         overflow:"hidden",
-        borderRadius:50,
+        borderRadius:10,
     },
     btn:{
         width:"100%",

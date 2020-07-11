@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import { CustomText } from "../../components"
+
+import {CustomBtn, CustomText} from "../../components"
+import { COLORS } from "../../styles/colors"
 export const GameInfo = ({name,about,category,img}) => {
     return(
 
@@ -25,7 +27,7 @@ export const GameInfo = ({name,about,category,img}) => {
 const styles= StyleSheet.create({
     game:{
         flexDirection: 'row',
-        backgroundColor: '#fff',
+        backgroundColor: "#fff",
         alignItems:'center',
         marginHorizontal: 15,
         marginVertical: 5,
@@ -37,27 +39,27 @@ const styles= StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
     },
     gameImg: {
-        width: "30%",
+        width: 100,
         height: 100,
+        borderRadius: 10
     },
     text: {
         padding: 10
     },
     name: {
         textTransform: "uppercase",
-        fontSize : 15
+        fontSize : 15,
+        color: COLORS.mainBg
     },
     category: {
-
+        color: COLORS.mainWarning
     },
     about: {
-        fontSize: 8,
+        fontSize: 10,
         width: 200,
         textAlign: "justify"
-    }
-
+    },
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image,TouchableOpacity } from 'react-native';
 import { CustomText } from "../../components"
+import {COLORS} from "../../styles/colors";
 
 export const Game = ({game,navigation}) => {
     return(
@@ -10,8 +11,8 @@ export const Game = ({game,navigation}) => {
                 onPress={() => navigation.navigate("GameScreen",{
                     game: game
                 })}
-            >
-                <Image style={styles.gameImg}
+                >
+                    <Image style={styles.gameImg}
                        source={game.img}/>
 
                 <View style={styles.text}>
@@ -26,10 +27,10 @@ export const Game = ({game,navigation}) => {
 };
 const styles= StyleSheet.create({
     game:{
-        backgroundColor: '#eee',
+        backgroundColor: '#fff',
         justifyContent: "center",
-        width: "47%",
-        margin: 4,
+        width: 150,
+        height: 150,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -37,13 +38,12 @@ const styles= StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 8,
-
+        margin : 10
     },
     gameImg: {
-        width: "99%",
-        height: 170,
+        width: 110,
+        height: 100,
         alignSelf: "center"
     },
     text: {
@@ -52,10 +52,12 @@ const styles= StyleSheet.create({
     },
     name: {
         textTransform: "uppercase",
-        fontSize : 12
+        fontSize : 12,
+        color: COLORS.mainBg
     },
     category: {
-        fontSize: 10
+        fontSize: 10,
+        color: COLORS.mainWarning
     }
 
 
