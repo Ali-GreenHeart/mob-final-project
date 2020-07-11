@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet,  View, Image,  } from 'react-native';
+import { StyleSheet,  View, Image,  ScrollView} from 'react-native';
 
-import {CustomText, CustomBtn,  CustomHeader} from '../components'
+import {CustomText, CustomBtn,  CustomHeader,CustomLinear,BackgroundBubbles} from '../components'
+import {COLORS} from "../styles/colors";
 
 export const GameScreen = ({route,navigation}) => {
 
@@ -10,40 +11,49 @@ export const GameScreen = ({route,navigation}) => {
 
     return (
     <View style={styles.container}>
-        <CustomHeader name={game.name} navigation={navigation} back={true}/>
 
-        <View>
-            <CustomText style={styles.title} weight="bold">{game.name}</CustomText>
-            <Image style={styles.img} source={game.img}/>
-            <CustomText style={styles.about} weight="medium" >{game.howToPlay}</CustomText>
-            <CustomBtn
-                style = {styles.btn}
-                title= "play"
-                onPress={() => navigation.navigate(game.name)}
-            />
-        </View>
+        <CustomLinear>
+            <BackgroundBubbles/>
+            <CustomHeader navigation={navigation} back={true}/>
+
+            <ScrollView>
+                <CustomText style={styles.title} weight="bold">{game.name}</CustomText>
+                <Image style={styles.img} source={game.img}/>
+                <CustomText style={styles.about} weight="medium" >{game.howToPlay}</CustomText>
+                <CustomBtn
+                    style = {styles.btn}
+                    title= "play"
+                    onPress={() => navigation.navigate(game.name)}
+                    color={COLORS.secondWarning}
+                />
+            </ScrollView>
+        </CustomLinear>
+
+
 
 
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-    backgroundColor: '#fff',
+      alignItems: "center",
+      justifyContent: "center",
+
   },
   title: {
       fontSize:40,
       marginVertical: 30,
-      alignSelf: "center"
+      color: "#fff",
+      alignSelf: "center",
 
   },
   img: {
       width: 150,
       height: 150,
       borderRadius: 10,
-      backgroundColor: "#eee",
       alignSelf: "center"
 
   },
@@ -53,6 +63,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 50
   },
     btn:{
-      marginHorizontal: 50
+      marginHorizontal: 50,
+        marginBottom: 30
     }
 });

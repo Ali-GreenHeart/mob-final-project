@@ -23,13 +23,14 @@ const styles = StyleSheet.create({
 
     },
     img: {
-        width: 80,
-        height: 80,
-        borderRadius: 40
+        width: 90,
+        height: 100,
+        borderRadius: 50
 
     }
 ,
     name: {
-        fontSize: 20
+        fontSize: 20,
+        color: "#fff"
     }
 });

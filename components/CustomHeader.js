@@ -1,18 +1,18 @@
 import React from 'react';
-import { StyleSheet, View,Image, TouchableOpacity  } from 'react-native';
+import {StyleSheet, View, Image, TouchableOpacity, TouchableNativeFeedback} from 'react-native';
 
 import  { CustomText } from "./CustomText"
 import arrowImg from "../assets/backArrow.png"
-import {COLORS} from "../styles/colors";
-
 export const CustomHeader = ({name,navigation,back, setPhoto,onPress}) => {
+
+
+
     return(
-        <View style={styles.wrapper}>
             <View style={styles.header}>
                 {
                     back ?
                         <TouchableOpacity style={styles.imgBtn} onPress={() => navigation.goBack()}>
-                            <Image source={arrowImg} style={styles.imgBtn}/>
+                           <Image source={arrowImg} style={styles.imgBtn}/>
                         </TouchableOpacity>
                         : null
                 }
@@ -23,17 +23,14 @@ export const CustomHeader = ({name,navigation,back, setPhoto,onPress}) => {
                     </TouchableOpacity>
                 }
             </View>
-        </View>
     )
 };
 const styles= StyleSheet.create({
-    wrapper: {
-        backgroundColor: COLORS.mainBg
-    },
+
     header:{
         width: "100%",
         marginTop: 25,
-        backgroundColor: COLORS.mainBg,
+        backgroundColor: "transparent",
         justifyContent:'center',
         alignItems: "center",
         padding: 15,
@@ -46,7 +43,7 @@ const styles= StyleSheet.create({
         height: 20
     },
     headerText:{
-        fontSize:20,
+        fontSize:25,
         color: "#fff"
     },
     close: {

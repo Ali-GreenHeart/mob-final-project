@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet,  View ,ScrollView,TouchableOpacity} from 'react-native';
 
-import {CustomHeader, CustomText} from "../../components"
+import {BackgroundBubbles, CustomHeader, CustomText} from "../../components"
 import {Welcome} from "./Welcome";
 import {Nav} from "../../navigation/Nav";
 import { Game } from "./Game"
@@ -58,17 +58,16 @@ export const UserHome = ({navigation,userCredentials}) => {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: "#edf9fa",
-        paddingBottom: 60
+        paddingBottom: 60,
     },
     text:{
         fontSize : 17,
         paddingHorizontal: 15,
-        marginBottom: 15
+        marginBottom: 15,
+        color: "#fff"
     },
     games: {
         flexDirection: "row",
-        flexWrap: "nowrap",
         alignItems: "center",
         justifyContent: "center"
 

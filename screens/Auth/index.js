@@ -8,7 +8,7 @@ import {
     TouchableWithoutFeedback,
     Dimensions
 } from 'react-native';
-import {CustomBtn, CustomText} from "../../components";
+import {CustomBtn, CustomHeader, CustomText} from "../../components";
 import {signIn} from "../../store/userCredentials";
 import store from "../../store";
 import {BackgroundBubbles} from "../../components/background-bubbles";
@@ -72,10 +72,11 @@ export const LoginScreen = ({navigation}) => {
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <CustomLinear>
                 <BackgroundBubbles/>
+                <CustomHeader name={"Sign Up"} navigation={navigation} back={true}/>
                 <View style={styles.container}>
                 {showError && <WarningModal message={errorMsg} functionality={[{button: 'Close' , onPress : closeError}]}/>}
                 <View style={styles.wrapper}>
-                    <View>
+                    <View >
                         <CustomText style={styles.pageTitle} weight={"semi"}>{isLogIn ? "Sign In" : "Sign Up"}</CustomText>
 
                         <View>
@@ -96,7 +97,7 @@ export const LoginScreen = ({navigation}) => {
                             </TouchableOpacity>
                         }
                         <CustomBtn title={isLogIn ? "Sign In" : "Sign Up"} style={styles.button} onPress={register}
-                        color={COLORS.mainBg}/>
+                        color={COLORS.secondWarning}/>
                     </View>
                 </View>
             </View>
@@ -110,7 +111,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        zIndex: 3
     },
     wrapper: {
         width: '80%',
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     },
     question:{
         textAlign: "center",
-        fontSize: 16,
+        fontSize: 14,
         marginVertical: 10,
     },
     authLink: {
@@ -140,13 +140,16 @@ const styles = StyleSheet.create({
         textDecorationLine: "underline",
         color: COLORS.purple,
         marginVertical: 10,
+
     },
     button: {
         marginVertical: 10,
+        width: "50%",
+        alignSelf: "center"
     },
     linkContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center'
     },
     forgot: {
