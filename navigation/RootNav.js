@@ -33,14 +33,14 @@ export const RootNav = () => (
             <Screen name="GameScreen" component={GameScreen}/>
             <Screen name="Guess the password" component={PasswordGameScreen}/>
             <Screen name="Color crash" component={ColorGameScreen}/>
-            <Screen name="Memory Grid" component={MemoryGridGameScreen}/>
-            <Screen name="Traffic Light" component={TrafficLightGameScreen}/>
-            <Screen name="Matching Boxes" component={MatchingBoxesGameScreen}/>
-            <Screen name="Min Finder" component={MinFinderGameScreen}/>
-            <Screen name="Tic Tac Toe" component={TicTacGameScreen}/>
+            <Screen name="MEMORY GRID" component={MemoryGridGameScreen}/>
+            <Screen name="TRAFFIC LIGHTS" component={TrafficLightGameScreen}/>
+            <Screen name="MATCHING BOXES" component={MatchingBoxesGameScreen}/>
+            <Screen name="MIN FINDER" component={MinFinderGameScreen}/>
+            <Screen name="TIC TAC TOE" component={TicTacGameScreen}/>
             <Screen name="Alpha Reflex" component={AlphaRefGame}/>
             <Screen name="Sudoku" component={SudokuGameScreen}/>
-            <Screen name="Memoriser" component={MemoriserGameScreen}/>
+            <Screen name="MEMORISER" component={MemoriserGameScreen}/>
         </Navigator>
     </NavigationContainer>
 );

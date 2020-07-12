@@ -38,7 +38,7 @@ export const Games = [
     },
    {
        id  : genID(),
-       name: "Memory Grid",
+       name: "MEMORY GRID",
        about: "It's a great game to train and boost your memory in a playful way. Playing memory games can improve other brain functions, such as attention, concentration, and focus. This game give space to critical thinking and that helps players nurture their attention to detail. Moreover, Every time you start a new game, a random positioning of the colored squares on the grid ensures a different game, so you can replay endlessly!",
        category: "memory",
        howToPlay: "In this memory game, colored squares are displayed on a grid for a limited time during which the player try to memorize the location of each square. When the chronometer stops, the squares automatically disappear from the grid and are displayed below the empty grid. The player must then find the right locations of each square on the grid by clicking them. If you give wrong answer 4 times,you will lose.",
@@ -46,15 +46,15 @@ export const Games = [
    },
     {
         id  : genID(),
-        name: "Traffic Light",
-        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
+        name: "TRAFFIC LIGHTS",
+        about: "This game improves thinking dynamics, attention, short-term memorizing, and cognitive speed and forms the technique of mediated memorizing. The skill of semantic and logical processing of the material is trained, the efficiency of memory work is increased. This allows you to memorize a large amount of information: the names of new acquaintances, telephone numbers, various street addresses, etc. Also, the game activates the speed and accuracy of perception. These skills will be useful in everyday life.",
         category: "attention",
-        howToPlay: "Remember the color position on the traffic light.Does the new position of the color match thee previous one?If you give wrong answer 5 times,you'll lose.",
+        howToPlay: "The rule for this game is simple. You should select “YES”, if the current traffic light is the same as the previous one. Otherwise, if they are different, you should choose “NO”. Here you go!",
         img: TrafficLight
     },
     {
         id  : genID(),
-        name: "Tic Tac Toe",
+        name: "TIC TAC TOE",
         about: "Our version of this game is evolved a bit since the original version in ancient Egypt. This classic game contributes to developmental growth in various ways including understanding of probability, problem solving, spatial reasoning, hand-eye coordination, turn taking and strategizing. It prepares brain for more complex games because it helps you think of multiple things at once.",
         category: "logical thinking",
         howToPlay: "In order to win the game, a player must place three of their marks in a horizontal, vertical, or diagonal row. As the game is for two players, you need to think fast.",
@@ -62,15 +62,15 @@ export const Games = [
     },
     {
         id  : genID(),
-        name: "Matching Boxes",
-        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
+        name: "MATCHING BOXES",
+        about: "This game is a real dopamine goldmine. And dopamine boosts both pleasure and perseverance, while decreasing stress.  It teaches players to estimate, think quickly and strategize by planning next moves and considering how it will affect the board and which combination of movements will have the desired outcome.",
         category: "logical thinking",
-        howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
+        howToPlay: "At each stage, you slide tiles in any of the four directions of the screen (up, down, left and right). If two identical tiles fall onto one another, then they merge into one. Once tiles have slid and merged, a new tile pops up at a random free location of the grid. The best way to get the rules for game is to actually play the game.",
         img: MatchingBoxes
     },
     {
         id  : genID(),
-        name: "Min Finder",
+        name: "MIN FINDER",
         about: "Min Finder game promotes active attention, concentration, switching of attention and visual perception. The game increases the ability to concentrate, develops speed reading skills, and improves memory. Practicing this game at least one time in a day will help you analyze a large amount of information and quickly navigate in problematic situations.",
         category: "speed",
         howToPlay: "The instruction for the game is pretty simple. You need to find the lowest number among the given options in a limited time.",
@@ -86,10 +86,10 @@ export const Games = [
     },
     {
         id  : genID(),
-        name: "Memoriser",
-        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur culpa cumque delectus dignissimos dolores dolorum inventore iure magnam maxime minima .",
+        name: "MEMORISER",
+        about: "Memoriser develops a mechanical, figurative memory in the form of a game. In the process of training the brain learns to group and structure the information received. The simulator improves visual thinking, imagination and flexibility of mind. These skills will help to work more effectively with information, to acquire new knowledge and learn new things quickly.",
         category: "memory",
-        howToPlay: "Memorize cell positions.When cells disappears tap the hidden cells.İf you give wrong answer 4 times,you'll lose.",
+        howToPlay: "In the game board, there are always two identical images. Start the game by flipping a card. Then try to find another card that has the same image as the first. If you can't find a pair, the flipped cards will be flipped back with the face down. Try to remember these images as it becomes easier to find pairs the longer you play. When you find a pair they are removed from the board and when you find all the pairs in this memory, you have completed the level.",
         img: Memorise
     },
 ];
