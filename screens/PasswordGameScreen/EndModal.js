@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Modal, View, } from "react-native";
 import { CustomText, CustomBtn } from "../../components";
+import {COLORS} from "../../styles/colors";
 
 
 export const EndModal = ({ isWin, close, visible,numbers, steps,navigation}) => {
@@ -31,9 +32,20 @@ export const EndModal = ({ isWin, close, visible,numbers, steps,navigation}) => 
              
             }
           
-         
-          <CustomBtn title="Replay" onPress={close} style={styles.btn}/>
-          <CustomBtn title="Exit" onPress={() => {close(); navigation.navigate("Home");}} style={styles.btn}/>
+         <View style={styles.btnContainer}>
+           <CustomBtn
+               title="Replay"
+               onPress={close}
+               style={styles.btn}
+               color={COLORS.secondWarning}/>
+           <CustomBtn
+               title="Exit"
+               onPress={() => {close(); navigation.navigate("Home");}}
+               style={styles.btn}
+               color={COLORS.secondWarning}/>
+
+         </View>
+
         </View>
       </View>
     </Modal>
@@ -64,8 +76,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
+  btnContainer: {
+    flexDirection: "row",
+
+  },
   btn: {
     width: 100,
-    marginVertical: 5
+    marginVertical: 5,
+    marginHorizontal: 10,
   }
 });

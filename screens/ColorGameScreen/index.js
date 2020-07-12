@@ -2,7 +2,7 @@ import React, { useState,useEffect,useRef} from 'react';
 import {StyleSheet, Text, View,} from 'react-native';
 
 import { createNumber  } from "../../utils/createNumber"
-import { CustomText,CustomBtn ,EndModal} from '../../components'
+import { CustomText,CustomBtn ,EndModal,Timer} from '../../components'
 import {ColorCard} from "./ColorCard"
 
 const randomInd = () => {
@@ -20,6 +20,7 @@ export const ColorGameScreen = ( {navigation}) => {
    const [boxColor, setBoxColor] = useState([color,name]);
    const [points, setPoints] = useState(0);
    const [wrongs, setWrongs] = useState(0);
+   const [time,setTime] = useState(20);
 
    const box = boxColor[createNumber(1,2)];
    const openedTimer = useRef(null);
@@ -57,17 +58,20 @@ export const ColorGameScreen = ( {navigation}) => {
    const resetGame = () => {
     setModal(false);
     setPoints(0);
+    setPoints(0);
+    setWrongs(0);
+    setTime(20);
     gameTimer();
-   }; 
+   };
 
 
    const gameTimer = () => {
-    if (openedTimer.current) {
-        clearTimeout(openedTimer.current);
-      }
-      openedTimer.current = setTimeout(() => setModal(true), 20000);
-     };
 
+       if (openedTimer.current) {
+           clearTimeout(openedTimer.current);
+       }
+       openedTimer.current = setTimeout(() => setModal(true), time * 1000);
+   }
    useEffect(() => {
     gameTimer();
   }, []);
@@ -76,12 +80,13 @@ export const ColorGameScreen = ( {navigation}) => {
    return( 
 
     <View style={styles.container}>
+
+        <Timer initialTime={time}/>
+
         <CustomText weight="bold">
-                points :{points} 
-            </CustomText> 
-            <CustomText weight="bold">
-                wrongs {wrongs}
-            </CustomText>
+                points : {points}
+        </CustomText>
+
         <ColorCard
          color= {color}
          name={name}
