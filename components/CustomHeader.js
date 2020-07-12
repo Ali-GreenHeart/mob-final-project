@@ -3,7 +3,7 @@ import {StyleSheet, View, Image, TouchableOpacity, TouchableNativeFeedback} from
 
 import  { CustomText } from "./CustomText"
 import arrowImg from "../assets/backArrow.png"
-export const CustomHeader = ({name,navigation,back, setPhoto,onPress}) => {
+export const CustomHeader = ({name,navigation,back}) => {
 
 
 
@@ -17,11 +17,7 @@ export const CustomHeader = ({name,navigation,back, setPhoto,onPress}) => {
                         : null
                 }
                 <CustomText style={styles.headerText} weight={"semi"}>{ name }</CustomText>
-                {
-                    setPhoto &&  <TouchableOpacity style={styles.close} onPress={onPress}>
-                        <CustomText style={styles.close} weight={"medium"}>close</CustomText>
-                    </TouchableOpacity>
-                }
+
             </View>
     )
 };

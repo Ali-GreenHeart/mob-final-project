@@ -56,31 +56,41 @@ export const ProfileScreen = ({navigation}) => {
     return (
         <CustomLinear>
             <BackgroundBubbles/>
-            <CustomHeader name={changePhoto ? "Choose profile photo" : "My Profile"} navigation={navigation} back={false} setPhoto={changePhoto} onPress={closeModal}/>
+            <CustomHeader name={"My Profile"} navigation={navigation} back={false} />
             <ScrollView style={styles.container}>
             <View style={styles.imageWrapper}><Image source={chosenPhoto} style={styles.profileImg}/></View>
             <CustomText style={styles.name} weight={"semi"}>{store.getState().userCredentials.fullName}</CustomText>
-            { changePhoto &&
-            <View style={styles.gallery}>
-                <View style={styles.imageContainer}>
-                    {photoList.map((item, index) => (
-                        <TouchableOpacity key={index} onPress={() =>confirm(item)}>
-                            <View>
-                                <Image source={item} style={styles.galleryImage}/>
+
+                <View >
+                    <CustomBtn style={styles.btn} onPress={() => setChangePhoto(true)} title={"Change photo"} color={COLORS.secondWarning}/>
+                    <CustomBtn style={styles.btn} title={"Sign out"} onPress={() => SignOut()} color={COLORS.secondWarning}/>
+                </View>
+                { changePhoto &&
+                <View style={styles.gallery}>
+                    <View style={styles.galleryHdr}>
+                        <CustomText style={styles.galleryTitle}>Choose profile photo</CustomText>
+                        <TouchableOpacity onPress={() => closeModal()}>
+                            <View style={styles.iconContainer}>
+                                <CustomText weight={"bold"} style={styles.Icon}>X</CustomText>
                             </View>
                         </TouchableOpacity>
-                    ))}
+
+                    </View>
+
+                    <View style={styles.imageContainer}>
+                        {photoList.map((item, index) => (
+                            <TouchableOpacity key={index} onPress={() =>confirm(item)}>
+                                <View>
+                                    <Image source={item} style={styles.galleryImage}/>
+                                </View>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
                 </View>
-            </View>
-            }
-            {!changePhoto &&
-                <View >
-                    <CustomBtn style={styles.btn} onPress={() => setChangePhoto(true)} title={"Change photo"} color={COLORS.mainBg}/>
-                    <CustomBtn style={styles.btn} title={"Sign out"} onPress={() => SignOut()} color={COLORS.mainBg}/>
-                </View>
-            }
-            <Nav navigation={navigation} />
+                }
+
         </ScrollView>
+            <Nav navigation={navigation} />
             {showModal && <WarningModal message={message} functionality={[{button: 'Cancel', onPress: closeModal},{button: 'Choose', onPress: choose}]}/>}
         </CustomLinear>
     );
@@ -95,10 +105,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         backgroundColor: 'white',
         height: '100%',
-        zIndex: 4,
     },
     imageContainer: {
-
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
@@ -106,6 +114,32 @@ const styles = StyleSheet.create({
     galleryImage: {
        width: (windowSize.width-100)/2.6,
         height: (windowSize.height-100)/3.8,
+    },
+    galleryHdr: {
+        flexDirection: "row",
+        justifyContent:"space-between",
+        alignItems: "center",
+        marginHorizontal: 15,
+        marginVertical: 10,
+        borderBottomColor: '#74B9FF',
+        borderBottomWidth: 1,
+        paddingBottom: 2
+
+    },
+    galleryTitle: {
+        fontSize: 20
+    },
+    iconContainer: {
+        backgroundColor: COLORS.mainWarning,
+        width: 40,
+        height: 40,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: "center"
+    },
+    Icon: {
+        fontSize: 25,
+        color: 'white',
     },
     profileImg: {
         width: 220,
@@ -115,7 +149,7 @@ const styles = StyleSheet.create({
     name: {
        alignSelf: "center",
        marginTop: 20,
-       marginBottom: 20,
+       marginBottom: 15,
         fontSize: 24,
         color: 'white'
     },
@@ -123,9 +157,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(50,50,50,0.5)',
     },
     btn: {
-        width: 300,
+        width: "50%",
         alignSelf: "center",
-        marginVertical: 24
+        marginVertical: 10
     },
     imageWrapper: {
        // borderWidth: 2,
