@@ -28,7 +28,7 @@ export const UserHome = ({navigation,userCredentials}) => {
             <CustomHeader name={"Home"} navigation={navigation}/>
             <ScrollView >
                 <Welcome name={userCredentials.fullName} />
-                <CustomText style={styles.text}>We prepared 4 games for you! Ayan bura qeşeng sözler tap pls :D </CustomText>
+                <CustomText style={styles.text}>We have prepared 4 games for you! Enjoy your journey! Become the best version of yourself! </CustomText>
                 <View style={styles.games}>
                     <Game
                         game={logic[logicGame]}
