@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Modal, View } from "react-native";
 import {CustomText} from "./CustomText";
 import {CustomBtn} from "./CustomBtn"
+import {COLORS} from "../styles/colors";
 
 export const EndModal = ({points, close, visible ,navigation ,win}) => {
 
@@ -18,8 +19,10 @@ export const EndModal = ({points, close, visible ,navigation ,win}) => {
           }
 
           <CustomText weight="bold" style={styles.score}>Your score: {points}</CustomText>
-          <CustomBtn title="Replay" onPress={close} style={styles.btn}/>
-          <CustomBtn title="Exit" onPress={() => {close(); navigation.navigate("Home");}} style={styles.btn}/>
+          <View style={styles.btnContainer}>
+            <CustomBtn title="Replay" onPress={close} style={styles.btn} color={COLORS.secondWarning}/>
+            <CustomBtn title="Exit" onPress={() => {close(); navigation.navigate("Home");}} style={styles.btn} color={COLORS.secondWarning}/>
+          </View>
         </View>
       </View>
     </Modal>
@@ -47,10 +50,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee"
   },
   score: {
-    fontSize: 27
+    fontSize: 27,
+    marginVertical: 10
+  },
+  btnContainer: {
+    flexDirection: "row",
+    borderTopColor: '#74B9FF',
+    borderTopWidth: 1,
+    paddingTop:3
   },
   btn: {
     width: 100,
-    marginVertical: 5
+    margin: 10
   }
 });

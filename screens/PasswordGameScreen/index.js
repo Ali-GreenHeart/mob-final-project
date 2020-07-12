@@ -2,7 +2,7 @@ import React, { useState,useRef } from "react";
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 
 import { createNumber } from "../../utils/createNumber"
-import { CustomText, CustomBtn } from "../../components";
+import {CustomText, CustomBtn, WarningModal, CustomLinear} from "../../components";
 import { EndModal } from "./EndModal"
 import { History } from "./History"
 import { Keyboard } from "./Keyboard"
@@ -15,6 +15,7 @@ export const PasswordGameScreen = ({navigation}) => {
   const [history, setHistory ]= useState([]);
   const [modal, setModal ]= useState(false);
   const [win, setWin ]= useState(true);
+  const [warning,setWarning] = useState(false);
 
   const yellow = useRef(0);
   const green = useRef(0)
@@ -42,7 +43,7 @@ export const PasswordGameScreen = ({navigation}) => {
 
   const numberButtonHandler = (btn) => {   
       setInput([...input, btn]);   
-    }
+    };
   
   const setInputHistory = () => {
      setHistory([
@@ -59,22 +60,27 @@ export const PasswordGameScreen = ({navigation}) => {
   const submitButtonHandler = () => {
     if(input.length === 4)
     {
-      yellowCount();
-      greenCount();
-      setInput([])
-      if(green.current === 4 ? true : false) {
-        setModal(true)
+      if((new Set(input)).size !== input.length) {
+        setWarning(true);
+        setInput([]);
       }
-    }
-    setInputHistory();
+      else {
+        yellowCount();
+        greenCount();
+        setInput([]);
+        if(green.current === 4 ) {
+          setModal(true)
+        }
+      setInputHistory();
+      }
 
-         
-  } 
+      }
+  } ;
 
   const resetGame = () => {
     setInput("");
     yellow.current = 0;
-    green.current = 0
+    green.current = 0;
     setNumbers(createNumber(4,10));
     setHistory([]);
     setModal(false);
@@ -90,7 +96,12 @@ export const PasswordGameScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-     
+      {warning ? <WarningModal
+          message={"There is no repeated digit"}
+          functionality={[
+            { button: 'OK',
+              onPress: () => setWarning(false)},
+          ]}/> : null}
         
       <History history={history}/>
 
@@ -108,10 +119,10 @@ export const PasswordGameScreen = ({navigation}) => {
       </View>
 
       <View style={styles.inputContainer}>        
-        <Text style={styles.input}> {input[0]} </Text>
-        <Text style={styles.input}> {input[1]} </Text>
-        <Text style={styles.input}> {input[2]} </Text>
-        <Text style={styles.input}> {input[3]} </Text>
+        <CustomText style={styles.input}> {input[0]} </CustomText>
+        <CustomText style={styles.input}> {input[1]} </CustomText>
+        <CustomText style={styles.input}> {input[2]} </CustomText>
+        <CustomText style={styles.input}> {input[3]} </CustomText>
       </View>
       
       <Keyboard
@@ -138,6 +149,8 @@ export const PasswordGameScreen = ({navigation}) => {
         steps={history.length}
         navigation={navigation}
        />
+
+
     </View>
   );
 };
@@ -175,7 +188,8 @@ const styles = StyleSheet.create({
   },  
   inputContainer: {
     flexDirection: "row",
-      marginVertical:10
+     marginVertical:10,
+    zIndex:  -1,
   }, 
   input: {  
     height: 50,
