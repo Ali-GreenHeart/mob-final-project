@@ -29,7 +29,8 @@ const styles= StyleSheet.create({
         paddingTop:10,
         bottom: 0,
         position: 'absolute',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        zIndex: 2
     },
 
     img: {
