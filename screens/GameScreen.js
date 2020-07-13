@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   },
     btn:{
         marginHorizontal: 50,
-        marginBottom: 30
+        marginBottom: 30,
+        width: "50%"
     }
 });

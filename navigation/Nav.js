@@ -23,7 +23,7 @@ export const Nav = ({navigation}) => {
 };
 const styles= StyleSheet.create({
     color:{
-        backgroundColor: COLORS.secondBg,
+        backgroundColor: COLORS.secondBg ,
         width:"100%",
         flexDirection: 'row',
         paddingTop:10,

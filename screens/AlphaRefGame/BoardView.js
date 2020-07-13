@@ -2,7 +2,7 @@ import React, {useState,useRef,useEffect} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native';
 
-import { EndModal } from "../../components"
+import {CustomText, EndModal} from "../../components"
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -142,4 +142,5 @@ const styles = StyleSheet.create({
         fontSize: LETTER_SIZE,
         backgroundColor: 'transparent',
     },
+
 });
