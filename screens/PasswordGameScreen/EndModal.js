@@ -74,10 +74,14 @@ const styles = StyleSheet.create({
   },
   text: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginVertical: 5
   },
   btnContainer: {
     flexDirection: "row",
+    borderTopColor: '#74B9FF',
+    borderTopWidth: 1,
+    paddingTop: 3
 
   },
   btn: {

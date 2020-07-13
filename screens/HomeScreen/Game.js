@@ -30,7 +30,7 @@ const styles= StyleSheet.create({
         backgroundColor: '#fff',
         justifyContent: "center",
         width: 150,
-        height: 150,
+        height: 200,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -47,13 +47,15 @@ const styles= StyleSheet.create({
         alignSelf: "center"
     },
     text: {
+        marginTop:5,
         padding: 10,
         alignItems: 'center'
     },
     name: {
         textTransform: "uppercase",
         fontSize : 12,
-        color: COLORS.mainBg
+        color: COLORS.mainBg,
+        marginBottom:5,
     },
     category: {
         fontSize: 10,

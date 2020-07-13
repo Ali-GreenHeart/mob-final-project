@@ -55,7 +55,6 @@ export const TrafficLightGameScreen = ({navigation}) => {
     }
 
     const gameTimer = () => {
-        
         if (openedTimer.current) {
             clearTimeout(openedTimer.current);
           }
@@ -63,16 +62,14 @@ export const TrafficLightGameScreen = ({navigation}) => {
          }
     
        useEffect(() => {
-        gameTimer();
-      }, []);
+           setTimeout(() => setlight(randomInt(1,3)),1000);
+           gameTimer();
+       }, []);
 
   return (
     <View style={styles.container}>
         <CustomText weight="bold">
             points :{points}
-        </CustomText>
-        <CustomText weight="bold">
-            wrongs {wrongs}
         </CustomText>
        <TrafficLights index={light}/>
        <View style={styles.btnContainer}> 
