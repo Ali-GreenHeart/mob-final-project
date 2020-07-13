@@ -16,7 +16,7 @@ export const GameScreen = ({route,navigation}) => {
             <BackgroundBubbles/>
             <CustomHeader navigation={navigation} back={true}/>
 
-            <ScrollView>
+            <ScrollView contentContainerStyle={{  justifyContent: 'center',alignItems: "center" }}>
                 <CustomText style={styles.title} weight="bold">{game.name}</CustomText>
                 <Image style={styles.img} source={game.img}/>
                 <CustomText style={styles.about} weight="medium" >{game.howToPlay}</CustomText>
@@ -44,17 +44,18 @@ const styles = StyleSheet.create({
 
   },
   title: {
-      fontSize:40,
+      fontSize:30,
       marginVertical: 30,
       color: "#fff",
-      alignSelf: "center",
+      textTransform: "uppercase",
+      textAlign: "center",
+      width: "80%"
 
   },
   img: {
       width: 150,
       height: 150,
       borderRadius: 10,
-      alignSelf: "center"
 
   },
   about: {
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 50
   },
     btn:{
-      marginHorizontal: 50,
+        marginHorizontal: 50,
         marginBottom: 30
     }
 });
