@@ -20,7 +20,7 @@ export const MemoryGridGameScreen = ({navigation}) => {
   const [wrongs,setWrongs] = useState(0);
   
   const openedTimer = useRef(null);
-  const gameTimer = useRef(null)
+  const gameTimer = useRef(null);
 
 
 
@@ -90,8 +90,8 @@ export const MemoryGridGameScreen = ({navigation}) => {
     if (gameTimer.current) {
         clearTimeout(gameTimer.current);
       }
-      gameTimer.current = setTimeout(() => setModal(true), 30000);
-  }
+      gameTimer.current = setTimeout(() => setModal(true), 20000);
+  };
    
   useEffect(() => {
     closeForRemembering();
@@ -109,8 +109,8 @@ export const MemoryGridGameScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <CustomText weight="bold">
-        points : {points}
+      <CustomText weight="bold" style={styles.points}>
+         {points}
       </CustomText>
       {/* <Text>{isLimitPassed ? (isWin ? "Win" : "Lose") : "inProcess"}</Text> */}
       <View style={styles.grid}>
@@ -154,6 +154,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#edf9fa",
+
   },
  
   row: {
@@ -170,5 +172,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
     justifyContent: "space-around",
   },
+  points :{
+    width: 50,
+    textAlign: "center",
+    paddingVertical: 10,
+    backgroundColor: "gold",
+    marginVertical: 10,
+    color:"#fff",
+    borderRadius: 5
+  }
 });
 

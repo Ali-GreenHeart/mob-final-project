@@ -27,7 +27,7 @@ export const UserHome = ({navigation,userCredentials}) => {
         <View style={styles.container}>
             <CustomHeader name={"Home"} navigation={navigation}/>
             <ScrollView >
-                <Welcome name={userCredentials.fullName} />
+                <Welcome name={userCredentials.fullName}  img={userCredentials.img}/>
                 <CustomText style={styles.text}>We have prepared 4 games for you! Enjoy your journey! Become the best version of yourself! </CustomText>
                 <View style={styles.games}>
                     <Game

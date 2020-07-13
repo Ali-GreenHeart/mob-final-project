@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView} from 'react-native';
+
 import {CustomBtn, CustomHeader, CustomText} from "../../components";
 import store from "../../store";
 import {changeProfilePhoto, logout} from "../../store/userCredentials";
@@ -9,6 +10,17 @@ import {CustomLinear} from "../../components/customLinear";
 import {COLORS} from "../../styles/colors";
 import {BackgroundBubbles} from "../../components/background-bubbles";
 import {WarningModal} from "../../components/warningModal";
+import Male1 from "./images/Male1.png"
+import Male2 from "./images/Male2.png"
+import Male3 from "./images/Male3.png"
+import Male4 from "./images/Male4.png"
+import Female1 from "./images/Female1.png"
+import Female2 from "./images/Female2.png"
+import Female3 from "./images/Female3.png"
+import Female4 from "./images/Female4.png"
+
+
+
 const windowSize = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
@@ -20,14 +32,7 @@ export const ProfileScreen = ({navigation}) => {
     const [changePhoto, setChangePhoto] = useState(false);
     const [chosenPhoto, setChosenPhoto] = useState(store.getState().userCredentials.img || require('./images/Male1.png'));
     const photoList = [
-        require('./images/Male1.png'),
-        require('./images/Male2.png'),
-        require('./images/Male3.png'),
-        require('./images/Male4.png'),
-        require('./images/Female1.png'),
-        require('./images/Female2.png'),
-        require('./images/Female3.png'),
-        require('./images/Female4.png')
+        Male1,Male2,Male3,Male4,Female1,Female2,Female3,Female4
     ];
     const SignOut = () => {
       store.dispatch(logout());

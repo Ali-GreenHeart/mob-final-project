@@ -14,21 +14,20 @@ export const Colors =  ["black","brown","purple","green","grey","red","blue","ye
 
 export const ColorGameScreen = ( {navigation}) => {
 
-   const [modal, setModal] = useState(false)
+   const [modal, setModal] = useState(false);
    const [color, setColor] = useState( Colors[randomInd()]);
    const [name, setName] = useState( Colors[randomInd()]);
    const [boxColor, setBoxColor] = useState([color,name]);
    const [points, setPoints] = useState(0);
    const [wrongs, setWrongs] = useState(0);
-   const [time,setTime] = useState(20);
+
 
    const box = boxColor[createNumber(1,2)];
    const openedTimer = useRef(null);
 
-
     const clickHandler = (value) => {
     const randomColor = Colors[randomInd()];
-    const randomName = Colors[randomInd()]
+    const randomName = Colors[randomInd()];
     setColor(randomColor);
     setName(randomName);
     setBoxColor([randomColor,randomName]);
@@ -60,7 +59,6 @@ export const ColorGameScreen = ( {navigation}) => {
     setPoints(0);
     setPoints(0);
     setWrongs(0);
-    setTime(20);
     gameTimer();
    };
 
@@ -70,21 +68,18 @@ export const ColorGameScreen = ( {navigation}) => {
        if (openedTimer.current) {
            clearTimeout(openedTimer.current);
        }
-       openedTimer.current = setTimeout(() => setModal(true), time * 1000);
-   }
-   useEffect(() => {
-    gameTimer();
+       openedTimer.current = setTimeout(() => setModal(true), 20 * 1000);
+   };
+    useEffect(() => {
+         gameTimer();
   }, []);
-
 
    return( 
 
     <View style={styles.container}>
 
-        <Timer initialTime={time}/>
-
-        <CustomText weight="bold">
-                points : {points}
+        <CustomText weight="bold" style={styles.points}>
+            {points}
         </CustomText>
 
         <ColorCard
@@ -132,5 +127,14 @@ const styles = StyleSheet.create({
     },
     btnContainer: {
         flexDirection: "row"
+    },
+    points: {
+        width: 50,
+        textAlign: "center",
+        paddingVertical: 10,
+        backgroundColor: "gold",
+        marginVertical: 10,
+        color:"#fff",
+        borderRadius: 5
     }
 });
