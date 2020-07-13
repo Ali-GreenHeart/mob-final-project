@@ -110,10 +110,7 @@ export const MemoryGridGameScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <CustomText weight="bold">
-        points: {points}
-      </CustomText>
-      <CustomText weight="bold">
-        wrongs: {wrongs}
+        points : {points}
       </CustomText>
       {/* <Text>{isLimitPassed ? (isWin ? "Win" : "Lose") : "inProcess"}</Text> */}
       <View style={styles.grid}>
