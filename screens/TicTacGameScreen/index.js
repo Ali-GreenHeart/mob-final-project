@@ -175,7 +175,7 @@ export class TicTacGameScreen extends React.Component {
         </View>
 
         <View style={{paddingTop:50}} />
-        <Button title="New Game" onPress={this.onNewGamePress} />
+        <Button color="#6C5CE7" title="New Game" onPress={this.onNewGamePress} />
 
     </View>
   
@@ -198,12 +198,12 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     tileX:{
-      color:'red',
+      color:'#74B9FF',
       fontSize:60,
      
     },
     tile0:{
-     color:'green',
+     color:'#FFC048',
       fontSize:60,
       
     },

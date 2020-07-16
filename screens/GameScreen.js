@@ -67,5 +67,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 50,
         marginBottom: 30,
         width: "50%"
+
     }
 });

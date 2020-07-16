@@ -91,13 +91,13 @@ export const ColorGameScreen = ( {navigation}) => {
         <View style={styles.btnContainer}> 
                              
             <CustomBtn
-             color="red"
+             color="#FFC048"
              style={styles.btn}
              title="No"
              onPress={()=> {clickHandler("no");}}
              />
             <CustomBtn
-            color="green"
+            color="#74B9FF"
              style={styles.btn} 
              title="yes" 
              onPress={()=> {clickHandler("yes")}}/>
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         width: 50,
         textAlign: "center",
         paddingVertical: 10,
-        backgroundColor: "gold",
+        backgroundColor: "#19EAFF",
         marginVertical: 10,
         color:"#fff",
         borderRadius: 5
