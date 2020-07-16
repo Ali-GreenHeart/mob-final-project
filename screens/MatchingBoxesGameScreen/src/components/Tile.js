@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
 const IMAGES = {
   image2: require('../images/2.png'),
-  image4: require('../images/4.png'),
+  image4: require('../images/4.jpg'),
   image8: require('../images/8.png'),
   image16: require('../images/16.png'),
   image32: require('../images/32.png'),
