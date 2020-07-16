@@ -2,7 +2,7 @@ export function chooseColor(opened, secret) {
     let color = "#fff";
     if (opened) {
       if (secret) {
-        color = "pink";
+        color = "#ABD4FE";
       } else {
         color = "#eee";
       }

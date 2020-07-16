@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         borderRadius: BORDER_RADIUS,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#BEE1D2',
+        backgroundColor: '#ABD4FE',
     },
     letter: {
         color: '#333',

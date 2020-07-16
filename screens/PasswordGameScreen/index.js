@@ -107,12 +107,12 @@ export const PasswordGameScreen = ({navigation}) => {
 
       <View style={styles.codeContainer}>
         <View style={styles.yellowCode}>
-           <CustomText weight="bold">
+           <CustomText style={styles.fontColor} weight="bold">
                {yellow.current - green.current}
            </CustomText>
         </View>
         <View style={styles.greenCode}>
-           <CustomText weight="bold">
+           <CustomText style={styles.fontColor} weight="bold">
                {green.current}
            </CustomText>
         </View>
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 60,
     height: 60,
-    backgroundColor: "gold",
+    backgroundColor: "#FFC048",
     borderRadius: 30
 
   },
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 60,
     height: 60,
-    backgroundColor: "lightgreen",
+    backgroundColor: "#19EAFF",
     borderRadius: 30
   },  
   inputContainer: {
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   },
 
   showBtn: {
-    backgroundColor: "red",
+    backgroundColor: "#6C5CE7",
      paddingVertical: 5,
      paddingHorizontal: 15,
      borderRadius: 10,
@@ -223,6 +223,9 @@ const styles = StyleSheet.create({
      textTransform: "capitalize",
      color: "#fff",
      fontWeight: "bold"
+  },
+  fontColor: {
+    color: "#fff"
   }
 });
 

@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
            width: 0,
            height: 4,
        },
+        borderRadius:15,
        shadowOpacity: 0.30,
        shadowRadius: 4.65,
        
@@ -59,9 +60,9 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     yellow: {
-       color: "gold"
+       color: "#FFC048"
     },
     green: {
-        color : "green"
+        color : "#19EAFF"
     }
 })
