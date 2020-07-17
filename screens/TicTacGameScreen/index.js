@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert, Button, } from 'react-native';
 import {MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
+import {BackButton} from "../../components/backButton";
 
   
 export class TicTacGameScreen extends React.Component {
@@ -131,7 +132,7 @@ export class TicTacGameScreen extends React.Component {
    return(
 
     <View style={styles.container}>
-           
+           <BackButton navigation={this.props.navigation}/>
         <View style={{flexDirection:"row"}}>
             <TouchableOpacity onPress={() => this.onTilePress(0, 0)} style={[styles.tile, {borderLeftWidth:0, borderTopWidth:0}]}>
                {this.renderIcon(0, 0)}

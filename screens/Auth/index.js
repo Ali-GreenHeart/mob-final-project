@@ -72,7 +72,7 @@ export const LoginScreen = ({navigation}) => {
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <CustomLinear>
                 <BackgroundBubbles/>
-                <CustomHeader name={"Sign Up"} navigation={navigation} back={true}/>
+                <CustomHeader navigation={navigation} back={true}/>
                 <View style={styles.container}>
                 {showError && <WarningModal message={errorMsg} functionality={[{button: 'Close' , onPress : closeError}]}/>}
                 <View style={styles.wrapper}>

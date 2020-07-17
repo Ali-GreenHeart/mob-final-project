@@ -107,7 +107,6 @@ export const BoardView = ({navigation}) => {
 
     return (<View style={styles.container}>
             {renderTiles()}
-
             <EndModal
                 visible={modal}
                 navigation={navigation}
@@ -115,11 +114,7 @@ export const BoardView = ({navigation}) => {
                 points={number ? number-1 : 0}
                 win={win}
             />
-
         </View>)
-
-
-
 };
 
 const styles = StyleSheet.create({

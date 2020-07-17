@@ -8,7 +8,8 @@ import {
 
 import { prepareGrid } from "../../utils/prepareGrid"
 import { chooseColor } from "../../utils/chooseColor"
-import { CustomText,EndModal } from "../../components"
+import {CustomHeader, CustomText, EndModal} from "../../components"
+import {BackButton} from "../../components/backButton";
 
 export const MemoryGridGameScreen = ({navigation}) => {
   const [size,setSize] = useState(5);
@@ -109,6 +110,7 @@ export const MemoryGridGameScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <BackButton navigation={navigation}/>
       <CustomText weight="bold" style={styles.points}>
          {points}
       </CustomText>

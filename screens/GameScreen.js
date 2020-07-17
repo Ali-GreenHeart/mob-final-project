@@ -22,7 +22,7 @@ export const GameScreen = ({route,navigation}) => {
                 <CustomText style={styles.about} weight="medium" >{game.howToPlay}</CustomText>
                 <CustomBtn
                     style = {styles.btn}
-                    title= "play"
+                    title= "start"
                     onPress={() => navigation.navigate(game.name)}
                     color={COLORS.secondWarning}
                 />

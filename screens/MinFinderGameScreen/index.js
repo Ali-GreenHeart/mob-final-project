@@ -6,6 +6,7 @@ import style from './style';
 import {CustomText,CustomBtn,EndModal} from "../../components";
 import GameConfig from './gameConfig';
 import Data from './data';
+import {BackButton} from "../../components/backButton";
 var SortedList = require('sortedlist');
 
 const { width, height } = Dimensions.get("window");
@@ -115,7 +116,7 @@ export class MinFinderGameScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: this.state.backgroundColor }}>
-
+        <BackButton navigation={this.props.navigation}/>
         <View style={[style.topView, { height: cellSize }]}>
           <View style={style.indexRowView}>
             <Text style={[style.indexVerticalText, { fontSize: cellSize * 0.6 }]}>{this.state.score}</Text>

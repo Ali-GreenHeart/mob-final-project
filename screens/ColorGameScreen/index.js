@@ -4,6 +4,7 @@ import {StyleSheet, Text, View,} from 'react-native';
 import { createNumber  } from "../../utils/createNumber"
 import { CustomText,CustomBtn ,EndModal,Timer} from '../../components'
 import {ColorCard} from "./ColorCard"
+import {BackButton} from "../../components/backButton";
 
 const randomInd = () => {
         const length = Colors.length;
@@ -77,6 +78,8 @@ export const ColorGameScreen = ( {navigation}) => {
    return( 
 
     <View style={styles.container}>
+
+        <BackButton navigation={navigation}/>
 
         <CustomText weight="bold" style={styles.points}>
             {points}
