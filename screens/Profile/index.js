@@ -27,17 +27,24 @@ const windowSize = {
 };
 export const ProfileScreen = ({navigation}) => {
     const [showModal, setShowModal] = useState(false);
+    const [showSignOutModal, setShowSignOutModal] = useState(false);
     const [message, setMessage] = useState(null);
     const [temp, setTemp] = useState(null);
     const [changePhoto, setChangePhoto] = useState(false);
-    const [chosenPhoto, setChosenPhoto] = useState(store.getState().userCredentials.img || require('./images/Male1.png'));
+    const [chosenPhoto, setChosenPhoto] = useState(store.getState().userCredentials.img || "./images/Male1.png");
     const photoList = [
         Male1,Male2,Male3,Male4,Female1,Female2,Female3,Female4
     ];
     const SignOut = () => {
-      store.dispatch(logout());
-      //write navigation code here please
+        setShowSignOutModal(true);
+    };
+    const yes = () => {
+        setShowSignOutModal(false);
+        store.dispatch(logout());
         navigation.navigate('Home');
+    };
+    const no = () =>{
+        setShowSignOutModal(false);
     };
     const closeModal = () => {
       setShowModal(false);
@@ -97,6 +104,9 @@ export const ProfileScreen = ({navigation}) => {
         </ScrollView>
             <Nav navigation={navigation} />
             {showModal && <WarningModal message={message} functionality={[{button: 'Cancel', onPress: closeModal},{button: 'Choose', onPress: choose}]}/>}
+            {showSignOutModal && <WarningModal
+                message={"Are you sure, you want to sign out?"}
+                functionality={[{button: 'Yes', onPress: yes, smile: 'sad-tear'},{button: 'No', onPress: no, smile: 'smile'}]}/>}
         </CustomLinear>
     );
 };

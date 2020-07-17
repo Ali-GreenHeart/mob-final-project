@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {CustomText} from "./CustomText";
+import {MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
+import {FontAwesome5,} from '@expo/vector-icons';
 
 
 export const WarningModal = ({message, functionality, style, isNotWarning}) => {
@@ -16,8 +18,9 @@ export const WarningModal = ({message, functionality, style, isNotWarning}) => {
                 <CustomText weight={"medium"} style={styles.errorText}>{message}</CustomText>
                 <View style={styles.errorCloseContainer}>
                     {functionality.map((item, index) =>
-                        <TouchableOpacity onPress={item.onPress} key={index}>
+                        <TouchableOpacity onPress={item.onPress} key={index} style={{flexDirection: "row", alignItems: 'center'}}>
                             <CustomText weight={"semi"} style={styles.errorClose}>{item.button}</CustomText>
+                            {item.smile && <FontAwesome5 name={item.smile} size={20} color={"black"} style={{marginLeft: 5, marginTop: 5}}/>}
                         </TouchableOpacity>
                     )}
                 </View>
