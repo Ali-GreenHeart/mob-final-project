@@ -6,6 +6,7 @@ import {CustomText, CustomBtn, WarningModal, CustomLinear} from "../../component
 import { EndModal } from "./EndModal"
 import { History } from "./History"
 import { Keyboard } from "./Keyboard"
+import {BackButton} from "../../components/backButton";
 
 
 export const PasswordGameScreen = ({navigation}) => {
@@ -96,6 +97,7 @@ export const PasswordGameScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <BackButton navigation={navigation}/>
       {warning ? <WarningModal
           message={"There is no repeated digit"}
           functionality={[

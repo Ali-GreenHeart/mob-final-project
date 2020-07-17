@@ -1,17 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View, Image,TouchableOpacity } from 'react-native';
-import { CustomText } from "../../components"
+import {CustomText, WarningModal} from "../../components"
 import {COLORS} from "../../styles/colors";
 
-export const Game = ({game,navigation}) => {
+export const Game = ({game}) => {
     return(
         <View  style={styles.game}>
-            <TouchableOpacity
-                style={{width: "100%"}}
-                onPress={() => navigation.navigate("GameScreen",{
-                    game: game
-                })}
-                >
+
                     <Image style={styles.gameImg}
                        source={game.img}/>
 
@@ -19,7 +14,6 @@ export const Game = ({game,navigation}) => {
                     <CustomText weight={"bold"} style={styles.name}>{game.name}</CustomText>
                     <CustomText weight={"medium"} style={styles.category}>{game.category}</CustomText>
                 </View>
-            </TouchableOpacity>
 
         </View>
 
@@ -49,7 +43,9 @@ const styles= StyleSheet.create({
     text: {
         marginTop:5,
         padding: 10,
-        alignItems: 'center'
+        height: 70,
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     name: {
         textTransform: "uppercase",

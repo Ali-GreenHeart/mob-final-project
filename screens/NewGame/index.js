@@ -6,6 +6,7 @@ import { EndModal } from "../../components"
 import Score from './components/Score';
 import Card from './components/Card';
 import helpers from './utils/helpers';
+import {BackButton} from "../../components/backButton";
 
 export class MemoriserGameScreen extends React.Component {
 
@@ -226,6 +227,7 @@ export class MemoriserGameScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <BackButton navigation={this.props.navigation}/>
         <Score score={this.state.score} />
 
         <View style={styles.body}>

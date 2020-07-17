@@ -15,7 +15,6 @@ export const GameInfo = ({name,about,category,img}) => {
                     <View style={styles.text}>
                         <CustomText weight={"bold"} style={styles.name}>{name}</CustomText>
                         <CustomText weight={"semi"} style={styles.category}>{category}</CustomText>
-                        <CustomText style={styles.about}>{about}</CustomText>
                     </View>
 
 
@@ -26,12 +25,10 @@ export const GameInfo = ({name,about,category,img}) => {
 };
 const styles= StyleSheet.create({
     game:{
-        flexDirection: 'row',
-        backgroundColor: "#fff",
-        alignItems:'center',
-        marginHorizontal: 15,
-        marginVertical: 5,
-        padding:5,
+        backgroundColor: '#fff',
+        justifyContent: "center",
+        width: 150,
+        height: 200,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -39,27 +36,32 @@ const styles= StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5,
+        elevation: 8,
+        margin : 10
     },
     gameImg: {
-        width: 100,
+        width: 110,
         height: 100,
-        borderRadius: 10
+        alignSelf: "center"
     },
     text: {
-        padding: 10
+        marginTop:5,
+        padding: 10,
+        height: 70,
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     name: {
         textTransform: "uppercase",
-        fontSize : 15,
-        color: COLORS.mainBg
+        fontSize : 12,
+        color: COLORS.mainBg,
+        marginBottom:5,
+        textAlign: 'center'
     },
     category: {
-        color: COLORS.mainWarning
-    },
-    about: {
         fontSize: 10,
-        width: 200,
-        textAlign: "justify"
-    },
+        color: COLORS.mainWarning
+    }
+
+
 });

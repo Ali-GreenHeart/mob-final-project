@@ -7,6 +7,7 @@ import {
 import { TrafficLights }  from  "./TrafficLight"
 import { randomInt } from "../../utils/randomInt"
 import {CustomBtn, CustomText,EndModal} from "../../components"
+import {BackButton} from "../../components/backButton";
 
 
 export const TrafficLightGameScreen = ({navigation}) => {
@@ -72,6 +73,7 @@ export const TrafficLightGameScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+        <BackButton navigation={navigation}/>
         <CustomText weight="bold" style={styles.points}>
             {points}
         </CustomText>
