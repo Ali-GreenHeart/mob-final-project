@@ -23,7 +23,7 @@ export class SudokuGameScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
     flexDirection: 'column' 
