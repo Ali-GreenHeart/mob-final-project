@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Modal, View } from "react-native";
+import {StyleSheet, Modal, View, TouchableOpacity} from "react-native";
 import {CustomText} from "./CustomText";
 import {CustomBtn} from "./CustomBtn"
 import {COLORS} from "../styles/colors";
@@ -10,7 +10,11 @@ export const EndModal = ({points, close, visible ,navigation ,win}) => {
   return (
     <Modal visible={visible} transparent={true} animationType="fade">
       <View style={styles.container}>
+
         <View style={styles.card}>
+          <View style={styles.warningIconContainer}>
+            <CustomText  style={styles.warningIcon}>&#9733;</CustomText>
+          </View>
           {
             win ?
 
@@ -20,8 +24,16 @@ export const EndModal = ({points, close, visible ,navigation ,win}) => {
 
           <CustomText weight="bold" style={styles.score}>Your score: {points}</CustomText>
           <View style={styles.btnContainer}>
-            <CustomBtn title="Replay" onPress={close} style={styles.btn} color={COLORS.secondWarning}/>
-            <CustomBtn title="Exit" onPress={() => {close(); navigation.navigate("Home");}} style={styles.btn} color={COLORS.secondWarning}/>
+            <TouchableOpacity
+                onPress={close}
+                style={{flexDirection: "row", alignItems: 'center'}}>
+              <CustomText weight={"semi"} style={styles.errorClose}>Replay</CustomText>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => {close(); navigation.navigate("Home")}}
+                style={{flexDirection: "row", alignItems: 'center'}}>
+              <CustomText weight={"semi"} style={styles.errorClose}>Exit</CustomText>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -57,10 +69,30 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderTopColor: '#74B9FF',
     borderTopWidth: 1,
-    paddingTop:3
+    paddingTop: 3,
+    width: "100%",
+    justifyContent: 'space-around'
   },
   btn: {
     width: 100,
-    margin: 10
-  }
+    marginVertical: 5,
+    marginHorizontal: 10,
+  },
+  errorClose: {
+    fontSize: 20,
+    marginTop: 5
+  },
+  warningIcon: {
+    fontSize: 30,
+    color: 'white',
+  },
+  warningIconContainer: {
+    backgroundColor: '#FFC048',
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20
+  },
 });
