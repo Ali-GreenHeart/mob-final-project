@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, TouchableOpacity,} from 'react-native';
 import {CustomText} from "./CustomText";
 import {MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
 import {FontAwesome5,} from '@expo/vector-icons';
 
 
-export const WarningModal = ({message, functionality, style, isNotWarning}) => {
+export const WarningModal = ({message, functionality, style, isNotWarning,}) => {
     return (
         <View style={styles.errorBg}>
             <View style={{...styles.errorModal,style}}>

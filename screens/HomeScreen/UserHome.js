@@ -74,7 +74,7 @@ export const UserHome = ({navigation,userCredentials}) => {
 
             </ScrollView>
             <Nav navigation={navigation}/>
-            {isOpen && <WarningModal message={games.about} functionality={[{button: 'Close', onPress: close}, {button: 'Play', onPress: playGame}]} isNotWarning={true}/>}
+            {isOpen && <WarningModal  message={games.about} functionality={[{button: 'Close', onPress: close}, {button: 'Play', onPress: playGame}]} isNotWarning={true}/>}
         </View>
 
     )

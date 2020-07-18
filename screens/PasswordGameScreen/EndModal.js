@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Modal, View, } from "react-native";
+import {StyleSheet, Modal, View, TouchableOpacity,} from "react-native";
 import { CustomText, CustomBtn } from "../../components";
 import {COLORS} from "../../styles/colors";
+import {FontAwesome5} from "@expo/vector-icons";
 
 
 export const EndModal = ({ isWin, close, visible,numbers, steps,navigation}) => {
@@ -9,6 +10,9 @@ export const EndModal = ({ isWin, close, visible,numbers, steps,navigation}) => 
     <Modal visible={visible} transparent={true} animationType="fade">
       <View style={styles.container}>
         <View style={styles.card}>
+          <View style={styles.warningIconContainer}>
+            <CustomText  style={styles.warningIcon}>&#9733;</CustomText>
+          </View>
           <CustomText style={styles.header} weight="bold">
             You {isWin ? "found the password!" : "give up"}
           </CustomText>
@@ -33,16 +37,16 @@ export const EndModal = ({ isWin, close, visible,numbers, steps,navigation}) => 
             }
           
          <View style={styles.btnContainer}>
-           <CustomBtn
-               title="Replay"
+           <TouchableOpacity
                onPress={close}
-               style={styles.btn}
-               color={COLORS.secondWarning}/>
-           <CustomBtn
-               title="Exit"
-               onPress={() => {close(); navigation.navigate("Home");}}
-               style={styles.btn}
-               color={COLORS.secondWarning}/>
+               style={{flexDirection: "row", alignItems: 'center'}}>
+             <CustomText weight={"semi"} style={styles.errorClose}>Replay</CustomText>
+           </TouchableOpacity>
+           <TouchableOpacity
+               onPress={() => {close(); navigation.navigate("Home")}}
+               style={{flexDirection: "row", alignItems: 'center'}}>
+             <CustomText weight={"semi"} style={styles.errorClose}>Exit</CustomText>
+           </TouchableOpacity>
 
          </View>
 
@@ -81,12 +85,30 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderTopColor: '#74B9FF',
     borderTopWidth: 1,
-    paddingTop: 3
-
+    paddingTop: 3,
+    width: "100%",
+    justifyContent: 'space-around'
   },
   btn: {
     width: 100,
     marginVertical: 5,
     marginHorizontal: 10,
-  }
+  },
+  errorClose: {
+    fontSize: 20,
+    marginTop: 5
+  },
+  warningIcon: {
+    fontSize: 30,
+    color: 'white',
+  },
+  warningIconContainer: {
+    backgroundColor: '#FFC048',
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20
+  },
 });
