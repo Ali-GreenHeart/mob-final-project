@@ -8,8 +8,8 @@ export const About = ({navigation}) => {
    return (
        <View >
        <View style={styles.info}>
-        <CustomText weight={"semi"}  style={styles.infoHeader}>About App</CustomText>
-        <CustomText style={styles.infoText}>This app aims at developing memory, attention, and the art of thinking with the help of various colorful games. It will help thinking logically, mastering the mnemonics, speed reading and other techniques, Also it will help you memorize names and dates, so you will stop forgetting birthdays.</CustomText>
+        <CustomText weight={"semi"}  style={styles.infoHeader}>Noetic</CustomText>
+        <CustomText style={styles.infoText}>Deep dive into intelligence</CustomText>
        </View>
         <CustomBtn
             style={styles.btn}
