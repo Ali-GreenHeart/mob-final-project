@@ -16,13 +16,16 @@ import Heading from './Heading'
 import AboveGame from './AboveGame'
 import Motto from './Motto'
 import GameContainer from './GameContainer'
+
+import {BackButton} from "../../../../components/backButton";
+
 // StorageManager
 const storageManager = new StorageManager()
 
 const styles = StyleSheet.create({
   container: {
-    //paddingHorizontal: 10,
-    flex: 1
+    flex: 1,
+    paddingTop: '15%'
   }
 })
 
