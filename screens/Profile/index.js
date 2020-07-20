@@ -10,15 +10,31 @@ import {CustomLinear} from "../../components/customLinear";
 import {COLORS} from "../../styles/colors";
 import {BackgroundBubbles} from "../../components/background-bubbles";
 import {WarningModal} from "../../components/warningModal";
-import Male1 from "./images/Male1.png"
-import Male2 from "./images/Male2.png"
-import Male3 from "./images/Male3.png"
-import Male4 from "./images/Male4.png"
-import Female1 from "./images/Female1.png"
-import Female2 from "./images/Female2.png"
-import Female3 from "./images/Female3.png"
-import Female4 from "./images/Female4.png"
 
+import WomanWithMask1 from './images/3972kl384.jpg';
+import WomanWithMask2 from './images/3972uj384.jpg';
+import WomanWithMask3 from './images/39723kdls84.jpg';
+import WomanWithMask4 from './images/39723kl84.jpg';
+import ManWithMask1 from './images/397238jds4.jpg';
+import WomanWithMask5 from './images/3972384.jpg';
+import ManBeautiful from './images/71764030-stock-vector-portrait-of-a-young-beautiful-man.jpg';
+import ManAttractive from './images/animation-portrait-young-attractive-bearded-man-stylish-hairstyle-animation-portrait-young-attractive-bearded-106384527.jpg';
+import Woman1 from './images/woman1.png';
+import Woman2 from './images/woman2.png';
+import Woman3 from './images/woman3.png';
+import Woman4 from './images/woman4.png';
+import Woman5 from './images/woman5.png';
+import Woman6 from './images/woman6.png';
+import Woman7 from './images/avatar.png';
+import Woman8 from './images/hijab-style-beautiful-arabic-muslim-woman-vector-20077175.jpg';
+import Woman9 from './images/iss_18508_00897.jpg';
+import Woman10 from './images/Pfu8n2SD_400x400.jpg';
+import Woman11 from './images/woman-thinking-vector-21811083.jpg';
+import Man1 from './images/face-man-vector-304949.jpg';
+import Man2 from './images/man-hair-vector-31.jpg';
+import Man3 from './images/stylish-man-vector-illustration_82875-63.jpg';
+import Man4 from './images/портрет-анимации-молодого-привлекательного-человека-с-стильным-106384340.jpg';
+import DefaultImg from './images/images.png';
 
 
 const windowSize = {
@@ -31,9 +47,9 @@ export const ProfileScreen = ({navigation}) => {
     const [message, setMessage] = useState(null);
     const [temp, setTemp] = useState(null);
     const [changePhoto, setChangePhoto] = useState(false);
-    const [chosenPhoto, setChosenPhoto] = useState(store.getState().userCredentials.img || "./images/Male1.png");
+    const [chosenPhoto, setChosenPhoto] = useState(store.getState().userCredentials.img || DefaultImg);
     const photoList = [
-        Male1,Male2,Male3,Male4,Female1,Female2,Female3,Female4
+        Woman1, Woman2, Woman3, Woman4, Woman5, Woman6, Woman7, Woman8, Woman9, Woman10, Woman11, WomanWithMask1, WomanWithMask2,WomanWithMask3, WomanWithMask4, WomanWithMask4, WomanWithMask5, Man1, Man2, Man3, Man4, ManAttractive, ManBeautiful, ManWithMask1
     ];
     const SignOut = () => {
         setShowSignOutModal(true);
@@ -89,15 +105,17 @@ export const ProfileScreen = ({navigation}) => {
 
                     </View>
 
-                    <View style={styles.imageContainer}>
-                        {photoList.map((item, index) => (
-                            <TouchableOpacity key={index} onPress={() =>confirm(item)}>
-                                <View>
-                                    <Image source={item} style={styles.galleryImage}/>
-                                </View>
-                            </TouchableOpacity>
-                        ))}
-                    </View>
+                    <ScrollView>
+                        <View style={styles.imageContainer}>
+                            {photoList.map((item, index) => (
+                                <TouchableOpacity key={index} onPress={() =>confirm(item)}>
+                                    <View>
+                                        <Image source={item} style={styles.galleryImage}/>
+                                    </View>
+                                </TouchableOpacity>
+                            ))}
+                        </View>
+                    </ScrollView>
                 </View>
                 }
 
@@ -129,6 +147,7 @@ const styles = StyleSheet.create({
     galleryImage: {
        width: (windowSize.width-100)/2.6,
         height: (windowSize.height-100)/3.8,
+        marginTop: 10
     },
     galleryHdr: {
         flexDirection: "row",
