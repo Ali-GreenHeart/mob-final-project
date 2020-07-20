@@ -34,7 +34,7 @@ export const RootNav = () => (
             <Screen name={"Money Change"} component={MoneyChange}/>
             <Screen name="MEMORY GRID" component={MemoryGridGameScreen}/>
             <Screen name="TRAFFIC LIGHTS" component={TrafficLightGameScreen}/>
-            <Screen name="MATCHING BOXES" component={MatchingBoxesGameScreen}/>
+            <Screen name="COINCIDENCE" component={MatchingBoxesGameScreen}/>
             <Screen name="MIN FINDER" component={MinFinderGameScreen}/>
             <Screen name="TIC TAC TOE" component={TicTacGameScreen}/>
             <Screen name="Alpha Reflex" component={AlphaRefGame}/>

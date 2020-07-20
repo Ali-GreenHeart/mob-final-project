@@ -8,10 +8,10 @@ export const About = ({navigation}) => {
    return (
        <View >
        <View style={styles.info}>
-        <CustomText weight={"semi"}  style={styles.infoHeader}>Deep dive into intelligence</CustomText>
-        <CustomText style={styles.infoText}>This app aims at developing memory, attention, and the art of thinking with the help of various
-            colorful games. It will help thinking logically, mastering the mnemonics, speed reading and other
-            techniques, Also it will help you memorize names and dates, so you will stop forgetting birthdays.</CustomText>
+        <CustomText weight={"semi"}  style={styles.infoHeader}>Deep dive into intelligence!</CustomText>
+        <CustomText style={styles.infoText}>Noetic app aims at developing memory, attention, and the art of thinking with the help of various
+            intellecual games. It will help thinking logically, mastering the mnemonics, speed reading and other
+            techniques. Hurry up, register to see all games!</CustomText>
        </View>
         <CustomBtn
             style={styles.btn}
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         paddingStart: 20,
     },
     infoHeader:{
-        fontSize: 25,
+        fontSize: 18,
         paddingTop:20,
         color: "#fff"
     },
