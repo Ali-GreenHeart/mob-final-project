@@ -43,7 +43,7 @@ export const EndModal = ({ isWin, close, visible,numbers, steps,navigation}) => 
              <CustomText weight={"semi"} style={styles.errorClose}>Replay</CustomText>
            </TouchableOpacity>
            <TouchableOpacity
-               onPress={() => {close(); navigation.navigate("Home")}}
+               onPress={() => {close(); navigation.navigate("All Games")}}
                style={{flexDirection: "row", alignItems: 'center'}}>
              <CustomText weight={"semi"} style={styles.errorClose}>Exit</CustomText>
            </TouchableOpacity>
