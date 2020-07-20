@@ -23,6 +23,7 @@ const styles= StyleSheet.create({
     game:{
         backgroundColor: '#fff',
         justifyContent: "center",
+        borderRadius: 5,
         width: 150,
         height: 200,
         shadowColor: "#000",
@@ -33,7 +34,7 @@ const styles= StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 8,
-        margin : 10
+        margin : 10,
     },
     gameImg: {
         width: 110,

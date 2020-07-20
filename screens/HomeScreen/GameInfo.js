@@ -37,7 +37,8 @@ const styles= StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 8,
-        margin : 10
+        margin : 10,
+        borderRadius: 5,
     },
     gameImg: {
         width: 110,
