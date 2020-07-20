@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, TouchableOpacity, StyleSheet, Image} from "react-native";
+import {View, TouchableOpacity, StyleSheet, Image, ScrollView} from "react-native";
 import {CustomBtn, CustomText, EndModal} from "../../components";
 import {COLORS} from "../../styles/colors";
 import manat1 from './money/1_manat_obv.jpg';
@@ -81,7 +81,7 @@ export const MoneyChange = ({navigation}) => {
         gameTimer();
     }, [time]);
     return (
-        <View style={styles.wrapper}>
+        <ScrollView style={styles.wrapper}>
             <BackButton navigation={navigation}/>
             <View style={styles.container}>
                 {!start &&
@@ -122,7 +122,7 @@ export const MoneyChange = ({navigation}) => {
 
             </View>
             <EndModal navigation={navigation} visible={endGame} win={false} close={restart} points={correct}/>
-        </View>
+        </ScrollView>
     );
 };
 
@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     container:{
-        marginTop: 40,
     },
     btnContainer:{
         flexDirection: 'row',

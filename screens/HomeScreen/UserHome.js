@@ -59,12 +59,12 @@ export const UserHome = ({navigation,userCredentials}) => {
                 </View>
                 <View style={styles.games}>
                     <TouchableOpacity
-                        onPress={() => gamePressed(attention[attentionGame])}>
+                        onPress={() => gamePressed(speed[speedGame])}>
                         <Game
                             game={speed[speedGame]}/>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => gamePressed(attention[attentionGame])}>
+                        onPress={() => gamePressed(memory[memoryGame])}>
                         <Game
                             game={memory[memoryGame]}/>
                     </TouchableOpacity>
