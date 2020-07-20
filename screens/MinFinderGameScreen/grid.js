@@ -21,8 +21,8 @@ export default class Grid extends React.PureComponent {
     }
 
     _processData(values) {
-        var rowItems = [];
-        for (var i = 0; i < 4; i++) {
+        let rowItems = [];
+        for (let i = 0; i < 4; i++) {
             rowItems.push(values.slice(i * 4, (i + 1) * 4));
         }
         this.setState({ values: rowItems });

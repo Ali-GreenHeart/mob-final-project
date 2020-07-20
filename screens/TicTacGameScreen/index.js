@@ -36,18 +36,18 @@ export class TicTacGameScreen extends React.Component {
     //Returns 1 if Player 1 won, -1 if Player 2 won, or a 0 if no one has won.
     getWinner = () => {
         const NUM_TILES = 3;
-        var arr = this.state.gameState;
-        var sum;
+        let arr = this.state.gameState;
+        let sum;
 
         //Check rows..
-        for(var i = 0; i< NUM_TILES; i++){
+        for(let i = 0; i< NUM_TILES; i++){
             sum=arr[i][0] + arr[i][1] + arr[i][2];
             if(sum == 3) {return 1; }
             else if (sum == -3) { return -1;}
         }
 
         //Check columns...
-        for(var i = 0; i< NUM_TILES; i++){
+        for(let i = 0; i< NUM_TILES; i++){
             sum=arr[0][i] + arr[1][i] + arr[2][i];
             if(sum == 3) {return 1; }
             else if (sum == -3) { return -1;}
@@ -69,23 +69,23 @@ export class TicTacGameScreen extends React.Component {
 
     onTilePress = (row, col) =>{
         //Don't allow tiles to change...
-        var value = this.state.gameState[row][col];
+        let value = this.state.gameState[row][col];
         if(value !== 0) {return; }
 
         // Grab current player...
-       var currentPlayer = this.state.currentPlayer;
+       let currentPlayer = this.state.currentPlayer;
 
        //Set the correct tile..
-       var arr = this.state.gameState.slice();
+       let arr = this.state.gameState.slice();
        arr[row][col] =currentPlayer;
        this.setState({gameState: arr});
 
         //Switch to other player...
-        var nextPlayer = (currentPlayer == 1) ? -1 : 1;
+        let nextPlayer = (currentPlayer == 1) ? -1 : 1;
         this.setState({currentPlayer: nextPlayer});
 
         //Check for winners...
-        var winner = this.getWinner();
+        let winner = this.getWinner();
         if( winner ==1) {
             Alert.alert(
                 'Winner',
@@ -118,7 +118,7 @@ export class TicTacGameScreen extends React.Component {
     }
 
     renderIcon =(row,col) =>{
-        var value = this.state.gameState[row][col];
+        let value = this.state.gameState[row][col];
         switch(value)
         {
             case 1: return <Icon name="close" style={styles.tileX} />;
