@@ -1,12 +1,12 @@
 import {genID} from "./genID"
 import Password from "../assets/GameImg/Password.jpeg"
-import Color from "../assets/GameImg/Color.jpeg"
+import Color from "../assets/GameImg/color.jpg"
 import TrafficLight from "../assets/GameImg/TrafficLight.jpeg"
-import MatchingBoxes from "../assets/GameImg/MatchingBoxes.jpeg"
+import MatchingBoxes from "../assets/GameImg/matching.jpg"
 import MinFinder from "../assets/GameImg/MinFinder.jpeg"
 import MemoryGrid from "../assets/GameImg/MemoryGrid.jpeg"
 import AlphaReflex from "../assets/GameImg/AlphaReflex.jpeg"
-import Sudoku from "../assets/GameImg/Sudoku.jpeg"
+import Sudoku from "../assets/GameImg/sudoku.jpg"
 import TicTac from "../assets/GameImg/TicTac.jpeg"
 import Memorise from "../assets/GameImg/memorise.jpeg"
 
@@ -61,7 +61,7 @@ export const Games = [
     },
     {
         id  : genID(),
-        name: "MATCHING BOXES",
+        name: "COINCIDENCE",
         about: "This game is a real dopamine goldmine. And dopamine boosts both pleasure and perseverance, while decreasing stress.  It teaches players to estimate, think quickly and strategize by planning next moves and considering how it will affect the board and which combination of movements will have the desired outcome.",
         category: "logical thinking",
         howToPlay: "At each stage, you slide tiles in any of the four directions of the screen (up, down, left and right). If two identical tiles fall onto one another, then they merge into one. Once tiles have slid and merged, a new tile pops up at a random free location of the grid. The best way to get the rules for game is to actually play the game.",
