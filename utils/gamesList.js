@@ -9,7 +9,7 @@ import AlphaReflex from "../assets/GameImg/AlphaReflex.jpeg"
 import Sudoku from "../assets/GameImg/sudoku.jpg"
 import TicTac from "../assets/GameImg/TicTac.jpeg"
 import Memorise from "../assets/GameImg/memorise.jpeg"
-import MoneyChange from "../assets/GameImg/MoneyChange.jpeg"
+import CashOut from "../assets/GameImg/CashOut.jpeg"
 
 export const Games = [
    {
@@ -94,10 +94,10 @@ export const Games = [
     },
     {
         id  : genID(),
-        name: "Money Change",
+        name: "Cashout",
         about: "",
         category: "speed",
-        howToPlay: "",
-        img: MoneyChange
+        howToPlay: "This is a simple math. Amount of money and the price is shown on the screen and you need to find the change. Count the coins and manats, then enter the right amount. If you exceed the total, you can clear the amount. You have one minute to complete each operation. When submit is clicked, it checks for accuracy, and give one point if it is right.",
+        img: CashOut
     },
 ];
