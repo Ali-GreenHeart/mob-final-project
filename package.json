@@ -28,7 +28,8 @@
     "react-native-web": "~0.11.7",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "sortedlist": "^0.3.1"
+    "sortedlist": "^0.3.1",
+    "react-native-vector-icons": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
