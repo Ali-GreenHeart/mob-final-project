@@ -9,6 +9,7 @@ import AlphaReflex from "../assets/GameImg/AlphaReflex.jpeg"
 import Sudoku from "../assets/GameImg/sudoku.jpg"
 import TicTac from "../assets/GameImg/TicTac.jpeg"
 import Memorise from "../assets/GameImg/memorise.jpeg"
+import MoneyChange from "../assets/GameImg/MoneyChange.jpeg"
 
 export const Games = [
    {
@@ -97,6 +98,6 @@ export const Games = [
         about: "",
         category: "speed",
         howToPlay: "",
-        img: null
+        img: MoneyChange
     },
 ];

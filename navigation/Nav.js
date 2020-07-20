@@ -1,21 +1,21 @@
 import React  from 'react';
 import { StyleSheet,  View, TouchableOpacity } from 'react-native';
-import {MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
+import { Entypo as Icon} from 'react-native-vector-icons';
 import {COLORS} from "../styles/colors";
 
 export const Nav = ({navigation}) => {
     return (
         <View style={styles.color}>
             <TouchableOpacity  onPress={() => navigation.navigate("Home")}>
-                <Icon name="home-circle" style={styles.img} />
+                <Icon name="home" style={styles.img} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate("All Games")}>
-                <Icon name="gamepad-variant" style={styles.img} />
+                <Icon name="game-controller" style={styles.img} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Icon name="account-circle" style={styles.img}/>
+                <Icon name="user" style={styles.img}/>
             </TouchableOpacity>
 
         </View>
@@ -35,7 +35,8 @@ const styles= StyleSheet.create({
 
     img: {
         fontSize: 50,
-        color: 'white'
+        color: 'white',
+        paddingBottom:10
     }
 
 });

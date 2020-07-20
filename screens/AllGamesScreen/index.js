@@ -70,12 +70,14 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 5,
         marginBottom: 60,
+
     },
     gamesWrapperInner: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        paddingBottom:50
     }
 
 });
