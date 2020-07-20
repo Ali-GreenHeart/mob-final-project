@@ -1,6 +1,6 @@
 import React  from 'react';
 import { StyleSheet,  View, TouchableOpacity } from 'react-native';
-import {MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
+import { Entypo as Icon} from 'react-native-vector-icons';
 import {COLORS} from "../styles/colors";
 
 export const Nav = ({navigation}) => {
@@ -11,11 +11,11 @@ export const Nav = ({navigation}) => {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate("All Games")}>
-                <Icon name="gamepad" style={styles.img} />
+                <Icon name="game-controller" style={styles.img} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Icon name="account" style={styles.img}/>
+                <Icon name="user" style={styles.img}/>
             </TouchableOpacity>
 
         </View>
