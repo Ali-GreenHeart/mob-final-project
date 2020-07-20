@@ -95,9 +95,9 @@ export const Games = [
     {
         id  : genID(),
         name: "Cashout",
-        about: "",
+        about: "Mental arithmetic is useful not only during math lessons, but also in everyday life: this game activates logic in decision making and the ability to think analytically. It is not a usual situation to count in the mind in the era of computers but counting in this way develops the intellect and forms visual and abstract thinking. In addition, this game trains fast thinking techniques, verbal-logical thinking, and computation strategies.",
         category: "speed",
-        howToPlay: "This is a simple math. Amount of money and the price is shown on the screen and you need to find the change. Count the coins and manats, then enter the right amount. If you exceed the total, you can clear the amount. You have one minute to complete each operation. When submit is clicked, it checks for accuracy, and give one point if it is right.",
+        howToPlay: "This game is perfect for practicing counting money or calculating change. Amount of money and the price is shown on the screen and you need to find the change. Count the coins and manats, then enter the right amount. If you exceed the total, you can clear the amount. You have one minute to complete each operation. When submit is clicked, it checks for accuracy, and give one point if it is right.",
         img: CashOut
     },
 ];
