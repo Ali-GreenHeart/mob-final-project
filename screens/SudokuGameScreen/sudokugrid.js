@@ -51,14 +51,14 @@ export class SudokuGrid extends React.Component{
 	}
 	
 	getRandomPermutation(min, max){
-		var orgList = [];
-		var permList = [];
-		for (var i=min; i<=max; i++){
+let orgList = [];
+		let permList = [];
+		for (let i=min; i<=max; i++){
 			orgList.push(i);
 		}
-		for (var i=min; i<=max; i++){
-			var j = this.getRandomBetweenRange(0, orgList.length-1);
-			var elm = orgList[j];
+		for (let i=min; i<=max; i++){
+			let j = this.getRandomBetweenRange(0, orgList.length-1);
+			let elm = orgList[j];
 			orgList.splice(j, 1);
 			permList.push(elm);
 		}
@@ -66,13 +66,13 @@ export class SudokuGrid extends React.Component{
 	}
 	
 	newGrid(level){
-		var initProblem = false;
+		let initProblem = false;
 		while(!initProblem){
 			this.clearGridArray();
-			var cnt = 0;
-			var row = 0;
-			var col = 0;
-			var val = 0;
+			let cnt = 0;
+			let row = 0;
+			let col = 0;
+			let val = 0;
 			while(cnt<8){
 				row = this.getRandomBetweenRange(0,8);
 				col = this.getRandomBetweenRange(0,8);
@@ -88,20 +88,20 @@ export class SudokuGrid extends React.Component{
 			initProblem = this.solveSudoku(this.grid, 0, 0);
 		}
 		
-		var list = this.getRandomPermutation(0, 80);
+		let list = this.getRandomPermutation(0, 80);
 		//console.log(list);
 		//console.log('Init grid: ' + this.grid);
-		var upperBound = list.length;
+		let upperBound = list.length;
 		if (level === 'easy'){
 			upperBound = Math.floor(upperBound/3);
 		}
 		else if (level === 'medium'){
 			upperBound = Math.floor(upperBound/2);
 		}
-		for (var i = 0; i<upperBound; i++){
-			var elm = this.grid[Math.floor(parseInt(list[i])/9)][parseInt(list[i])%9];
+		for (let i = 0; i<upperBound; i++){
+			let elm = this.grid[Math.floor(parseInt(list[i])/9)][parseInt(list[i])%9];
 			this.grid[Math.floor(parseInt(list[i])/9)][parseInt(list[i])%9] = '';
-			var solutions = [];
+			let solutions = [];
 			this.noOfSudokuSolutions(this.grid, 0, 0, solutions);
 			//console.log('After: ' + this.grid);
 			if (solutions.length > 1){
@@ -114,17 +114,17 @@ export class SudokuGrid extends React.Component{
 	
 	newGridFast(e){
 		this.clearGridArray();
-		var solutions = [];
+		let solutions = [];
 		this.fastSudokuGenerator(this.grid, 0, 0, solutions, '1'); 
 		this.printToGUI('newGrid');
 	}
 	
 	printToGUI(callFrom='default'){
 		//this.grid = this.solve();
-		for(var i=0;i<9;i++){
-			for(var j=0;j<9;j++){
-				var row = Math.floor(parseInt(i)/3)*3 + Math.floor(parseInt(j)/3);
-				var col = (parseInt(i)%3)*3 + (parseInt(j)%3);
+		for(let i=0;i<9;i++){
+			for(let j=0;j<9;j++){
+				let row = Math.floor(parseInt(i)/3)*3 + Math.floor(parseInt(j)/3);
+				let col = (parseInt(i)%3)*3 + (parseInt(j)%3);
 				if (callFrom === 'newGrid'){
 					this.refs[i].refs[j].setState({val:this.grid[row][col], disabled:!(this.grid[row][col]==='')});
 				}
@@ -140,14 +140,14 @@ export class SudokuGrid extends React.Component{
 	}
 	
 	test(num, threeByThreeGridNo, squareNo){
-		var row = Math.floor(parseInt(threeByThreeGridNo)/3)*3 + Math.floor(parseInt(squareNo)/3);
-		var col = (parseInt(threeByThreeGridNo)%3)*3 + (parseInt(squareNo)%3);
+		let row = Math.floor(parseInt(threeByThreeGridNo)/3)*3 + Math.floor(parseInt(squareNo)/3);
+		let col = (parseInt(threeByThreeGridNo)%3)*3 + (parseInt(squareNo)%3);
 		this.grid[row][col] = num;
 	}
 	
 	getNextCell(grid, row, col){
-		for(var i = row; i < 9; i++){
-			for(var j = 0; j < 9; j++){
+		for(let i = row; i < 9; i++){
+			for(let j = 0; j < 9; j++){
 				if (grid[i][j] === ''){
 					return [i, j];
 				}
@@ -162,24 +162,24 @@ export class SudokuGrid extends React.Component{
 		if (val === ''){
 			return true;
 		}
-		for(var i=0; i<9;i++){
+		for(let i=0; i<9;i++){
 			if (grid[row][i] === val){
 				return false;
 			}
 		}
 		
 		// check in col
-		for(var i=0; i<9;i++){
+		for(let i=0; i<9;i++){
 			if (grid[i][col] === val){
 				return false;
 			}
 		}
 		
 		// check in 3*3 grid
-		var rowStart = Math.floor(parseInt(row)/3)*3;
-		var colStart = Math.floor(parseInt(col)/3)*3;
-		for(var i=0; i<3;i++){
-			for(var j=0; j<3;j++){
+		let rowStart = Math.floor(parseInt(row)/3)*3;
+		let colStart = Math.floor(parseInt(col)/3)*3;
+		for(let i=0; i<3;i++){
+			for(let j=0; j<3;j++){
 				if (grid[rowStart+i][colStart+j] === val){
 					return false;
 				}
@@ -191,17 +191,17 @@ export class SudokuGrid extends React.Component{
 
 	noOfSudokuSolutions(grid, row, col, allSolutions){
 		// Find next unassigned cell
-		var cell = this.getNextCell(grid, row, col);
+		let cell = this.getNextCell(grid, row, col);
 		//console.log(cell);
 		if (cell[0] == null){
-			var gridCopy = [];
-			for (var i = 0; i < grid.length; i++){
+			let gridCopy = [];
+			for (let i = 0; i < grid.length; i++){
 				gridCopy[i] = grid[i].slice();
 			}
 			allSolutions.push(gridCopy);
 			return;
 		}
-		for (var i=1; i<=9;i++){
+		for (let i=1; i<=9;i++){
 			if (this.isValid(grid, cell[0], cell[1], i.toString())){
 				grid[cell[0]][cell[1]] = i.toString();
 				this.noOfSudokuSolutions(grid, cell[0], cell[1], allSolutions);
@@ -216,12 +216,12 @@ export class SudokuGrid extends React.Component{
 	
 	solveSudoku(grid, row, col){
 		// Find next unassigned cell
-		var cell = this.getNextCell(grid, row, col);
+		let cell = this.getNextCell(grid, row, col);
 		//console.log(cell);
 		if (cell[0] == null){
 			return true;
 		}
-		for (var i=1; i<=9;i++){
+		for (let i=1; i<=9;i++){
 			if (this.isValid(grid, cell[0], cell[1], i.toString())){
 				grid[cell[0]][cell[1]] = i.toString();
 				if (this.solveSudoku(grid, cell[0], cell[1])){
@@ -235,9 +235,9 @@ export class SudokuGrid extends React.Component{
 	}
 	
 	isSudokuGridValid(grid){
-		for (var i=0; i<9; i++){
-			for (var j=0; j<9; j++){
-				var val = grid[i][j];
+		for (let i=0; i<9; i++){
+			for (let j=0; j<9; j++){
+				let val = grid[i][j];
 				grid[i][j] = '';
 				if (!this.isValid(grid, i, j, val)){
 					grid[i][j] = val;
@@ -250,17 +250,17 @@ export class SudokuGrid extends React.Component{
 	}
 	
 	solve(e){
-		var gridCopy = [];
-		for (var i = 0; i < this.grid.length; i++){
+		let gridCopy = [];
+		for (let i = 0; i < this.grid.length; i++){
 			gridCopy[i] = this.grid[i].slice();
 		}
 		//check if input is valid
-		var valid = this.isSudokuGridValid(gridCopy);
+		let valid = this.isSudokuGridValid(gridCopy);
 		if (!valid){
 			alert('Wrong input!!!');
 			return gridCopy;
 		}
-		var result = this.solveSudoku(gridCopy, 0, 0);
+		let result = this.solveSudoku(gridCopy, 0, 0);
 		//console.log(result);
 		this.grid = gridCopy;
 		this.printToGUI();

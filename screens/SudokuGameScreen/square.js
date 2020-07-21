@@ -27,7 +27,7 @@ export class Square extends Component {
 	}
 
   render() {
-    var enabledSquare = (
+    let enabledSquare = (
 	  <TextInput
         style={{fontSize:theme.gridFontSize, textAlign:"center", borderColor: theme.borderColor, color:theme.gridEnabledTextColor, borderWidth: 1, backgroundColor:this.props.sqColor, borderRadius:3}}
 		onChange={(e) => this.onChangeHandler(e)}
@@ -37,7 +37,7 @@ export class Square extends Component {
       />
     );
 	
-	var disabledSquare = (
+	let disabledSquare = (
 		<TextInput
 		  style={{fontSize:theme.gridFontSize, textAlign:"center", borderColor: theme.borderColor, color:theme.gridDisabledTextColor, borderWidth: 1, backgroundColor:this.props.sqColor, borderRadius:3}}
 		  onChange={(e) => this.onChangeHandler(e)}

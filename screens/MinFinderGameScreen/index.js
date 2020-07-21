@@ -7,7 +7,7 @@ import {CustomText,CustomBtn,EndModal} from "../../components";
 import GameConfig from './gameConfig';
 import Data from './data';
 import {BackButton} from "../../components/backButton";
-var SortedList = require('sortedlist');
+let SortedList = require('sortedlist');
 
 const { width, height } = Dimensions.get("window");
 const cellSize = (Math.min(width, height) - 35) / 5;
@@ -37,11 +37,11 @@ export class MinFinderGameScreen extends React.Component {
   }
 
   _initializeList() {
-    var sortedList = SortedList.create();
-    var list = [];
+    let sortedList = SortedList.create();
+    let list = [];
 
     while (sortedList.length < 16) {
-      var val = Math.round(Math.random() * 100) + 1;
+      let val = Math.round(Math.random() * 100) + 1;
       if (sortedList.key(val) == null) {
         sortedList.insert(val);
         list.push({
@@ -77,8 +77,8 @@ export class MinFinderGameScreen extends React.Component {
         await GameConfig.updateBestScore(this.state.score);
         this.setState({ bestScore: this.state.score });
 
-        var sortedList = this.state.sortedValues;
-        var list = this.state.values;
+        let sortedList = this.state.sortedValues;
+        let list = this.state.values;
         this.setState({ sortedValues: [], values: [] });
 
         if (this.state.score % 10 == 0) {
@@ -86,9 +86,9 @@ export class MinFinderGameScreen extends React.Component {
           return;
         }
 
-        var newVal = Math.round(Math.random() * 100) + 1;
+        let newVal = Math.round(Math.random() * 100) + 1;
         while (sortedList.key(newVal) == null) {
-          var newVal = Math.round(Math.random() * 100) + 1;
+          let newVal = Math.round(Math.random() * 100) + 1;
         }
 
         sortedList.remove(0);
